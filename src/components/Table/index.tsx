@@ -6,6 +6,7 @@ import TableRow from './TableRow';
 
 import { useState } from 'react';
 import { TableColumnsConfig } from 'shared/types/table';
+import ImportJson from 'components/Json/ImportJson';
 
 type Props = {
   tableColumns: TableColumnsConfig;
@@ -19,6 +20,7 @@ const Table = ({ tableColumns }: Props) => {
     { name: 'fze', url: 'qsd', chapitre: '213', favorite: false },
   ]);
   const [columns, setColumns] = useState(tableColumns);
+  const [json, setJson] = useState<any[]>([]);
 
   const updateColumns = (columns: TableColumnsConfig) => {
     setColumns(columns);
@@ -27,11 +29,13 @@ const Table = ({ tableColumns }: Props) => {
   console.log(`tableColumns :`, tableColumns);
   return (
     <Paper>
+      <ImportJson setJson={setJson} />
+
       <TableContainer>
         <TableMui>
           <TableHead columns={columns} updateColumns={updateColumns} />
           <TableBody>
-            {rows.map(row => (
+            {json.map(row => (
               <TableRow columns={columns} row={row} />
             ))}
           </TableBody>

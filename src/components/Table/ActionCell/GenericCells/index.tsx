@@ -1,8 +1,9 @@
-import { Tooltip, Typography } from '@mui/material';
+import { Grid, IconButton, Tooltip, Typography } from '@mui/material';
 // import StatusBadge from 'components/StatusBadge';
 import { TableColumnConfigItem } from 'shared/types/table';
 import CopyActionCell from '../CopyActionCell';
-import { FavoriteBorderIconIcon, FavoriteIconIcon } from 'assets/Icons';
+import { CopyIcon, FavoriteBorderIconIcon, FavoriteIconIcon } from 'assets/Icons';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 type Props = {
   column: TableColumnConfigItem;
@@ -11,11 +12,18 @@ type Props = {
 };
 
 const GenericActionCell = ({ column, value, row }: Props) => {
-  if (column.id === 'id' && typeof value === 'string' && value) {
-    return <CopyActionCell value={value} />;
-  }
-  if (column.id === 'id' && typeof value === 'number' && value) {
-    return value;
+  if (column.id === 'url') {
+    return (
+      <Grid container wrap="nowrap" alignItems="center">
+        <Grid>
+          <CopyToClipboard text={value.toString()}>
+            <IconButton color="primary">
+              <CopyIcon />
+            </IconButton>
+          </CopyToClipboard>
+        </Grid>
+      </Grid>
+    );
   }
   // if (column.id === 'status') {
   //   return <StatusBadge status={row.status} />;
