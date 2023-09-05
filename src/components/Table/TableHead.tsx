@@ -1,4 +1,4 @@
-import { TableCell, TableHead as MUITableHead, TableRow } from '@mui/material';
+import { TableHead as MUITableHead, TableCell, TableRow } from '@mui/material';
 import { TableColumnsConfig } from 'shared/types/table';
 import TableSetting from './TableSetting';
 
@@ -13,12 +13,11 @@ const TableHead = ({ columns, updateColumns }: Props) => {
     <MUITableHead>
       <TableRow>
         <TableCell>
-          {/* <TableSetting columns={columns} updateColumns={updateColumns} /> */}
+          <TableSetting columns={columns} updateColumns={updateColumns} />
         </TableCell>
       </TableRow>
       <TableRow>
         {columns.map(column => {
-          console.log(`column  zzz:`, column);
           return <TableCell>{column.label}</TableCell>;
         })}
       </TableRow>
