@@ -3,15 +3,11 @@ import Table from 'components/Table';
 import { tableConstants } from './constants';
 
 function Manga() {
+  console.log(`tableConstants.tableColumns :`, tableConstants.tableColumns);
   return (
     <Box>
-      <Grid container alignItems="center" justifyContent="center" direction="column">
-        <h1>Using Material UI with Next.js 13</h1>
-        <Stack direction="row" columnGap={1}>
-          <Button variant="text">Text</Button>
-          <Button variant="contained">Contained</Button>
-          <Button variant="outlined">Outlined</Button>
-        </Stack>
+      <Grid container alignItems="left" justifyContent="left" direction="column">
+        <h1>Manga List</h1>
       </Grid>
       <Table tableColumns={tableConstants.tableColumns} />
     </Box>

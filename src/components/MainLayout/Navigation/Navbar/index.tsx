@@ -20,10 +20,10 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = event => {
+  const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = event => {
+  const handleOpenUserMenu = (event: any) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -36,28 +36,17 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ borderBottom: '1px solid #f0f0f0' }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        borderBottom: '1px solid #f0f0f0',
+        right: 0,
+        width: 'calc(100% - 240px)',
+        backgroundImage: 'none',
+      }}
+    >
       <Container>
         <Toolbar disableGutters>
-          <LogoDevIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"

@@ -13,6 +13,7 @@ const TableRow = ({ columns, row }: Props) => {
     <MUITableRow hover>
       {columns.map(column => {
         const value = row[column.id];
+        console.log(`value :`, value);
         return (
           <TableCell key={column.id}>
             <GenericActionCell row={row} column={column} value={value} />

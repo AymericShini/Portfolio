@@ -1,7 +1,8 @@
-import { Box, Divider, Tooltip, Typography } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 // import StatusBadge from 'components/StatusBadge';
 import { TableColumnConfigItem } from 'shared/types/table';
 import CopyActionCell from '../CopyActionCell';
+import { FavoriteBorderIconIcon, FavoriteIconIcon } from 'assets/Icons';
 
 type Props = {
   column: TableColumnConfigItem;
@@ -10,21 +11,6 @@ type Props = {
 };
 
 const GenericActionCell = ({ column, value, row }: Props) => {
-  if (Array.isArray(value)) {
-    return (
-      <Box>
-        {value?.map((key: string, index: number) => (
-          <Box key={index}>
-            {column.id === 'billingPageId' ? key?.substring(0, 13) : key}
-            {index !== value.length - 1 && <Divider />}
-          </Box>
-        ))}
-      </Box>
-    );
-  }
-  if (!['status', 'biOfferId', 'id'].includes(column.id) && typeof value !== 'object' && value) {
-    return value;
-  }
   if (column.id === 'id' && typeof value === 'string' && value) {
     return <CopyActionCell value={value} />;
   }
@@ -34,10 +20,10 @@ const GenericActionCell = ({ column, value, row }: Props) => {
   // if (column.id === 'status') {
   //   return <StatusBadge status={row.status} />;
   // }
-  if (column.id === 'currency' && row.currency) {
+  if (typeof value === 'boolean') {
     return (
-      <Tooltip title={row.currency.name}>
-        <Typography>{row.currency.code}</Typography>
+      <Tooltip title={value ? 'true' : 'false'}>
+        <Typography>{value ? <FavoriteIconIcon /> : <FavoriteBorderIconIcon />}</Typography>
       </Tooltip>
     );
   }

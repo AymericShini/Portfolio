@@ -15,14 +15,15 @@ const Navigation = ({ children }: Props) => {
   };
   return (
     <Box sx={{ display: 'flex', width: '100%' }}>
-      <Navbar toggle={toggle} />
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar />
+      <Sidebar />
       <Box component="main" sx={{ width: 'calc(100% - 260px)', flexGrow: 1, p: { xs: 2, sm: 3 } }}>
         <Container
           maxWidth="xl"
           sx={{
+            marginTop: '70px',
             position: 'relative',
-            minHeight: 'calc(100vh - 110px)',
+            minHeight: 'calc(100vh - 50px)',
             display: 'flex',
             flexDirection: 'column',
           }}

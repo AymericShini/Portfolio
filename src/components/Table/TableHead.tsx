@@ -12,13 +12,15 @@ const TableHead = ({ columns, updateColumns }: Props) => {
   return (
     <MUITableHead>
       <TableRow>
-        <TableCell>
-          <TableSetting columns={columns} updateColumns={updateColumns} />
-        </TableCell>
+        {/* <TableCell colSpan={columns.length + 1}> */}
+        {/* <TableSetting columns={columns} updateColumns={updateColumns} /> */}
+        {/* </TableCell> */}
       </TableRow>
       <TableRow>
         {columns.map(column => {
-          return <TableCell>{column.label}</TableCell>;
+          return (
+            <TableCell style={{ fontWeight: 'bold', fontSize: '18px' }}>{column.label}</TableCell>
+          );
         })}
       </TableRow>
     </MUITableHead>

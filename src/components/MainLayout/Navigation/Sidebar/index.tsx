@@ -18,49 +18,48 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
   flexShrink: 0,
   '& .MuiDrawer-paper': {
     width: drawerWidth,
+    borderRight: '1px solid #f0f0f0',
+
     boxSizing: 'border-box',
   },
 }));
 
 export default function Sidebar() {
   return (
-    <>
-      <StyledDrawer variant="permanent" anchor="left">
-        <Logo sx={{ width: 'auto', height: 35 }} />
-
-        <List>
-          <ListItem>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Inbox" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
-            <ListItemText primary="Mail" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Drafts" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <DeleteIcon />
-            </ListItemIcon>
-            <ListItemText primary="Trash" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ReportIcon />
-            </ListItemIcon>
-            <ListItemText primary="Spam" />
-          </ListItem>
-        </List>
-      </StyledDrawer>
-    </>
+    <StyledDrawer variant="permanent" anchor="left">
+      <Logo sx={{ width: 'auto', height: 35, padding: '25px' }} />
+      <List>
+        <ListItem>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Inbox" />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Mail" />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <DraftsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Drafts" />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <DeleteIcon />
+          </ListItemIcon>
+          <ListItemText primary="Trash" />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <ReportIcon />
+          </ListItemIcon>
+          <ListItemText primary="Spam" />
+        </ListItem>
+      </List>
+    </StyledDrawer>
   );
 }

@@ -34,6 +34,8 @@ import {
   Upgrade,
   VisibilityOff,
   WebAsset,
+  Favorite,
+  FavoriteBorder,
 } from '@mui/icons-material';
 import Bill from './CustomIcons/Bill';
 import Clipboard from './CustomIcons/Clipboard';
@@ -63,6 +65,8 @@ export const EditIcon = EditOutlined;
 export const ErrorOutlinedIcon = ErrorOutlined;
 export const ExpandMoreIcon = ExpandMore;
 export const FallOutlinedIcon = FallOutlined;
+export const FavoriteBorderIconIcon = FavoriteBorder;
+export const FavoriteIconIcon = Favorite;
 export const FilterAltIcon = FilterAlt;
 export const FilterAltOffIcon = FilterAltOff;
 export const GithubLogoIcon = GithubLogo;
