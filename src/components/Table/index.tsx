@@ -1,46 +1,86 @@
 'use client';
 
-import { Paper, TableBody, TableContainer, Table as TableMui } from '@mui/material';
+import {
+  Grid,
+  Paper,
+  TableBody,
+  TableContainer,
+  Table as TableMui,
+  TablePagination,
+} from '@mui/material';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-import { useState } from 'react';
-import { TableColumnsConfig } from 'shared/types/table';
+import ExportJson from 'components/Json/ExportJson';
 import ImportJson from 'components/Json/ImportJson';
+import { useEffect, useState } from 'react';
+import { TableColumnsConfig } from 'shared/types/table';
+import TableFooter from './TableFooter';
 
 type Props = {
   tableColumns: TableColumnsConfig;
 };
 
 const Table = ({ tableColumns }: Props) => {
-  const [rows, setRows] = useState<any[]>([
-    { name: 'aze', url: 'aze', chapitre: '54', favorite: true },
-    { name: 'cvdf', url: 'qsd', chapitre: '56', favorite: true },
-    { name: 'azer', url: 'hj', chapitre: '45', favorite: false },
-    { name: 'fze', url: 'qsd', chapitre: '213', favorite: false },
-  ]);
+  const [rows, setRows] = useState<any[]>([]);
   const [columns, setColumns] = useState(tableColumns);
-  const [json, setJson] = useState<any[]>([]);
+  const [count, setCount] = useState<number>(50);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    console.log(`el :`, rows);
+    setCount(rows.length);
+  }, [rows]);
 
   const updateColumns = (columns: TableColumnsConfig) => {
     setColumns(columns);
   };
 
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const handleChangePage = (
+    _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+    newPage: number,
+  ) => setPage(newPage);
+
   console.log(`tableColumns :`, tableColumns);
   return (
     <Paper>
-      <ImportJson setJson={setJson} />
+      <ImportJson setJson={setRows} />
 
       <TableContainer>
         <TableMui>
           <TableHead columns={columns} updateColumns={updateColumns} />
           <TableBody>
-            {json.map(row => (
-              <TableRow columns={columns} row={row} />
-            ))}
+            {rows &&
+              (rowsPerPage > 0
+                ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                : rows
+              ).map(row => <TableRow columns={columns} row={row} />)}
           </TableBody>
+          <TableFooter totals={columns} columns={columns} />
         </TableMui>
       </TableContainer>
+      <Grid container direction="row" justifyContent="space-between">
+        <Grid item alignSelf="center" pl={2}>
+          <ExportJson jsonFile={rows} />
+        </Grid>
+        <Grid item alignSelf="center" pr={2}>
+          <TablePagination
+            component="div"
+            count={count}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            page={page}
+            rowsPerPage={rowsPerPage}
+            rowsPerPageOptions={[10, 25, 100]}
+          />
+        </Grid>
+      </Grid>
     </Paper>
   );
 };
