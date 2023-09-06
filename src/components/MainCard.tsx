@@ -80,7 +80,7 @@ const MainCard = forwardRef(
           border: border ? '1px solid' : 'none',
           borderRadius: 1,
           borderColor:
-            theme.palette.mode === 'dark' ? theme.palette.divider : theme.palette.grey.A800,
+            theme.palette.mode === 'dark' ? theme.palette.divider : theme.palette.grey['800'],
           newBoxShadow:
             newBoxShadow && (!border || theme.palette.mode === 'dark')
               ? shadow || theme.customShadows.z1

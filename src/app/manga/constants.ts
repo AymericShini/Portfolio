@@ -26,6 +26,12 @@ export const tableConstants: TableConfig = {
       hidable: true,
       isHidden: false,
     },
+    {
+      id: 'readingStatus',
+      label: 'Reading Status',
+      hidable: true,
+      isHidden: false,
+    },
   ],
   filters: {
     name: {

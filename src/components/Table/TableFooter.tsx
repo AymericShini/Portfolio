@@ -12,21 +12,19 @@ type Props = {
   columns: TableColumnsConfig;
 };
 
-const TableFooter = ({ totals, columns: authorizedColumns }: Props) => {
-  return (
-    <MUITableFooter sx={{ position: 'sticky', left: '0', bottom: '0' }}>
-      <MUITableRow>
-        <TableCell>Totals:</TableCell>
-        {totals.map(total => (
-          <TableCell key={total.id}>
-            <Box>
-              <span>{total.value?.toLocaleString()}</span>
-            </Box>
-          </TableCell>
-        ))}
-      </MUITableRow>
-    </MUITableFooter>
-  );
-};
+const TableFooter = ({ totals, columns: authorizedColumns }: Props) => (
+  <MUITableFooter sx={{ position: 'sticky', left: '0', bottom: '0' }}>
+    <MUITableRow>
+      <TableCell>Totals:</TableCell>
+      {totals.map(total => (
+        <TableCell key={total.id}>
+          <Box>
+            <span>{total.value?.toLocaleString()}</span>
+          </Box>
+        </TableCell>
+      ))}
+    </MUITableRow>
+  </MUITableFooter>
+);
 
 export default TableFooter;

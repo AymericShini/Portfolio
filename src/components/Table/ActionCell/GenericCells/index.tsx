@@ -1,9 +1,9 @@
 import { Grid, IconButton, Tooltip, Typography } from '@mui/material';
 // import StatusBadge from 'components/StatusBadge';
-import { TableColumnConfigItem } from 'shared/types/table';
-import CopyActionCell from '../CopyActionCell';
 import { CopyIcon, FavoriteBorderIconIcon, FavoriteIconIcon } from 'assets/Icons';
+import StatusBadge from 'components/StatusBadge';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { TableColumnConfigItem } from 'shared/types/table';
 
 type Props = {
   column: TableColumnConfigItem;
@@ -22,12 +22,13 @@ const GenericActionCell = ({ column, value, row }: Props) => {
             </IconButton>
           </CopyToClipboard>
         </Grid>
+        <Grid>{value}</Grid>
       </Grid>
     );
   }
-  // if (column.id === 'status') {
-  //   return <StatusBadge status={row.status} />;
-  // }
+  if (column.id === 'readingStatus') {
+    return <StatusBadge status={row.readingStatus} />;
+  }
   if (typeof value === 'boolean') {
     return (
       <Tooltip title={value ? 'true' : 'false'}>
@@ -35,7 +36,8 @@ const GenericActionCell = ({ column, value, row }: Props) => {
       </Tooltip>
     );
   }
-  return null;
+
+  return value;
 };
 
 export default GenericActionCell;

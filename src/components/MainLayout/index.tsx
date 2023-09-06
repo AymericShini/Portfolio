@@ -1,37 +1,34 @@
 'use client';
 
-import { ReactElement } from 'react';
 // material-ui
-import LinearProgress from '@mui/material/LinearProgress';
-import { styled } from '@mui/material/styles';
 
 import Navigation from './Navigation';
 
 // ==============================|| Loader ||============================== //
 
-const LoaderWrapper = styled('div')(({ theme }) => ({
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  zIndex: 2001,
-  width: '100%',
-  '& > * + *': {
-    marginTop: theme.spacing(2),
-  },
-}));
+// const LoaderWrapper = styled('div')(({ theme }) => ({
+//   position: 'fixed',
+//   top: 0,
+//   left: 0,
+//   zIndex: 2001,
+//   width: '100%',
+//   '& > * + *': {
+//     marginTop: theme.spacing(2),
+//   },
+// }));
 
-const Loader = () => (
-  <LoaderWrapper>
-    <LinearProgress color="primary" />
-  </LoaderWrapper>
-);
+// const Loader = () => (
+//   <LoaderWrapper>
+//     <LinearProgress color="primary" />
+//   </LoaderWrapper>
+// );
 
 // ==============================|| LAYOUTS - STRUCTURE ||============================== //
 
 interface Props {
-  children: ReactElement;
+  children: any;
 }
 
 export default function Layout({ children }: Props) {
-  return <>{<Navigation>{children}</Navigation>}</>;
+  return <Navigation>{children}</Navigation>;
 }

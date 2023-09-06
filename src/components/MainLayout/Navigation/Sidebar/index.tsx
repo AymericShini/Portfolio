@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { styled } from '@mui/material/styles';
 import Logo from 'components/Logo';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
@@ -30,10 +31,12 @@ export default function Sidebar() {
       <Logo sx={{ width: 'auto', height: 35, padding: '25px' }} />
       <List>
         <ListItem>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <Link href="/manga" passHref>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Manga" />
+          </Link>
         </ListItem>
         <ListItem>
           <ListItemIcon>

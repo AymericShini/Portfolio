@@ -5,7 +5,7 @@ import { ButtonBase } from '@mui/material';
 import { SxProps } from '@mui/system';
 
 // project import
-import LogoMain from './LogoMain';
+import LogoAD from './LogoAD';
 
 // ==============================|| MAIN LOGO ||============================== //
 
@@ -16,7 +16,7 @@ interface Props {
 const Logo = ({ sx }: Props) => (
   <Link href="/home" passHref>
     <ButtonBase disableRipple sx={sx}>
-      <LogoMain fill={'white'} />
+      <LogoAD fill="white" />
     </ButtonBase>
   </Link>
 );

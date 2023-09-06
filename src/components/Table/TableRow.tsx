@@ -7,22 +7,17 @@ type Props = {
   row: Record<string, any>;
 };
 
-const TableRow = ({ columns, row }: Props) => {
-  console.log(`columns, row :`, columns, row);
-  return (
-    <MUITableRow hover>
-      {columns.map(column => {
-        const value = row[column.id];
-        console.log(`value :`, value);
-        return (
-          <TableCell key={column.id}>
-            <GenericActionCell row={row} column={column} value={value} />
-            {value}
-          </TableCell>
-        );
-      })}
-    </MUITableRow>
-  );
-};
+const TableRow = ({ columns, row }: Props) => (
+  <MUITableRow hover>
+    {columns.map(column => {
+      const value = row[column.id];
+      return (
+        <TableCell key={column.id}>
+          <GenericActionCell row={row} column={column} value={value} />
+        </TableCell>
+      );
+    })}
+  </MUITableRow>
+);
 
 export default TableRow;
