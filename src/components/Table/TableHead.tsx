@@ -15,7 +15,9 @@ const TableHead = ({ columns, updateColumns }: Props) => (
     </TableRow>
     <TableRow>
       {columns.map(column => (
-        <TableCell style={{ fontWeight: 'bold', fontSize: '18px' }}>{column.label}</TableCell>
+        <TableCell style={{ fontWeight: 'bold', fontSize: '18px', textAlign: 'center' }}>
+          {column.label}
+        </TableCell>
       ))}
     </TableRow>
   </MUITableHead>

@@ -3,6 +3,12 @@ import { TableConfig } from 'shared/types/table';
 export const tableConstants: TableConfig = {
   tableColumns: [
     {
+      id: 'readingStatus',
+      label: 'Reading Status',
+      sortable: true,
+      hidable: false,
+    },
+    {
       id: 'name',
       label: 'Name',
       sortable: true,
@@ -27,8 +33,8 @@ export const tableConstants: TableConfig = {
       isHidden: false,
     },
     {
-      id: 'readingStatus',
-      label: 'Reading Status',
+      id: 'mangaStatus',
+      label: 'Manga Status',
       hidable: true,
       isHidden: false,
     },

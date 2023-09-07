@@ -31,7 +31,7 @@ const ImportJSON: FC<Props> = ({ setJson }) => {
   };
 
   return (
-    <Button variant="contained" component="label">
+    <Button variant="contained" component="label" sx={{ marginBottom: 5 }}>
       Upload File
       <input
         draggable="true"

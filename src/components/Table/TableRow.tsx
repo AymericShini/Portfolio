@@ -12,7 +12,7 @@ const TableRow = ({ columns, row }: Props) => (
     {columns.map(column => {
       const value = row[column.id];
       return (
-        <TableCell key={column.id}>
+        <TableCell sx={{ textAlign: 'center' }} key={column.id}>
           <GenericActionCell row={row} column={column} value={value} />
         </TableCell>
       );
