@@ -13,6 +13,7 @@ import TableRow from './TableRow';
 
 import { DocumentData, DocumentReference } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
+import TableSkeleton from 'components/Skeleton/TableSkeleton';
 import { useEffect, useState } from 'react';
 import { TableColumnsConfig } from 'shared/types/table';
 
@@ -28,7 +29,7 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
   const [count, setCount] = useState<number>(50);
   const [rowsPerPage, setRowsPerPage] = useState(25);
   const [page, setPage] = useState(0);
-  const [_isFetched, setIsFetched] = useState(false);
+  const [isFetched, setIsFetched] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +39,7 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
           const finalData = filteredData
             ? Object.keys(filteredData).map(item => filteredData[item])
             : [];
-
+          setIsFetched(true);
           setRows(finalData);
           setCount(finalData.length);
         });
@@ -74,39 +75,39 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
   return (
     <Grid>
       <Paper>
-        {rows.length > 0 && (
-          <>
-            <TableContainer sx={{ height: '600px' }}>
-              <TableMui sx={{ height: 'max-content' }}>
-                <TableHead columns={columns} updateColumns={updateColumns} />
-                <TableBody>
-                  {rows &&
-                    (rowsPerPage > 0
-                      ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                      : rows
-                    ).map(row => <TableRow columns={columns} row={row} />)}
-                </TableBody>
-                {/* <TableFooter totals={columns} columns={columns} /> */}
-              </TableMui>
-            </TableContainer>
-            <Grid container direction="row" justifyContent="space-between">
-              <Grid item alignSelf="center" pl={2}>
-                <ExportJson jsonFile={rows} />
-              </Grid>
-              <Grid item alignSelf="center" pr={2}>
-                <TablePagination
-                  component="div"
-                  count={count}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  page={page}
-                  rowsPerPage={rowsPerPage}
-                  rowsPerPageOptions={[10, 25, 100]}
-                />
-              </Grid>
-            </Grid>
-          </>
-        )}
+        <TableContainer sx={{ height: '600px' }}>
+          <TableMui sx={{ height: 'max-content' }}>
+            <TableHead columns={columns} updateColumns={updateColumns} />
+            <TableBody>
+              {isFetched ? (
+                rows &&
+                (rowsPerPage > 0
+                  ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  : rows
+                ).map(row => <TableRow columns={columns} row={row} />)
+              ) : (
+                <TableSkeleton columns={columns} nbRows={10} />
+              )}
+            </TableBody>
+            {/* <TableFooter totals={columns} columns={columns} /> */}
+          </TableMui>
+        </TableContainer>
+        <Grid container direction="row" justifyContent="space-between">
+          <Grid item alignSelf="center" pl={2}>
+            <ExportJson jsonFile={rows} />
+          </Grid>
+          <Grid item alignSelf="center" pr={2}>
+            <TablePagination
+              component="div"
+              count={count}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              page={page}
+              rowsPerPage={rowsPerPage}
+              rowsPerPageOptions={[10, 25, 100]}
+            />
+          </Grid>
+        </Grid>
       </Paper>
     </Grid>
   );

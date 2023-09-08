@@ -22,7 +22,7 @@ export const tableConstants: TableConfig = {
     },
     {
       id: 'chapter',
-      label: 'chapter',
+      label: 'Chapter',
       hidable: true,
       isHidden: false,
     },
