@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Grid } from '@mui/material';
 import Table from 'components/Table';
 import { tableConstants } from './constants';

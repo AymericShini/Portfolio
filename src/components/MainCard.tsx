@@ -68,7 +68,6 @@ const MainCard = forwardRef(
     ref: Ref<HTMLDivElement>,
   ) => {
     const theme = useTheme();
-    const newBoxShadow = theme.palette.mode === 'dark' ? boxShadow || true : boxShadow;
 
     return (
       <Card
@@ -81,13 +80,6 @@ const MainCard = forwardRef(
           borderRadius: 1,
           borderColor:
             theme.palette.mode === 'dark' ? theme.palette.divider : theme.palette.grey['800'],
-          newBoxShadow:
-            newBoxShadow && (!border || theme.palette.mode === 'dark')
-              ? shadow || theme.customShadows.z1
-              : 'inherit',
-          ':hover': {
-            newBoxShadow: newBoxShadow ? shadow || theme.customShadows.z1 : 'inherit',
-          },
           ...(codeHighlight && {
             '& pre': {
               m: 0,
