@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 // material-ui
-import { ButtonBase } from '@mui/material';
 import { SxProps } from '@mui/system';
 
 // project import
@@ -14,10 +13,8 @@ interface Props {
 }
 
 const Logo = ({ sx }: Props) => (
-  <Link href="/home" passHref>
-    <ButtonBase disableRipple sx={sx}>
-      <LogoAD fill="white" />
-    </ButtonBase>
+  <Link style={{ display: 'flex', alignItems: 'center' }} href="/home" passHref>
+    <LogoAD fill="red" width={40} height={40} />
   </Link>
 );
 

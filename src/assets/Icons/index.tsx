@@ -29,6 +29,7 @@ import {
   FilterAltOff,
   Forward,
   InfoOutlined,
+  Menu,
   MenuBook,
   RadioButtonUnchecked,
   Refresh,
@@ -87,3 +88,4 @@ export const VisibilityIcon = EyeOutlined;
 export const VisibilityOffIcon = VisibilityOff;
 export const WebAssetIcon = WebAsset;
 export const MenuBookIcon = MenuBook;
+export const MenuIcon = Menu;

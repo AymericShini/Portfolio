@@ -11,7 +11,7 @@ const Navigation = ({ children }: Props) => (
   <Box sx={{ display: 'flex', width: '100%' }}>
     <Navbar />
     {/* <Sidebar /> */}
-    <Box component="main" sx={{ width: 'calc(100% - 260px)', flexGrow: 1, p: { xs: 2, sm: 3 } }}>
+    <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, sm: 3 } }}>
       <Container
         maxWidth="xl"
         sx={{

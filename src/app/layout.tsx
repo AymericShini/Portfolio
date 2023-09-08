@@ -4,9 +4,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import 'assets/styles/app.css';
 import { darkTheme } from 'assets/styles/theme';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Aymeric Portfolio',
@@ -16,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           <Layout>{children}</Layout>
