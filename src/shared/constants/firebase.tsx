@@ -10,6 +10,7 @@ const firebaseConfig = {
   messagingSenderId: `${process.env.NEXT_PUBLIC_MESSAGINGSENDERID}`,
   appId: `${process.env.NEXT_PUBLIC_APPID}`,
   measurementId: `${process.env.NEXT_PUBLIC_MEASUREMENTID}`,
+  baseUrl: `${process.env.NEXT_PUBLIC_BASEURL}`,
 };
 
 const app = initializeApp(firebaseConfig);
