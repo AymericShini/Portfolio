@@ -20,6 +20,7 @@ const mapLabelReadingStatus: Record<Status, string> = {
   active: 'reading',
   paused: 'paused',
   finished: 'stopped',
+  abandonned: 'abandonned',
 };
 
 type Type = 'mangaStatus' | 'readingStatus';

@@ -16,7 +16,7 @@ const GenericActionCell = ({ column, value, row }: Props) => {
     return (
       <Grid container wrap="nowrap" alignItems="center">
         <Grid item alignItems="center">
-          <CopyToClipboard text={value.toString()}>
+          <CopyToClipboard text={value?.toString()}>
             <IconButton color="primary">
               <CopyIcon />
             </IconButton>

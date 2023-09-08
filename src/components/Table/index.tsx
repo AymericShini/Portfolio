@@ -11,9 +11,11 @@ import {
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
+import { doc, getDoc } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
 import ImportJson from 'components/Json/ImportJson';
 import { useEffect, useState } from 'react';
+import { firestore } from 'shared/api/firebase';
 import { TableColumnsConfig } from 'shared/types/table';
 
 type Props = {
@@ -26,10 +28,54 @@ const Table = ({ tableColumns }: Props) => {
   const [count, setCount] = useState<number>(50);
   const [rowsPerPage, setRowsPerPage] = useState(25);
   const [page, setPage] = useState(0);
+  const [_isFetched, setIsFetched] = useState(false);
+
+  const docRef = doc(firestore, 'mangas', 'manga');
 
   useEffect(() => {
     setCount(rows.length);
   }, [rows]);
+
+  useEffect(() => {
+    if (rows.length > 0) {
+      // Save rows to session storage
+      try {
+        sessionStorage.setItem('rows', JSON.stringify(rows));
+      } catch (error) {
+        setIsFetched(false);
+      }
+      // Save rows to local storage
+      try {
+        window.localStorage.setItem('rows', JSON.stringify(rows));
+      } catch (error) {
+        setIsFetched(false);
+      }
+    }
+  }, [rows]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docSnap = await getDoc(docRef);
+        const filteredData = docSnap.data();
+        const finalData = filteredData && Object.keys(filteredData).map(item => filteredData[item]);
+        // @ts-ignore
+        setRows(finalData);
+      } catch (err) {
+        setIsFetched(false);
+      }
+    };
+    // try {
+    //   // Get the rows from sessionStorage or localStorage
+    //   const rows = JSON.parse(window.sessionStorage.rows || window.localStorage.rows);
+    //   // Set the rows in the state
+    //   setRows(rows);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const updateColumns = (columns: TableColumnsConfig) => {
     setColumns(columns);
@@ -44,6 +90,13 @@ const Table = ({ tableColumns }: Props) => {
     _event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
     newPage: number,
   ) => setPage(newPage);
+
+  // const updateDB = async () => {
+  //   // Add a new document in collection "mangas" in document "manga"
+  //   await setDoc(doc(firestore, 'mangas', 'manga'), {
+  //     ...rows,
+  //   });
+  // };
 
   return (
     <Grid>

@@ -21,8 +21,8 @@ export const tableConstants: TableConfig = {
       isHidden: false,
     },
     {
-      id: 'chapitre',
-      label: 'Chapitre',
+      id: 'chapter',
+      label: 'chapter',
       hidable: true,
       isHidden: false,
     },
