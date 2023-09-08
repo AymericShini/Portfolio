@@ -11,18 +11,18 @@ import {
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-import { doc, getDoc } from '@firebase/firestore';
+import { DocumentData, DocumentReference } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
-import ImportJson from 'components/Json/ImportJson';
 import { useEffect, useState } from 'react';
-import { firestore } from 'shared/api/firebase';
 import { TableColumnsConfig } from 'shared/types/table';
 
 type Props = {
   tableColumns: TableColumnsConfig;
+  docRef: DocumentReference<DocumentData, DocumentData>;
+  getData: (docRef: DocumentReference<DocumentData, DocumentData>) => Promise<Record<string, any>>;
 };
 
-const Table = ({ tableColumns }: Props) => {
+const Table = ({ tableColumns, docRef, getData }: Props) => {
   const [rows, setRows] = useState<any[]>([]);
   const [columns, setColumns] = useState(tableColumns);
   const [count, setCount] = useState<number>(50);
@@ -30,49 +30,22 @@ const Table = ({ tableColumns }: Props) => {
   const [page, setPage] = useState(0);
   const [_isFetched, setIsFetched] = useState(false);
 
-  const docRef = doc(firestore, 'mangas', 'manga');
-
-  useEffect(() => {
-    setCount(rows.length);
-  }, [rows]);
-
-  useEffect(() => {
-    if (rows.length > 0) {
-      // Save rows to session storage
-      try {
-        sessionStorage.setItem('rows', JSON.stringify(rows));
-      } catch (error) {
-        setIsFetched(false);
-      }
-      // Save rows to local storage
-      try {
-        window.localStorage.setItem('rows', JSON.stringify(rows));
-      } catch (error) {
-        setIsFetched(false);
-      }
-    }
-  }, [rows]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const docSnap = await getDoc(docRef);
-        const filteredData = docSnap.data();
-        const finalData = filteredData && Object.keys(filteredData).map(item => filteredData[item]);
-        // @ts-ignore
-        setRows(finalData);
+        getData(docRef).then(response => {
+          const filteredData = response.data();
+          const finalData = filteredData
+            ? Object.keys(filteredData).map(item => filteredData[item])
+            : [];
+
+          setRows(finalData);
+          setCount(finalData.length);
+        });
       } catch (err) {
         setIsFetched(false);
       }
     };
-    // try {
-    //   // Get the rows from sessionStorage or localStorage
-    //   const rows = JSON.parse(window.sessionStorage.rows || window.localStorage.rows);
-    //   // Set the rows in the state
-    //   setRows(rows);
-    // } catch (error) {
-    //   console.error(error);
-    // }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -100,7 +73,6 @@ const Table = ({ tableColumns }: Props) => {
 
   return (
     <Grid>
-      <ImportJson setJson={setRows} />
       <Paper>
         {rows.length > 0 && (
           <>

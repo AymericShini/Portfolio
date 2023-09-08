@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type Props = {
   jsonFile: Record<string, any>[];
@@ -17,7 +17,7 @@ const ExportJson: FC<Props> = ({ jsonFile }) => {
   };
 
   return (
-    <Button variant="contained" component="label" onClick={exportData}>
+    <Button variant="outlined" component="label" onClick={exportData}>
       Export Json
     </Button>
   );
