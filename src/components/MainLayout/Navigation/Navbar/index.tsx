@@ -11,9 +11,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 import * as React from 'react';
 
-const pages = ['Home', 'Products', 'Blog', 'About US'];
+const pages = ['manga', 'About me', 'Storybook'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
@@ -41,7 +42,7 @@ function Navbar() {
       sx={{
         borderBottom: '1px solid #f0f0f0',
         right: 0,
-        width: 'calc(100% - 240px)',
+        // width: 'calc(100% - 240px)',
         backgroundImage: 'none',
       }}
     >
@@ -78,7 +79,11 @@ function Navbar() {
             >
               {pages.map(page => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link href={`/${page.toLowerCase().trim()}`} passHref>
+                      {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -109,7 +114,15 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link
+                  style={{
+                    color: 'white',
+                  }}
+                  href={`/${page.toLowerCase().trim()}`}
+                  passHref
+                >
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>

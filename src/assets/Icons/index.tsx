@@ -23,10 +23,13 @@ import {
   Download,
   ErrorOutlined,
   ExpandMore,
+  Favorite,
+  FavoriteBorder,
   FilterAlt,
   FilterAltOff,
   Forward,
   InfoOutlined,
+  MenuBook,
   RadioButtonUnchecked,
   Refresh,
   Settings,
@@ -34,8 +37,6 @@ import {
   Upgrade,
   VisibilityOff,
   WebAsset,
-  Favorite,
-  FavoriteBorder,
 } from '@mui/icons-material';
 import Bill from './CustomIcons/Bill';
 import Clipboard from './CustomIcons/Clipboard';
@@ -85,3 +86,4 @@ export const UpgradeIcon = Upgrade;
 export const VisibilityIcon = EyeOutlined;
 export const VisibilityOffIcon = VisibilityOff;
 export const WebAssetIcon = WebAsset;
+export const MenuBookIcon = MenuBook;
