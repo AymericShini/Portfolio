@@ -8,16 +8,14 @@ interface Props {
 }
 
 const Navigation = ({ children }: Props) => (
-  <Box sx={{ display: 'flex', width: '100%' }}>
+  <Box sx={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
     <Navbar />
     {/* <Sidebar /> */}
-    <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, sm: 3 } }}>
+    <Box component="main">
       <Container
         maxWidth="xl"
         sx={{
-          marginTop: '70px',
           position: 'relative',
-          minHeight: 'calc(100vh - 50px)',
           display: 'flex',
           flexDirection: 'column',
         }}

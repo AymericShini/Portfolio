@@ -36,12 +36,12 @@ function Navbar() {
 
   return (
     <AppBar
-      position="fixed"
+      position="sticky"
       sx={{
         borderBottom: '1px solid #f0f0f0',
         right: 0,
-        // width: 'calc(100% - 240px)',
         backgroundImage: 'none',
+        height: '64px',
       }}
     >
       <Toolbar disableGutters>
