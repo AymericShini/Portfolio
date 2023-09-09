@@ -151,6 +151,7 @@ function TableSetting({ columns, updateColumns }: Props) {
                 onChange={handleHideColumn}
                 input={<OutlinedInput placeholder="Tag" />}
                 renderValue={selected => selected.join(', ')}
+                MenuProps={MenuProps}
               >
                 {VARIABLE_COLUMNS(columns).map((column: Record<string, any>) => (
                   <MenuItem key={column.id} value={column.id}>
