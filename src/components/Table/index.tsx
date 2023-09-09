@@ -75,8 +75,8 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
   return (
     <Grid>
       <Paper>
-        <TableContainer sx={{ height: '600px' }}>
-          <TableMui sx={{ height: 'max-content' }}>
+        <TableContainer sx={{ height: 'calc(100vh - 250px)' }}>
+          <TableMui stickyHeader aria-label="sticky-table" sx={{ height: 'max-content' }}>
             <TableHead columns={columns} updateColumns={updateColumns} />
             <TableBody>
               {isFetched ? (
