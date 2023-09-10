@@ -19,7 +19,7 @@ import Navigation from './Navigation';
 
 // const Loader = () => (
 //   <LoaderWrapper>
-//     <LinearProgress color="primary" />
+//     <DNALoader />
 //   </LoaderWrapper>
 // );
 
