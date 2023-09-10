@@ -1,21 +1,36 @@
 'use client';
 
-import { doc } from '@firebase/firestore';
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import Table from 'components/Table';
-import { getMangas } from 'shared/api/manga';
-import { db } from 'shared/constants/firebase';
+import { useState } from 'react';
+import MangaAddModal from './MangaAddModal';
 import { tableConstants } from './constants';
 
 function Manga() {
-  const docRef = doc(db, 'mangas', 'manga');
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Box>
       <Grid container alignItems="left" justifyContent="left" direction="column">
         <h1>Manga List</h1>
       </Grid>
-      <Table docRef={docRef} tableColumns={tableConstants.tableColumns} getData={getMangas} />
+      <Button
+        variant="contained"
+        onClick={() => {
+          handleOpen();
+        }}
+      >
+        Add
+      </Button>
+      <MangaAddModal open={open} handleClose={handleClose} />
+      <Table tableColumns={tableConstants.tableColumns} />
     </Box>
   );
 }

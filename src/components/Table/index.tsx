@@ -11,41 +11,34 @@ import {
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-import { DocumentData, DocumentReference } from '@firebase/firestore';
+import { collection, getDocs } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
 import TableSkeleton from 'components/Skeleton/TableSkeleton';
 import { useEffect, useState } from 'react';
+import { db } from 'shared/constants/firebase';
 import { TableColumnsConfig } from 'shared/types/table';
 
 type Props = {
   tableColumns: TableColumnsConfig;
-  docRef: DocumentReference<DocumentData, DocumentData>;
-  getData: (docRef: DocumentReference<DocumentData, DocumentData>) => Promise<Record<string, any>>;
 };
 
-const Table = ({ tableColumns, docRef, getData }: Props) => {
+const Table = ({ tableColumns }: Props) => {
   const [rows, setRows] = useState<any[]>([]);
   const [columns, setColumns] = useState(tableColumns);
   const [count, setCount] = useState<number>(50);
-  const [rowsPerPage, setRowsPerPage] = useState(25);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
   const [isFetched, setIsFetched] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        getData(docRef).then(response => {
-          const filteredData = response.data();
-          const finalData = filteredData
-            ? Object.keys(filteredData).map(item => filteredData[item])
-            : [];
-          setIsFetched(true);
-          setRows(finalData);
-          setCount(finalData.length);
-        });
-      } catch (err) {
-        setIsFetched(false);
-      }
+      const querySnapshot = await getDocs(collection(db, 'manga'));
+      querySnapshot.forEach(doc => {
+        const data = doc.data();
+        setRows(rows => [...rows, data]);
+        setCount(querySnapshot.size);
+        setIsFetched(true);
+      });
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,14 +59,16 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
   ) => setPage(newPage);
 
   // const updateDB = async () => {
-  //   // Add a new document in collection "mangas" in document "manga"
-  //   await setDoc(doc(firestore, 'mangas', 'manga'), {
-  //     ...rows,
+  //   rows.forEach(async row => {
+  //     const docRef = await addDoc(collection(db, 'manga'), row);
   //   });
   // };
 
   return (
     <Grid>
+      {/* <ImportJson setJson={setRows} />
+      <Button onClick={() => updateDB()}>z</Button> */}
+
       <Paper>
         <TableContainer sx={{ height: 'calc(100vh - 250px)' }}>
           <TableMui stickyHeader aria-label="sticky-table" sx={{ height: 'max-content' }}>
