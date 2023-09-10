@@ -4,11 +4,11 @@ import { doc } from '@firebase/firestore';
 import { Box, Grid } from '@mui/material';
 import Table from 'components/Table';
 import { getMangas } from 'shared/api/manga';
-import { firestore } from 'shared/constants/firebase';
+import { db } from 'shared/constants/firebase';
 import { tableConstants } from './constants';
 
 function Manga() {
-  const docRef = doc(firestore, 'mangas', 'manga');
+  const docRef = doc(db, 'mangas', 'manga');
 
   return (
     <Box>

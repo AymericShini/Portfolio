@@ -1,19 +1,22 @@
-import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Tooltip,
+} from '@mui/material';
 import Logo from 'components/Logo';
+
 import Link from 'next/link';
 import * as React from 'react';
+import { signOutUser } from 'shared/constants/auth';
 
 const pages = ['manga', 'About me', 'Storybook'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 
 function Navbar() {
   const [_anchorElNav, setAnchorElNav] = React.useState(null);
@@ -22,6 +25,7 @@ function Navbar() {
   // const handleOpenNavMenu = (event: any) => {
   //   setAnchorElNav(event.currentTarget);
   // };
+
   const handleOpenUserMenu = (event: any) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -107,7 +111,7 @@ function Navbar() {
                   style={{
                     color: 'white',
                   }}
-                  href={`/${page.toLowerCase().trim()}`}
+                  href={`/${page.trim().toLowerCase()}`}
                   passHref
                 >
                   {page}
@@ -140,7 +144,16 @@ function Navbar() {
             >
               {settings.map(setting => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Button
+                    variant="outlined"
+                    type="button"
+                    onClick={async () => {
+                      await signOutUser();
+                      window.location.reload();
+                    }}
+                  >
+                    {setting}
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>

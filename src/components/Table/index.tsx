@@ -86,7 +86,7 @@ const Table = ({ tableColumns, docRef, getData }: Props) => {
                   : rows
                 ).map(row => <TableRow columns={columns} row={row} />)
               ) : (
-                <TableSkeleton columns={columns} nbRows={10} />
+                <TableSkeleton columns={columns} nbRows={12} />
               )}
             </TableBody>
             {/* <TableFooter totals={columns} columns={columns} /> */}
