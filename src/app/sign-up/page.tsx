@@ -1,16 +1,23 @@
 'use client';
 
+import { doc, setDoc } from '@firebase/firestore';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { useState } from 'react';
-import { app } from 'shared/constants/firebase';
+import { app, db } from 'shared/constants/firebase';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = getAuth(app);
 
-  const signUp = () => {
-    createUserWithEmailAndPassword(auth, email, password);
+  const signUp = async () => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const { user } = userCredential;
+
+    if (user) {
+      const userRef = doc(db, 'user', user.uid);
+      setDoc(userRef, []);
+    }
   };
 
   return (
