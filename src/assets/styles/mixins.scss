@@ -1,0 +1,9 @@
+@mixin flex-box() {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin custom-col($size) {
+    flex: 0 0 $size;
+    max-width: $size;
+}
