@@ -11,15 +11,21 @@ import {
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-import { collection, getDocs } from '@firebase/firestore';
+import { DocumentReference, doc, getDoc } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
 import TableSkeleton from 'components/Skeleton/TableSkeleton';
+import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { db } from 'shared/constants/firebase';
+import { auth, db } from 'shared/constants/firebase';
 import { TableColumnsConfig } from 'shared/types/table';
 
 type Props = {
   tableColumns: TableColumnsConfig;
+};
+
+export const getClubById = async (clubDocRef: DocumentReference) => {
+  const clubSnapshot = await getDoc(clubDocRef);
+  return clubSnapshot.data();
 };
 
 const Table = ({ tableColumns }: Props) => {
@@ -32,13 +38,53 @@ const Table = ({ tableColumns }: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, 'manga'));
-      querySnapshot.forEach(doc => {
-        const data = doc.data();
-        setRows(rows => [...rows, data]);
-        setCount(querySnapshot.size);
-        setIsFetched(true);
+      let uid = '';
+      await onAuthStateChanged(auth, user => {
+        if (user) {
+          uid = user.uid;
+        }
       });
+
+      const docRef = doc(db, 'user', uid);
+      const club = await getClubById(docRef);
+      if (club) {
+        club.mangaList.map(async (manga: Record<string, any>) => {
+          const mangaSnapshot = await getDoc(manga.mangaRef);
+          const mangaData = mangaSnapshot.data() as { name: string; mangaStatus: string };
+          setCount(count => count + 1);
+          setRows(rows => [
+            ...rows,
+            {
+              chapter: manga.chapter,
+              favorite: manga.favorite,
+              readingStatus: manga.readingStatus,
+              url: manga.url,
+              name: mangaData.name,
+              mangaStatus: mangaData.mangaStatus,
+            },
+          ]);
+          setIsFetched(true);
+        });
+      }
+
+      // const snapShot = await getDocs(q);
+      // console.log(`snapShot :`, snapShot);
+      // snapShot.forEach(doc => {
+      //   console.log(`doc.data() :`, doc, doc.data());
+      // });
+
+      // const userRef = doc(db, 'userManga', 'tNht66GLnx83sau2Wi41');
+      // const club = await getClubById(userRef);
+      // const test = await getDoc(club.mangaRef);
+      // const data = test.data();
+
+      //   const querySnapshot = await getDocs(collection(db, 'manga'));
+      //   querySnapshot.forEach(doc => {
+      //     const data = doc.data();
+      //     setRows(rows => [...rows, data]);
+      //     setCount(querySnapshot.size);
+      //     setIsFetched(true);
+      //   });
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,9 +104,20 @@ const Table = ({ tableColumns }: Props) => {
     newPage: number,
   ) => setPage(newPage);
 
+  // ajoute toutes les rows du json dataAnimeCopy en tant que plusieurs documents
   // const updateDB = async () => {
-  //   rows.forEach(async row => {
-  //     const docRef = await addDoc(collection(db, 'manga'), row);
+  //   console.log(`dataAnimeCopy :`, dataAnimeCopy);
+  //   dataAnimeCopy.forEach(async row => {
+  //     const docRef = await addDoc(collection(db, 'mangaTest'), row);
+  //   });
+  // };
+
+  // ajoute toutes les rows en tant qu'un SEUL document
+
+  // const updateDB = async () => {
+  //   // Add a new document in collection "mangas" in document "manga"
+  //   await setDoc(doc(db, 'mangas', 'manga'), {
+  //     ...rows,
   //   });
   // };
 
