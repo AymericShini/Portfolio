@@ -10,6 +10,11 @@ type Props = {
   handleClose: () => void;
 };
 
+type MangaList = {
+  title: string;
+  // add any other properties here
+};
+
 const MangaAddModal = ({ open, handleClose }: Props) => {
   const [data, setData] = useState<Manga>({
     name: '',
@@ -21,7 +26,7 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
     mangaStatus: 'active',
     readingStatus: 'paused',
   });
-  const [mangaList, setMangaList] = useState([]);
+  const [mangaList, setMangaList] = useState<MangaList[]>([]);
 
   const handleAdd = () => {
     addDoc(collection(db, 'manga'), data);
@@ -33,8 +38,7 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
       const docSnap = await getDocs(test);
 
       docSnap.forEach(doc => {
-        setMangaList(mangaList => [...mangaList, doc.data()]);
-        // setMangaList(doc.data());
+        setMangaList((mangaList: MangaList[]) => [...mangaList, doc.data() as MangaList]);
       });
     };
 
@@ -55,7 +59,7 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
               name: value.trim(),
             }))
           } // prints the selected value
-          options={mangaList.map(option => option.title)}
+          options={mangaList.map((option: Record<string, any>) => option.title)}
           renderInput={params => (
             <TextField
               {...params}

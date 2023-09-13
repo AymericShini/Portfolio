@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Button,
   Grid,
   Paper,
   TableBody,
@@ -14,7 +13,6 @@ import TableRow from './TableRow';
 
 import { DocumentReference, doc, getDoc } from '@firebase/firestore';
 import ExportJson from 'components/Json/ExportJson';
-import ImportJson from 'components/Json/ImportJson';
 import TableSkeleton from 'components/Skeleton/TableSkeleton';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -49,22 +47,25 @@ const Table = ({ tableColumns }: Props) => {
 
       const docRef = doc(db, 'user', uid);
       const club = await getClubById(docRef);
-
-      club.mangaList.map(async manga => {
-        const mangaSnapshot = await getDoc(manga.mangaRef);
-        const mangaData = mangaSnapshot.data();
-        setRows(rows => [
-          {
-            chapter: manga.chapter,
-            favorite: manga.favorite,
-            readingStatus: manga.readingStatus,
-            url: manga.url,
-            name: mangaData?.name,
-            mangaStatus: mangaData?.mangaStatus,
-          },
-        ]);
-        setIsFetched(true);
-      });
+      if (club) {
+        club.mangaList.map(async (manga: Record<string, any>) => {
+          const mangaSnapshot = await getDoc(manga.mangaRef);
+          const mangaData = mangaSnapshot.data() as { name: string; mangaStatus: string };
+          setCount(count => count + 1);
+          setRows(rows => [
+            ...rows,
+            {
+              chapter: manga.chapter,
+              favorite: manga.favorite,
+              readingStatus: manga.readingStatus,
+              url: manga.url,
+              name: mangaData.name,
+              mangaStatus: mangaData.mangaStatus,
+            },
+          ]);
+          setIsFetched(true);
+        });
+      }
 
       // const snapShot = await getDocs(q);
       // console.log(`snapShot :`, snapShot);
@@ -122,8 +123,8 @@ const Table = ({ tableColumns }: Props) => {
 
   return (
     <Grid>
-      <ImportJson setJson={setRows} />
-      <Button onClick={() => updateDB()}>z</Button>
+      {/* <ImportJson setJson={setRows} />
+      <Button onClick={() => updateDB()}>z</Button> */}
 
       <Paper>
         <TableContainer sx={{ height: 'calc(100vh - 250px)' }}>
