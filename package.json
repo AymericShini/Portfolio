@@ -27,15 +27,19 @@
     "@types/node": "20.5.7",
     "@types/react": "^18.2.21",
     "@types/react-dom": "18.2.7",
+    "@types/splitting": "^1.0.5",
     "firebase": "^10.3.1",
     "firebase-admin": "^11.10.1",
+    "gsap": "^3.12.2",
     "next": "13.4.19",
     "next-auth": "^4.23.1",
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-loader-spinner": "^5.4.5"
+    "react-loader-spinner": "^5.4.5",
+    "sass": "^1.69.5",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -60,10 +64,13 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.7",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gsap": "^3.12.2",
     "husky": "^8.0.3",
+    "i18next": "^23.6.0",
     "lint-staged": "^14.0.1",
     "prettier": "^2.8.7",
     "react-copy-to-clipboard": "^5.1.0",
+    "splitting": "^1.0.6",
     "typescript": "^5.2.2"
   }
 }

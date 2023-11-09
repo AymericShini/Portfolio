@@ -15,7 +15,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import { signOutUser } from 'shared/constants/auth';
 
-const pages = ['manga', 'About me', 'Storybook'];
+const pages = ['manga', 'about', 'Storybook'];
 const settings = ['Logout'];
 
 function Navbar() {
@@ -40,12 +40,12 @@ function Navbar() {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
-        borderBottom: '1px solid #f0f0f0',
+        borderBottom: '1px solid #333333',
         right: 0,
         backgroundImage: 'none',
-        height: '64px',
+        height: '70px',
       }}
     >
       <Toolbar disableGutters>
