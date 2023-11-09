@@ -4,7 +4,6 @@ import {
   Timestamp,
   collection,
   doc,
-  getCountFromServer,
   getDocs,
   limit,
   orderBy,
@@ -27,6 +26,8 @@ type MangaList = {
 
 const MangaAddModal = ({ open, handleClose }: Props) => {
   const [data, setData] = useState<Manga>({
+    // @ts-ignore
+    title: '',
     mangaRef: '',
     url: '',
     chapter: '',
@@ -54,14 +55,14 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
   }, []);
 
   const handleAdd = () => {
-    console.log(`data :`, data);
+    // console.log(`data :`, data);
     // addDoc(collection(db, 'manga'), data);
   };
 
   const getData = async (value: string) => {
-    const dbCount = query(collection(db, 'mangaLib'));
-    const snapshotDbCount = await getCountFromServer(dbCount);
-    console.log('snapshot.data().count :', snapshotDbCount.data().count);
+    // const dbCount = query(collection(db, 'mangaLib'));
+    // const snapshotDbCount = await getCountFromServer(dbCount);
+    // console.log('snapshot.data().count :', snapshotDbCount.data().count);
     const test = query(
       collection(db, 'mangaLib'),
       orderBy('title'),
@@ -72,6 +73,7 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
     const docSnap = await getDocs(test);
     let mangaSearchedList: MangaList[] = [];
     docSnap.forEach(doc => {
+      // @ts-ignore
       mangaSearchedList = docSnap.docs.map(doc => {
         const finalDoc = { docId: doc.id, ...doc.data() };
         return finalDoc;
@@ -105,20 +107,19 @@ const MangaAddModal = ({ open, handleClose }: Props) => {
           sx={{
             width: '35%',
           }}
-          onChange={(event, value) => {
-            return setData((prevState: any) => ({
+          onChange={(event, value) =>
+            setData((prevState: any) => ({
               ...prevState,
-              mangaRef: doc(db, 'mangaTest', value.docId),
-            }));
-          }}
+              // @ts-ignore
+              mangaRef: doc(db, 'mangaTest', value?.docId),
+            }))
+          }
           options={mangaList}
-          renderOption={(props, option) => {
-            return (
-              <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                {option.title}
-              </Box>
-            );
-          }}
+          renderOption={(props, option) => (
+            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+              {option.title}
+            </Box>
+          )}
           renderInput={params => (
             <TextField
               {...params}

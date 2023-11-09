@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Button,
   Grid,
   Paper,
   TableBody,
@@ -12,8 +11,8 @@ import {
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-import { DocumentReference, addDoc, collection, doc, getDoc } from '@firebase/firestore';
-import dataAnimeCopy from 'app/dataAnimeCopy.json';
+import { DocumentReference, doc, getDoc } from '@firebase/firestore';
+// import dataAnimeCopy from 'app/dataAnimeCopy.json';
 import ExportJson from 'components/Json/ExportJson';
 import ImportJson from 'components/Json/ImportJson';
 import TableSkeleton from 'components/Skeleton/TableSkeleton';
@@ -109,12 +108,12 @@ const Table = ({ tableColumns }: Props) => {
   ) => setPage(newPage);
 
   // ajoute toutes les rows du json dataAnimeCopy en tant que plusieurs documents
-  const updateDB = async () => {
-    console.log(`dataAnimeCopy :`, dataAnimeCopy);
-    dataAnimeCopy.forEach(async row => {
-      const docRef = await addDoc(collection(db, 'mangaLib'), row);
-    });
-  };
+  // const updateDB = async () => {
+  //   console.log(`dataAnimeCopy :`, dataAnimeCopy);
+  //   dataAnimeCopy.forEach(async row => {
+  //     const docRef = await addDoc(collection(db, 'mangaLib'), row);
+  //   });
+  // };
 
   // ajoute toutes les rows en tant qu'un SEUL document
 
@@ -128,7 +127,7 @@ const Table = ({ tableColumns }: Props) => {
   return (
     <Grid>
       <ImportJson setJson={setRows} />
-      <Button onClick={() => updateDB()}>z</Button>
+      {/* <Button onClick={() => updateDB()}>z</Button> */}
 
       <Paper>
         <TableContainer sx={{ height: 'calc(100vh - 250px)' }}>
