@@ -12,7 +12,9 @@ import TableHead from './TableHead';
 import TableRow from './TableRow';
 
 import { DocumentReference, doc, getDoc } from '@firebase/firestore';
+// import dataAnimeCopy from 'app/dataAnimeCopy.json';
 import ExportJson from 'components/Json/ExportJson';
+import ImportJson from 'components/Json/ImportJson';
 import TableSkeleton from 'components/Skeleton/TableSkeleton';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -51,6 +53,7 @@ const Table = ({ tableColumns }: Props) => {
         club.mangaList.map(async (manga: Record<string, any>) => {
           const mangaSnapshot = await getDoc(manga.mangaRef);
           const mangaData = mangaSnapshot.data() as { name: string; mangaStatus: string };
+
           setCount(count => count + 1);
           setRows(rows => [
             ...rows,
@@ -108,7 +111,7 @@ const Table = ({ tableColumns }: Props) => {
   // const updateDB = async () => {
   //   console.log(`dataAnimeCopy :`, dataAnimeCopy);
   //   dataAnimeCopy.forEach(async row => {
-  //     const docRef = await addDoc(collection(db, 'mangaTest'), row);
+  //     const docRef = await addDoc(collection(db, 'mangaLib'), row);
   //   });
   // };
 
@@ -123,8 +126,8 @@ const Table = ({ tableColumns }: Props) => {
 
   return (
     <Grid>
-      {/* <ImportJson setJson={setRows} />
-      <Button onClick={() => updateDB()}>z</Button> */}
+      <ImportJson setJson={setRows} />
+      {/* <Button onClick={() => updateDB()}>z</Button> */}
 
       <Paper>
         <TableContainer sx={{ height: 'calc(100vh - 250px)' }}>

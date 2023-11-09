@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from 'shared/constants/auth';
 
@@ -55,23 +55,11 @@ const Navigation = ({ children }: Props) => {
   return (
     <>
       {isLogged && (
-        <Box sx={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
+        <main>
           <Navbar />
           {/* <Sidebar /> */}
-          <Box component="main">
-            <Container
-              maxWidth="xl"
-              sx={{
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              {/* <Breadcrumbs card={false} divider={false} /> */}
-              {children}
-            </Container>
-          </Box>
-        </Box>
+          {children}
+        </main>
       )}
       {!isLogged && children}
     </>
