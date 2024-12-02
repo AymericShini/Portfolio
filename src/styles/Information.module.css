@@ -1,0 +1,58 @@
+.gridItem {
+    width: 90%;
+    height: 10rem;
+    background-color: var(--information-background-color);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+  }
+  
+.gridItem .icon {
+    position: absolute;
+    bottom: 84%;
+    left: 95%;
+    width: 30px;
+    border-radius: 10%;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    object-fit: cover;
+    z-index: 2;
+}
+
+.logo {
+    height: 100%;
+    position: absolute;
+    bottom: 65%;
+    left: 65%;
+
+}
+  
+.gridItem .description {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.color {
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+}
+
+
+.colorBackground {
+    background-color: #F0DB4F;
+    position: absolute;
+    right: -2rem; /* -8 (Tailwind -right-8 translates to -2rem) */
+    top: -4rem; /* -12 (Tailwind -top-12 translates to -3rem) */
+    width: 5rem; /* 20px in Tailwind is 5rem by default */
+    height: 5rem; /* Matches the width */
+    filter: blur(55px);
+    transition: all 0.7s ease; /* Transition for width, height, and blur */
+  }
+  
+  /* Hover state for group-hover */
+  .color:hover .colorBackground {
+    width: 10rem; /* 40px in Tailwind is 10rem by default */
+    height: 10rem; /* Matches the width */
+    filter: blur(80px);
+  }

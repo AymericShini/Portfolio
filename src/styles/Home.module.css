@@ -1,0 +1,129 @@
+.heroContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .heroContainer img {
+    width: 56rem;
+    height: 25vh;
+  }
+  
+  .heroImage {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .heroText {
+    position: absolute;
+    bottom: 5%; /* Adjusts text position slightly above the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the text horizontally */
+    text-align: center;
+    color: white; /* You can adjust this based on your theme */
+  }
+  
+  .heroTitle {
+    font-size: 3rem; /* Adjust for larger text */
+    font-weight: bold;
+  }
+  
+  .heroSubtitle {
+    font-size: 3rem; /* Adjust for larger text */
+    font-weight: bold;
+  }
+  
+  /* Container for the entire layout */
+
+  .skills {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+.gridContainer {
+    display: grid;
+    /* grid-template-columns: 65%; */
+    height: 100%;
+    grid-gap: 20px;
+    justify-items: center;
+    width: 65%;
+  }
+  
+  .grid1 {
+    grid-column: 1; /* Left part */
+    grid-row: 1; /* Top row */
+    display: grid; /* Enables CSS grid layout */
+    gap: 1.25rem; /* gap-5 translates to 20px or 1.25rem */
+    text-align: left;
+  }
+  
+  .grid2 {
+    width: 20rem;
+    background-color: var(--background);
+    border-radius: 3%;
+    padding: 10px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    grid-column: 2; /* Right part */
+    grid-row-end: span 2; /* lg:row-span-2 spans 2 rows */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* flex-col: Aligns items vertically */
+    gap: 0.75rem; /* gap-3 translates to 12px or 0.75rem */
+    height: max-content; /* h-max ensures the container's height matches its content */
+  }
+  
+  .grid3 {
+    grid-column: 1; /* Left part */
+    grid-row: 2; /* Bottom row */
+    display: grid; /* grid enables CSS Grid layout */
+    grid-gap: 1.25rem; /* gap-5 translates to 1.25rem (20px) */
+    grid-template-columns: repeat(3, 1fr); /* grid-cols-2 creates 2 equal columns */
+    justify-self: left;
+  }
+
+  @media (max-width: 1024px) { /* lg breakpoint in Tailwind is 1024px */
+    .grid3 {
+        grid-column: 1; /* Left part */
+        grid-row: 2; /* Bottom row */
+        display: grid; /* grid enables CSS Grid layout */
+        gap: 1.25rem; /* gap-5 translates to 1.25rem (20px) */
+        grid-template-columns: repeat(2, 1fr); /* grid-cols-2 creates 2 equal columns */
+        justify-self: left;
+      }
+    }
+  
+  /* Styles for the sections inside Grid 2 */
+  .gridSection {
+    margin-bottom: 20px;
+  }
+
+  .gridSectionBackgroundBadge {
+    background-color: rgb(120 116 116);
+    border-radius: 4px;
+    padding: 1px;
+  }
+  
+  .sectionTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .badgeSection {
+    margin-top: 10px;
+  }
+  
+  .badge {
+    border-radius: 10px;
+    border: var(--foreground) solid 1px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+.contact button:not(:first-child) {
+    margin-left: 10px;
+}
