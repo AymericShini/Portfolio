@@ -87,7 +87,7 @@ export default function Home() {
             <div className={styles.gridSection}>
               <p className={styles.sectionTitle}>Diplôme</p>
               <p>To be done</p>
-            </div>{" "}
+            </div>
             <div className={styles.gridSection}>
               <p className={styles.sectionTitle}>Language</p>
               <div className={styles.badgeSection}>
@@ -140,24 +140,28 @@ export default function Home() {
           <div className={styles.grid3}>
             {/* Displaying multiple GridComponents */}
             <Information
+              title="Javascript"
+              description="I have a great knowledge with JavaScript, particularly ES6+ features. In order to gain a deep understanding of JS, I focus on what is happening under the hood."
+              iconPath="/logo-javascript.png"
+              colorCode="#f0db4f"
+            />
+            <Information
               title="React"
-              description="I have been working with React for several years."
-              // Icon={FaReact}
+              description="I'm experienced with React, which I have used for many projects. I'm familiar with common concepts of React. My principle is to write clean and maintainable code."
+              iconPath="/logo-react.png"
+              colorCode="#60D7F7"
             />
             <Information
-              title="Node.js"
-              description="I am also proficient in backend development with Node.js."
-              // Icon={FaNodeJs}
+              title="TypeScript"
+              description="Fix Bugs in Development instead of Production. This is my reason why I should use TypeScript. TypeScript is my main language to start a new project."
+              iconPath="/logo-typescript.svg"
+              colorCode="#017ACD"
             />
             <Information
-              title="Node.js"
-              description="I am also proficient in backend development with Node.js."
-              // Icon={FaNodeJs}
-            />
-            <Information
-              title="Node.js"
-              description="I am also proficient in backend development with Node.js."
-              // Icon={FaNodeJs}
+              title="SCSS"
+              description="Effective design can encourage customers to buy from you and not from your competitors. I care about design, and I think it should be pleasing."
+              iconPath="/logo-scss.png"
+              colorCode="#CD669A"
             />
           </div>
         </div>

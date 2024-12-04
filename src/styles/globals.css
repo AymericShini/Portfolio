@@ -2,16 +2,15 @@
   --background: #f1bf7c;
   --foreground: #171717;
   --primary-color-hover: rgb(240, 140, 9);
-  --information-background-color: rgb(242, 242, 242);
+  --information-background-color: rgb(235, 235, 235);
 }
 
 [data-theme="dark"] {
   --background: #1f1d1d;
   --foreground: #f1bf7c;
   --primary-color-hover: rgb(201, 201, 201);
-  --information-background-color: rgb(35,31,31)
+  --information-background-color: rgb(35, 31, 31);
 }
-
 
 html,
 body {

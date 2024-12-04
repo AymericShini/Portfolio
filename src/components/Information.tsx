@@ -4,29 +4,26 @@ import styles from "@/styles/Information.module.css";
 interface Props {
   title: string;
   description: string;
-  Icon?: any;
+  iconPath: string;
+  colorCode: string;
 }
 
-export const Information = ({ title, description, Icon }: Props) => {
+export const Information = ({
+  title,
+  description,
+  iconPath,
+  colorCode,
+}: Props) => {
   return (
     <div className={styles.gridItem}>
       <h3>{title}</h3>
       <p className={styles.description}>{description}</p>
-      {/* {Icon && ( */}
-      {/* <div className={styles.icon}>
-        <img
-          className={styles.logo}
-          src="/javascript-logo.png"
-          alt="javascript logo"
-        />
-      </div> */}
-      <img
-        className={styles.icon}
-        src="/javascript-logo.png"
-        alt="javascript logo"
-      />
+      <img className={styles.icon} src={iconPath} alt="javascript logo" />
       <div className={styles.color}>
-        <div className={styles.colorBackground}></div>
+        <div
+          className={styles.colorBackground}
+          style={{ backgroundColor: colorCode }}
+        />
       </div>
       {/* )} */}
     </div>

@@ -1,7 +1,4 @@
 .navbar {
-  padding: 1rem 0; /* Spacing above */
-  background-color: var(--background-color);
-  color: var(--foreground);
   border-bottom: 1px solid var(--foreground);
 }
 
