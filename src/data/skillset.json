@@ -27,18 +27,18 @@
     "title": "Figma",
     "description": "I collaborate with designers using Figma to create high-fidelity UI mockups. Figma allows me to implement designs with precision and ensure smooth communication throughout the development process.",
     "iconPath": "/logo-figma.png",
-    "colorCode": "#F24E1E"
+    "colorCode": "#12BEFE"
   },
   {
     "title": "GitKraken",
     "description": "Version control is essential in modern development, and I am comfortable with Git for managing code versions. I regularly use Git to collaborate with teams and maintain a clean project history.",
     "iconPath": "/logo-gitkraken.png",
-    "colorCode": "#F05032"
+    "colorCode": "#189287"
   },
   {
     "title": "Google tag manager",
     "description": "Version control is essential in modern development, and I am comfortable with Git for managing code versions. I regularly use Git to collaborate with teams and maintain a clean project history.",
     "iconPath": "/logo-google-tag-manager.svg",
-    "colorCode": "#F05032"
+    "colorCode": "#8AB4F8"
   }
 ]
