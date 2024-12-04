@@ -1,5 +1,5 @@
+import styles from "@/components/Navbar/index.module.scss";
 import { useTheme } from "@/context/themeContext";
-import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,6 +1,6 @@
-import { Information } from "@/components/Information";
+import { SkillSet } from "@/components/SkillSet";
 import { useTheme } from "@/context/themeContext";
-import styles from "@/styles/Home.module.css";
+import styles from "@/pages/index.module.scss";
 import localFont from "next/font/local";
 import Head from "next/head";
 import Image from "next/image";
@@ -37,7 +37,6 @@ export default function Home() {
           alt="hero banner"
           width={1920}
           height={1080}
-          objectFit="cover"
           className={styles.heroImage}
         />
         <div className={styles.heroText}>
@@ -139,26 +138,26 @@ export default function Home() {
           {/* Grid 3 */}
           <div className={styles.grid3}>
             {/* Displaying multiple GridComponents */}
-            <Information
+            <SkillSet
               title="Javascript"
               description="I have a great knowledge with JavaScript, particularly ES6+ features. In order to gain a deep understanding of JS, I focus on what is happening under the hood."
               iconPath="/logo-javascript.png"
               colorCode="#f0db4f"
             />
-            <Information
+            <SkillSet
               title="React"
               description="I'm experienced with React, which I have used for many projects. I'm familiar with common concepts of React. My principle is to write clean and maintainable code."
               iconPath="/logo-react.png"
               colorCode="#60D7F7"
             />
-            <Information
+            <SkillSet
               title="TypeScript"
               description="Fix Bugs in Development instead of Production. This is my reason why I should use TypeScript. TypeScript is my main language to start a new project."
               iconPath="/logo-typescript.svg"
               colorCode="#017ACD"
             />
-            <Information
-              title="SCSS"
+            <SkillSet
+              title="SASS"
               description="Effective design can encourage customers to buy from you and not from your competitors. I care about design, and I think it should be pleasing."
               iconPath="/logo-scss.png"
               colorCode="#CD669A"

@@ -1,4 +1,4 @@
-import styles from "@/styles/Information.module.css";
+import styles from "@/components/SkillSet/index.module.scss";
 // type Grid component
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   colorCode: string;
 }
 
-export const Information = ({
+export const SkillSet = ({
   title,
   description,
   iconPath,
