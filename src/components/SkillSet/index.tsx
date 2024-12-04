@@ -1,5 +1,4 @@
 import styles from "@/components/SkillSet/index.module.scss";
-// type Grid component
 
 interface Props {
   title: string;
@@ -18,14 +17,13 @@ export const SkillSet = ({
     <div className={styles.gridItem}>
       <h3>{title}</h3>
       <p className={styles.description}>{description}</p>
-      <img className={styles.icon} src={iconPath} alt="javascript logo" />
+      <img className={styles.icon} src={iconPath} alt="skillset logo" />
       <div className={styles.color}>
         <div
           className={styles.colorBackground}
           style={{ backgroundColor: colorCode }}
         />
       </div>
-      {/* )} */}
     </div>
   );
 };

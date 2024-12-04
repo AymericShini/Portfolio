@@ -10,7 +10,10 @@ export default function Navbar() {
     <header className={styles.navbar}>
       <div className={styles.content}>
         {/* Left Side: Logo */}
-        <div className={styles.logo}>
+        <div
+          className={styles.logo}
+          onClick={() => (window.location.href = "/")}
+        >
           <Image
             src={theme === "dark" ? "/logo-light.svg" : "/logo-dark.svg"}
             alt="Logo"
