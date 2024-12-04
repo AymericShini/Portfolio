@@ -98,7 +98,11 @@ export default function Home() {
               <button
                 className={styles.gridSection}
                 onClick={() =>
-                  window.open("https://github.com/AymericShini", "_blank")
+                  window.open(
+                    "https://github.com/AymericShini",
+                    "_blank",
+                    "noopener"
+                  )
                 }
               >
                 <Image
@@ -117,7 +121,8 @@ export default function Home() {
                 onClick={() =>
                   window.open(
                     "https://www.linkedin.com/in/demange-aymeric/",
-                    "_blank"
+                    "_blank",
+                    "noopener"
                   )
                 }
               >
