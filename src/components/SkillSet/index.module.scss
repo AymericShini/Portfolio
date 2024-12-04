@@ -1,20 +1,20 @@
 .gridItem {
   background-color: var(--information-background-color);
-  padding: 20px;
   border-radius: 8px;
-  position: relative;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 20px;
+  position: relative;
   z-index: 0;
 
   .icon {
-    position: absolute;
-    bottom: 87%;
-    left: 95%;
-    width: 30px;
     border-radius: 10%;
-    object-fit: cover;
-    z-index: 2;
+    bottom: 87%;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    left: 95%;
+    object-fit: cover;
+    position: absolute;
+    width: 30px;
+    z-index: 2;
   }
 
   .description {
@@ -23,27 +23,27 @@
   }
 
   .color {
+    border-radius: 8px;
+    inset: 0;
     overflow: hidden;
     position: absolute;
-    inset: 0;
-    border-radius: 8px;
 
     .colorBackground {
+      filter: blur(55px);
+      height: 5rem; /* Matches the width */
       position: absolute;
-      transform: translate(50%, -50%);
       right: 0;
       top: 0;
-      width: 5rem; /* 20px in Tailwind is 5rem by default */
-      height: 5rem; /* Matches the width */
-      filter: blur(55px);
+      transform: translate(50%, -50%);
       transition: all 0.7s ease; /* Transition for width, height, and blur */
+      width: 5rem; /* 20px in Tailwind is 5rem by default */
     }
   }
 }
 
 /* Hover state for group-hover */
 .gridItem:hover .colorBackground {
-  width: 10rem; /* 40px in Tailwind is 10rem by default */
-  height: 10rem; /* Matches the width */
   filter: blur(80px);
+  height: 10rem; /* Matches the width */
+  width: 10rem; /* 40px in Tailwind is 10rem by default */
 }
