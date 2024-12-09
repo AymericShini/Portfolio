@@ -1,13 +1,14 @@
-import Navbar from '@/components/Navbar';
-import { ThemeProvider } from '@/context/themeContext';
-import i18n from '@/shared/i18n/i18n';
-import '@/styles/reset.css';
-import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
-import { I18nextProvider } from 'react-i18next';
+import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/context/themeContext";
+import "@/styles/globals.css";
+import { createScript } from "@/utils/createScript";
+import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   useEffect(() => {
     const konamiCode = [
       'ArrowUp',
@@ -35,7 +36,22 @@ export default function App({ Component, pageProps }: AppProps) {
         input = [];
       }
     });
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+  }, []);
+
+  useEffect(() => {
+    const dataLayer = createScript(
+      null,
+      `
+        var dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          event: "pageLoad",
+          pagePath: "${router.pathname}", // Path of the page loaded
+          pageTitle: "${document.title}", // You can also push the page title
+        });
+    `
+    );
+    document.head.append(dataLayer);
+  }, []);
 
   return (
     <I18nextProvider i18n={i18n} defaultNS={'fr-FR'}>

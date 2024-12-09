@@ -1,27 +1,29 @@
-import FRFlag from '@/assets/france.png';
-import UKFlag from '@/assets/royaume-uni.png';
-import styles from '@/components/Navbar/index.module.scss';
-import { useTheme } from '@/context/themeContext';
-import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Popover from '../Popover';
+import styles from "@/components/Navbar/index.module.scss";
+import { useTheme } from "@/context/themeContext";
+import { createScript } from "@/utils/createScript";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
-  const { i18n } = useTranslation();
+  const router = useRouter();
 
-  // State to handle initial rendering (to avoid SSR mismatch)
-  const [isMounted, setIsMounted] = useState(false);
+  const handleCVClickGTMPush = () => {
+    const dataLayer = createScript(
+      null,
+      `
+        var dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          event: "buttonResumeClicked",
+          pagePath: "${router.pathname}",
+          pageTitle: "${document.title}",
+        });
+    `
+    );
+    document.head.append(dataLayer);
+  };
 
-  useEffect(() => {
-    setIsMounted(true); // Set to true after the first render to avoid SSR mismatch
-  }, []);
-
-  if (!isMounted) {
-    return null; // Render nothing until the component has mounted (avoids SSR mismatch)
-  }
   return (
     <header className={styles.navbar}>
       <div className={styles.content}>
@@ -37,7 +39,11 @@ export default function Navbar() {
 
         {/* Right Side: Links and Theme Switcher */}
         <div className={styles.actions}>
-          <Link href="/cv" className={styles.link}>
+          <Link
+            href="/resume"
+            className={styles.link}
+            onClick={() => handleCVClickGTMPush()}
+          >
             CV
           </Link>
           <a href="mailto:demange.aymeric@hotmail.com" className={styles.link}>
