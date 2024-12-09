@@ -1,12 +1,26 @@
 import { SkillSet } from "@/components/SkillSet";
 import { useTheme } from "@/context/themeContext";
-import skillsetJson from "@/data/skillset.json";
 import styles from "@/pages/index.module.scss";
+import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import Image from "next/image";
 
+interface Translations {
+  [key: string]: string; // This is a dictionary with string keys and string values
+}
+
+interface Skill {
+  title: string;
+  description: string;
+  iconPath: string;
+  colorCode: string;
+}
+
 export default function Home() {
   const { theme } = useTheme();
+  const { t } = useTranslation();
+  const skills = t("skills", { returnObjects: true }) as Record<string, Skill>;
+  const languages = t("languages", { returnObjects: true }) as Translations;
   return (
     <>
       <Head>
@@ -39,29 +53,30 @@ export default function Home() {
         <div className={styles.gridContainer}>
           {/* Grid 1 */}
           <div className={styles.grid1}>
-            <p>
-              Salut, je suis aymeric, un Développeur Frontend curieux (et
-              parfois Designer UI) avec plus de 5 ans d'expérience, basé à Vitry
-              sur Seine. Je m'efforce toujours de grandir et d'apprendre quelque
-              chose de nouveau pour créer de meilleures choses et obtenir de
-              meilleurs résultats. Je me spécialise dans le développement
-              Frontend, avec un accent particulier sur créer un code fonctionnel
-              et orientée pour le business. Je me décris comme un développeur
-              qui souhaite avant tout faire du bon code propre.
-            </p>
+            <p>{t("description")}</p>
           </div>
 
           {/* Grid 2 */}
           <div className={styles.grid2}>
             <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>Compétences</p>
+              <p className={styles.sectionTitle}>{t("contact.skill")}</p>
               <div className={styles.badgeSection}>
-                <span className={styles.badge}>Front-end confirmé</span>
+                <span className={styles.badge}>Front-end</span>
                 <span className={styles.badge}>Next</span>
               </div>
             </div>
             <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>Adresse</p>
+              <p className={styles.sectionTitle}>{t("contact.language")}</p>
+              <div className={styles.badgeSection}>
+                {Object.keys(languages).map((language, index) => (
+                  <span key={index} className={styles.badge}>
+                    {languages[language]}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={styles.gridSection}>
+              <p className={styles.sectionTitle}>{t("contact.address")}</p>
               <p>Vitry-sur-seine</p>
             </div>
             <div className={styles.gridSection}>
@@ -69,19 +84,8 @@ export default function Home() {
               <p>demange.aymeric@hotmail.com</p>
             </div>
             <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>Téléphone</p>
+              <p className={styles.sectionTitle}>{t("contact.phone")}</p>
               <p>+33 6 63 93 53 66</p>
-            </div>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>Diplôme</p>
-              <p>To be done</p>
-            </div>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>Language</p>
-              <div className={styles.badgeSection}>
-                <span className={styles.badge}>Français</span>
-                <span className={styles.badge}>Anglais</span>
-              </div>
             </div>
             <div className={styles.contact}>
               <button
@@ -131,13 +135,13 @@ export default function Home() {
 
           {/* Grid 3 */}
           <div className={styles.grid3}>
-            {skillsetJson.map((skill) => (
+            {Object.keys(skills).map((skill, index) => (
               <SkillSet
-                key={skill.title}
-                title={skill.title}
-                description={skill.description}
-                iconPath={skill.iconPath}
-                colorCode={skill.colorCode}
+                key={index}
+                title={skills[skill].title}
+                description={skills[skill].description}
+                iconPath={skills[skill].iconPath}
+                colorCode={skills[skill].colorCode}
               />
             ))}
           </div>

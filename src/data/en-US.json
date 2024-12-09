@@ -1,0 +1,58 @@
+{
+  "skills": [
+    {
+      "title": "JavaScript",
+      "description": "I have extensive knowledge of JavaScript, particularly with ES6+ features. To gain a deep understanding of JS, I focus on what happens under the hood.",
+      "iconPath": "/logo-javascript.png",
+      "colorCode": "#f0db4f"
+    },
+    {
+      "title": "React",
+      "description": "I have experience with React, which I’ve used for numerous projects. I am familiar with common React concepts. My principle is to write clean and maintainable code.",
+      "iconPath": "/logo-react.png",
+      "colorCode": "#60D7F7"
+    },
+    {
+      "title": "TypeScript",
+      "description": "Fixing bugs in development rather than in production is key. That’s why I use TypeScript. TypeScript is my primary language for starting a new project.",
+      "iconPath": "/logo-typescript.svg",
+      "colorCode": "#017ACD"
+    },
+    {
+      "title": "SASS",
+      "description": "An effective design can encourage customers to buy from you rather than your competitors. I focus on making designs attractive and pleasant.",
+      "iconPath": "/logo-scss.png",
+      "colorCode": "#CD669A"
+    },
+    {
+      "title": "Figma",
+      "description": "I collaborate with designers using Figma to create high-fidelity UI mockups. Figma allows me to implement designs accurately and ensure smooth communication throughout the development process.",
+      "iconPath": "/logo-figma.png",
+      "colorCode": "#12BEFE"
+    },
+    {
+      "title": "GitKraken",
+      "description": "Version control is essential in modern development, and I’m comfortable using Git to manage code versions. I regularly use Git to collaborate with teams and maintain a clean project history.",
+      "iconPath": "/logo-gitkraken.png",
+      "colorCode": "#189287"
+    },
+    {
+      "title": "Google Tag Manager",
+      "description": "Version control is essential in modern development, and I’m comfortable using Git to manage code versions. I regularly use Git to collaborate with teams and maintain a clean project history.",
+      "iconPath": "/logo-google-tag-manager.svg",
+      "colorCode": "#8AB4F8"
+    }
+  ],
+  "description": "Hello, I’m Aymeric, a curious Frontend Developer (and sometimes UI Designer) with over 5 years of experience, based in Vitry-sur-Seine. I am always striving to grow and learn something new to create better things and achieve better results. I specialize in Frontend development, with a particular focus on writing functional code that’s business-oriented. I describe myself as a developer who primarily wants to write clean, good code.",
+  "languages": {
+    "french": "French",
+    "english": "English"
+  },
+  "contact": {
+    "address": "Address",
+    "phone": "Phone",
+    "diploma": "Diploma",
+    "skill": "Skills",
+    "language": "Language"
+  }
+}

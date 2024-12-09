@@ -1,0 +1,31 @@
+.popoverContainer {
+  position: relative;
+  display: inline-block;
+
+  .popoverTrigger {
+    cursor: pointer;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+    color: var(--foreground);
+
+    &:hover {
+      color: var(--primary-color-hover);
+    }
+  }
+
+  .popoverContent {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background-color: var(--background-box-color);
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 15px;
+    z-index: 1000;
+    white-space: nowrap;
+    width: max-content;
+  }
+}
