@@ -1,13 +1,29 @@
-import styles from "@/components/Navbar/index.module.scss";
-import { useTheme } from "@/context/themeContext";
-import { createScript } from "@/utils/createScript";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import styles from '@/components/Navbar/index.module.scss';
+import FRFlag from '@/assets/france.png';
+import UKFlag from '@/assets/royaume-uni.png';
+import { useTheme } from '@/context/themeContext';
+import { createScript } from '@/utils/createScript';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Popover from '../Popover';
+import i18n from '@/shared/i18n/i18n';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
+
+  // State to handle initial rendering (to avoid SSR mismatch)
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true); // Set to true after the first render to avoid SSR mismatch
+  }, []);
+
+  if (!isMounted) {
+    return null; // Render nothing until the component has mounted (avoids SSR mismatch)
+  }
 
   const handleCVClickGTMPush = () => {
     const dataLayer = createScript(
@@ -19,7 +35,7 @@ export default function Navbar() {
           pagePath: "${router.pathname}",
           pageTitle: "${document.title}",
         });
-    `
+    `,
     );
     document.head.append(dataLayer);
   };
@@ -39,11 +55,7 @@ export default function Navbar() {
 
         {/* Right Side: Links and Theme Switcher */}
         <div className={styles.actions}>
-          <Link
-            href="/resume"
-            className={styles.link}
-            onClick={() => handleCVClickGTMPush()}
-          >
+          <Link href="/resume" className={styles.link} onClick={() => handleCVClickGTMPush()}>
             CV
           </Link>
           <a href="mailto:demange.aymeric@hotmail.com" className={styles.link}>

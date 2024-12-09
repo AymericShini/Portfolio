@@ -1,10 +1,13 @@
-import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/context/themeContext";
-import "@/styles/globals.css";
-import { createScript } from "@/utils/createScript";
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import '@/styles/reset.css';
+import '@/styles/globals.css';
+import Navbar from '@/components/Navbar';
+import i18n from '@/shared/i18n/i18n';
+import type { AppProps } from 'next/app';
+import { I18nextProvider } from 'react-i18next';
+import { ThemeProvider } from '@/context/themeContext';
+import { createScript } from '@/utils/createScript';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -48,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
           pagePath: "${router.pathname}", // Path of the page loaded
           pageTitle: "${document.title}", // You can also push the page title
         });
-    `
+    `,
     );
     document.head.append(dataLayer);
   }, []);
