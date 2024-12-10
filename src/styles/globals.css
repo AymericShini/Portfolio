@@ -3,6 +3,11 @@
   --foreground: #171717;
   --primary-color-hover: rgb(240, 140, 9);
   --background-box-color: #ffe3bd;
+
+  /* Font sizes for responsive design */
+  --font-size-default: 16px;
+  --font-size-mobile: 14px;
+  --font-size-tablet: 15px;
 }
 
 [data-theme='dark'] {
@@ -25,6 +30,7 @@ body {
   color: var(--foreground);
   scroll-behavior: smooth;
   transition: all 0.3s ease;
+  font-size: var(--font-size-default);
 }
 
 * {
@@ -42,4 +48,164 @@ a {
 button {
   background-color: unset;
   border: unset;
+}
+
+/* === Responsive Breakpoints === */
+
+/* Mobile Styles (Up to 480px) */
+@media (max-width: 480px) {
+  :root {
+    --font-size-default: var(--font-size-mobile);
+  }
+
+  body {
+    font-size: var(--font-size-mobile);
+    padding: 1rem;
+  }
+
+  a {
+    font-size: 0.9rem; /* Slightly smaller links */
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  /* Customizing layout changes for mobile */
+  .container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* Utility classes */
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+}
+
+/* Tablet Styles (Up to 980px) */
+@media (min-width: 481px) and (max-width: 980px) {
+  :root {
+    --font-size-default: var(--font-size-tablet);
+  }
+
+  body {
+    font-size: var(--font-size-tablet);
+    padding: 1rem 2rem;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  /* Customizing layout changes for tablets */
+  .container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Utility classes */
+  .hide-on-tablet {
+    display: none !important;
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+}
+
+/* Desktop (Default) */
+@media (min-width: 981px) {
+  body {
+    font-size: var(--font-size-default);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header {
+    text-align: left;
+    font-size: 2.5rem;
+  }
+
+  .footer {
+    font-size: 1rem;
+    text-align: right;
+  }
+
+  /* Utility classes */
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .hide-on-desktop {
+    display: none !important;
+  }
+
+  .full-width {
+    width: 100%;
+  }
 }

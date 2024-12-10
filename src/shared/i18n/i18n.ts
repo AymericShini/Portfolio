@@ -2,7 +2,6 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-import { s3TranslationUrl } from '../constants/S3translationUrl';
 
 i18n
   .use(Backend)
@@ -21,7 +20,7 @@ i18n
     },
     backend: {
       loadPath: function (lng: string) {
-        return `${s3TranslationUrl}/${lng}.json`;
+        return `/locales/${lng}.json`;
       },
       crossDomain: true,
       withCredentials: false,

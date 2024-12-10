@@ -1,6 +1,6 @@
 import styles from '@/components/Navbar/index.module.scss';
 import FRFlag from '@/assets/france.png';
-import UKFlag from '@/assets/royaume-uni.png';
+import USFlag from '@/assets/united-states.png';
 import { useTheme } from '@/context/themeContext';
 import { createScript } from '@/utils/createScript';
 import Image from 'next/image';
@@ -76,7 +76,7 @@ export default function Navbar() {
             content={
               <div className={styles.popoverContent}>
                 <button className={styles.container} onClick={() => i18n.changeLanguage('en-US')}>
-                  <Image src={UKFlag} width={20} height={20} alt="royaume uni flag" />
+                  <Image src={USFlag} width={20} height={20} alt="royaume uni flag" />
                   English
                 </button>
                 <button className={styles.container} onClick={() => i18n.changeLanguage('fr-FR')}>

@@ -3,7 +3,7 @@
 
   .content {
     align-items: center;
-    display: flex;
+    @include flex-center-row;
     justify-content: space-between;
     margin: 0 auto;
     max-width: 80rem;
@@ -14,8 +14,8 @@
     }
 
     .actions {
+      @include flex-center-row;
       align-items: center;
-      display: flex;
       gap: 1rem;
 
       .link {
@@ -31,13 +31,11 @@
       }
 
       .popoverContent {
-        display: flex;
-        flex-direction: column;
+        @include flex-center-column;
         gap: 0.5rem;
 
         .container {
-          display: flex;
-          flex-direction: row;
+          @include flex-center-row;
           align-items: center;
           gap: 1rem;
           cursor: pointer;

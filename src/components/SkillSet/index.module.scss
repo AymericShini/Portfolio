@@ -1,7 +1,9 @@
 .gridItem {
   background-color: var(--background-box-color);
   border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   padding: 20px;
   position: relative;
   z-index: 0;
@@ -9,16 +11,22 @@
   .icon {
     border-radius: 10%;
     bottom: 87%;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
     left: 95%;
     object-fit: cover;
     position: absolute;
     width: 30px;
     z-index: 2;
+
+    @media (max-width: 480px) {
+      bottom: 90%;
+      left: 90%;
+    }
   }
 
   .description {
-    font-size: 1rem;
     margin-top: 10px;
   }
 
@@ -30,13 +38,13 @@
 
     .colorBackground {
       filter: blur(55px);
-      height: 5rem; /* Matches the width */
+      height: 5rem;
       position: absolute;
       right: 0;
       top: 0;
       transform: translate(50%, -50%);
-      transition: all 0.7s ease; /* Transition for width, height, and blur */
-      width: 5rem; /* 20px in Tailwind is 5rem by default */
+      transition: all 0.7s ease;
+      width: 5rem;
     }
   }
 }
@@ -44,6 +52,6 @@
 /* Hover state for group-hover */
 .gridItem:hover .colorBackground {
   filter: blur(80px);
-  height: 10rem; /* Matches the width */
-  width: 10rem; /* 40px in Tailwind is 10rem by default */
+  height: 10rem;
+  width: 10rem;
 }

@@ -1,0 +1,10 @@
+/* Create the reusable mixin */
+@mixin flex-center-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center-row {
+  display: flex;
+  flex-direction: row;
+}

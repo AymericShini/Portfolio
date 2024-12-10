@@ -53,6 +53,7 @@
     "phone": "Phone",
     "diploma": "Diploma",
     "skill": "Skills",
-    "language": "Language"
+    "language": "Language",
+    "social": "Social"
   }
 }

@@ -1,9 +1,9 @@
-import { SkillSet } from "@/components/SkillSet";
-import { useTheme } from "@/context/themeContext";
-import styles from "@/pages/index.module.scss";
-import { useTranslation } from "next-i18next";
-import Head from "next/head";
-import Image from "next/image";
+import { SkillSet } from '@/components/SkillSet';
+import { useTheme } from '@/context/themeContext';
+import styles from '@/pages/index.module.scss';
+import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
+import Image from 'next/image';
 
 interface Translations {
   [key: string]: string; // This is a dictionary with string keys and string values
@@ -19,8 +19,8 @@ interface Skill {
 export default function Home() {
   const { theme } = useTheme();
   const { t } = useTranslation();
-  const skills = t("skills", { returnObjects: true }) as Record<string, Skill>;
-  const languages = t("languages", { returnObjects: true }) as Translations;
+  const skills = t('skills', { returnObjects: true }) as Record<string, Skill>;
+  const languages = t('languages', { returnObjects: true }) as Translations;
   return (
     <>
       <Head>
@@ -53,20 +53,20 @@ export default function Home() {
         <div className={styles.gridContainer}>
           {/* Grid 1 */}
           <div className={styles.grid1}>
-            <p>{t("description")}</p>
+            <p>{t('description')}</p>
           </div>
 
           {/* Grid 2 */}
           <div className={styles.grid2}>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>{t("contact.skill")}</p>
+            <div className={styles.skill}>
+              <p className={styles.sectionTitle}>{t('contact.skill')}</p>
               <div className={styles.badgeSection}>
                 <span className={styles.badge}>Front-end</span>
                 <span className={styles.badge}>Next</span>
               </div>
             </div>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>{t("contact.language")}</p>
+            <div className={styles.language}>
+              <p className={styles.sectionTitle}>{t('contact.language')}</p>
               <div className={styles.badgeSection}>
                 {Object.keys(languages).map((language, index) => (
                   <span key={index} className={styles.badge}>
@@ -75,61 +75,52 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>{t("contact.address")}</p>
+            <div className={styles.social}>
+              <p className={styles.sectionTitle}>{t('contact.social')}</p>
+              <div className={styles.contact}>
+                <button
+                  className={styles.gridSection}
+                  onClick={() =>
+                    window.open('https://github.com/AymericShini', '_blank', 'noopener')
+                  }
+                >
+                  <Image
+                    src={theme === 'dark' ? '/logo-github-light.svg' : '/logo-github-dark.svg'}
+                    alt="github logo"
+                    width={30}
+                    height={30}
+                  />
+                </button>
+                <button
+                  className={styles.gridSection}
+                  onClick={() =>
+                    window.open(
+                      'https://www.linkedin.com/in/demange-aymeric/',
+                      '_blank',
+                      'noopener',
+                    )
+                  }
+                >
+                  <Image
+                    src={theme === 'dark' ? '/logo-linkedin-light.svg' : '/logo-linkedin-dark.svg'}
+                    alt="linkedin logo"
+                    width={30}
+                    height={30}
+                  />
+                </button>
+              </div>
+            </div>
+            <div className={styles.address}>
+              <p className={styles.sectionTitle}>{t('contact.address')}</p>
               <p>Vitry-sur-seine</p>
             </div>
-            <div className={styles.gridSection}>
+            <div className={styles.email}>
               <p className={styles.sectionTitle}>Email</p>
               <p>demange.aymeric@hotmail.com</p>
             </div>
-            <div className={styles.gridSection}>
-              <p className={styles.sectionTitle}>{t("contact.phone")}</p>
+            <div className={styles.phone}>
+              <p className={styles.sectionTitle}>{t('contact.phone')}</p>
               <p>+33 6 63 93 53 66</p>
-            </div>
-            <div className={styles.contact}>
-              <button
-                className={styles.gridSection}
-                onClick={() =>
-                  window.open(
-                    "https://github.com/AymericShini",
-                    "_blank",
-                    "noopener"
-                  )
-                }
-              >
-                <Image
-                  src={
-                    theme === "dark"
-                      ? "/logo-github-light.svg"
-                      : "/logo-github-dark.svg"
-                  }
-                  alt="github logo"
-                  width={30}
-                  height={30}
-                />
-              </button>
-              <button
-                className={styles.gridSection}
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/demange-aymeric/",
-                    "_blank",
-                    "noopener"
-                  )
-                }
-              >
-                <Image
-                  src={
-                    theme === "dark"
-                      ? "/logo-linkedin-light.svg"
-                      : "/logo-linkedin-dark.svg"
-                  }
-                  alt="linkedin logo"
-                  width={30}
-                  height={30}
-                />
-              </button>
             </div>
           </div>
 
