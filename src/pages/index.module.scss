@@ -41,7 +41,7 @@
     grid-gap: 40px;
     height: 100%;
     justify-items: center;
-    width: 65%;
+    width: 70%;
 
     .grid1 {
       display: grid;
@@ -108,20 +108,42 @@
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 480px) {
   .skills {
     .gridContainer {
       width: 90%;
       .grid2 {
+        display: grid;
         grid-column: 1;
         grid-row: 3;
+      }
+      .grid3 {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 980px) {
+  .skills {
+    .gridContainer {
+      width: 90%;
+      .grid2 {
+        width: 100%;
+        display: grid;
+        grid-column: 1;
+        grid-row: 3;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid3 {
         grid-template-columns: repeat(2, 1fr);
       }
     }
   }
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 981px) and (max-width: 1600px) {
   .skills {
     .gridContainer {
       width: 90%;

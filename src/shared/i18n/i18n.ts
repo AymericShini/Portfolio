@@ -8,7 +8,7 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    detection: { order: ['navigator', 'localStorage'] },
+    detection: { order: ['localStorage', 'navigator'] },
     react: {
       useSuspense: false,
     },
