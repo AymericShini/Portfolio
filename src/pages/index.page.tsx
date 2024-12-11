@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Aymeric Demange | Portfolio</title>
+        <title>Aymeric Demange | Portfolio | Home</title>
         <meta
           name="description"
           content="Aymeric Demange | Portfolio | Dev frontend | nextjs | react"
