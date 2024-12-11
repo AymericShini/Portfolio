@@ -6,4 +6,4 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - ./src:/app # Sync the entire repo to detect changes
+      - ./src:/app/src # Sync the entire repo to detect changes
