@@ -14,7 +14,7 @@ export const SkillSet = ({ title, description, iconPath, colorCode }: Props) => 
       <p className={styles.description}>{description}</p>
       <img className={styles.icon} src={iconPath} alt="skillset logo" />
       <div className={styles.color}>
-        <div className={styles.colorBackground} />
+        <div className={styles.colorBackground} style={{ backgroundColor: colorCode }} />
       </div>
     </div>
   );
