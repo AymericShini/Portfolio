@@ -7,18 +7,30 @@ services:
       - '80:3000'
     environment:
       - NODE_ENV=production
-      - REDEPLOY_HASH=${REDEPLOY_HASH}  # Ensures rebuild if env changes
+      - REDEPLOY_HASH=${REDEPLOY_HASH} # Ensures rebuild if env changes
     volumes:
-      - .:/app  # Sync the entire repo to detect changes
+      - .:/app # Sync the entire repo to detect changes
     restart: always
 
   redeployer:
     image: alpine:latest
-    command: sh -c "while true; do echo 'Checking for changes...'; cd /app && git fetch && git diff --quiet || (echo 'Change detected! Redeploying...' && curl -X POST -H \"Authorization: Bearer ${PORTAINER_API_TOKEN}\" http://portainer-url/api/stacks/${STACK_ID}/redeploy); sleep 60; done"
+    command: >
+      sh -c "
+      while true; do 
+        echo 'Checking for changes...'; 
+        cd /app && 
+        git fetch && 
+        git diff --quiet || (
+          echo 'Change detected! Redeploying...' && 
+          curl -X POST -H 'Authorization: Bearer ${PORTAINER_API_TOKEN}' http://portainer-url/api/stacks/${STACK_ID}/redeploy
+        ); 
+        sleep 60; 
+      done
+      "
     environment:
       - GIT_REPO_URL=https://github.com/AymericShini/Portfolio.git
       - GIT_BRANCH=main
-      - PORTAINER_API_TOKEN=ptr_9KASihIKgABtpYH7s7ttaOMpAlsGZBkfILqph82nbeM=  # Replace with your Portainer API Token
-      - STACK_ID=18           # Replace with your Portainer Stack ID
+      - PORTAINER_API_TOKEN=ptr_9KASihIKgABtpYH7s7ttaOMpAlsGZBkfILqph82nbeM= # Replace with your Portainer API Token
+      - STACK_ID=18 # Replace with your Portainer Stack ID
     volumes:
-      - .:/app  # Mount the entire repo for Git change detection
+      - .:/app # Mount the entire repo for Git change detection
