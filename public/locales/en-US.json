@@ -19,12 +19,6 @@
       "colorCode": "#017ACD"
     },
     {
-      "title": "SASS",
-      "description": "An effective design can encourage customers to buy from you rather than your competitors. I focus on making designs attractive and pleasant.",
-      "iconPath": "/logo-scss.png",
-      "colorCode": "#CD669A"
-    },
-    {
       "title": "Figma",
       "description": "I collaborate with designers using Figma to create high-fidelity UI mockups. Figma allows me to implement designs accurately and ensure smooth communication throughout the development process.",
       "iconPath": "/logo-figma.png",
@@ -41,6 +35,18 @@
       "description": "Version control is essential in modern development, and I’m comfortable using Git to manage code versions. I regularly use Git to collaborate with teams and maintain a clean project history.",
       "iconPath": "/logo-google-tag-manager.svg",
       "colorCode": "#8AB4F8"
+    },
+    {
+      "title": "SASS",
+      "description": "An effective design can encourage customers to buy from you rather than your competitors. I focus on making designs attractive and pleasant.",
+      "iconPath": "/logo-scss.png",
+      "colorCode": "#CD669A"
+    },
+    {
+      "title": "And more",
+      "description": "Github, Portainer, Proxmox, AWS S3, Docker, etc... I’m always curious and love learning new things. I’m constantly exploring new technologies and am ready to take on new challenges.",
+      "iconPath": "/logo-light-dark-bg.png",
+      "colorCode": "black"
     }
   ],
   "description": "Hello, I’m Aymeric, a curious Frontend Developer (and sometimes UI Designer) with over 5 years of experience, based in Vitry-sur-Seine. I am always striving to grow and learn something new to create better things and achieve better results. I specialize in Frontend development, with a particular focus on writing functional code that’s business-oriented. I describe myself as a developer who primarily wants to write clean, good code.",

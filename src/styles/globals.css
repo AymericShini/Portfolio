@@ -60,7 +60,6 @@ button {
 
   body {
     font-size: var(--font-size-mobile);
-    padding: 1rem;
   }
 
   a {
@@ -111,7 +110,6 @@ button {
 
   body {
     font-size: var(--font-size-tablet);
-    padding: 1rem 2rem;
   }
 
   a {

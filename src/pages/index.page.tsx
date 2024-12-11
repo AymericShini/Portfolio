@@ -1,6 +1,7 @@
 import { SkillSet } from '@/components/SkillSet';
 import { useTheme } from '@/context/themeContext';
 import styles from '@/pages/index.module.scss';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -16,11 +17,27 @@ interface Skill {
   colorCode: string;
 }
 
+const heroVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const grid1And2Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.6 } }, // Starts after 0.8s
+};
+
+const grid3Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 1.2 } }, // Starts after Grid 1 and 2
+};
+
 export default function Home() {
   const { theme } = useTheme();
   const { t } = useTranslation();
   const skills = t('skills', { returnObjects: true }) as Record<string, Skill>;
   const languages = t('languages', { returnObjects: true }) as Translations;
+
   return (
     <>
       <Head>
@@ -34,30 +51,38 @@ export default function Home() {
       </Head>
 
       {/* Hero Banner */}
-      <div className={styles.heroContainer}>
-        <Image
-          src="/hero.jpg"
-          alt="hero banner"
-          width={1920}
-          height={1080}
-          className={styles.heroImage}
-        />
+      <motion.div
+        className={styles.heroContainer}
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className={styles.heroText}>
           <p className={styles.heroTitle}>Aymeric</p>
           <p className={styles.heroSubtitle}>Demange</p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Grid Skills */}
       <div className={styles.skills}>
         <div className={styles.gridContainer}>
           {/* Grid 1 */}
-          <div className={styles.grid1}>
+          <motion.div
+            className={styles.gridDescription}
+            variants={grid1And2Variants}
+            initial="hidden"
+            animate="visible"
+          >
             <p>{t('description')}</p>
-          </div>
+          </motion.div>
 
           {/* Grid 2 */}
-          <div className={styles.grid2}>
+          <motion.div
+            className={styles.gridSocial}
+            variants={grid1And2Variants}
+            initial="hidden"
+            animate="visible"
+          >
             <div className={styles.skill}>
               <p className={styles.sectionTitle}>{t('contact.skill')}</p>
               <div className={styles.badgeSection}>
@@ -122,10 +147,15 @@ export default function Home() {
               <p className={styles.sectionTitle}>{t('contact.phone')}</p>
               <p>+33 6 63 93 53 66</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Grid 3 */}
-          <div className={styles.grid3}>
+          <motion.div
+            className={styles.gridSkillset}
+            variants={grid3Variants}
+            initial="hidden"
+            animate="visible"
+          >
             {Object.keys(skills).map((skill, index) => (
               <SkillSet
                 key={index}
@@ -135,7 +165,7 @@ export default function Home() {
                 colorCode={skills[skill].colorCode}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

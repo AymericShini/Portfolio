@@ -1,14 +1,14 @@
-import styles from '@/components/Navbar/index.module.scss';
 import FRFlag from '@/assets/france.png';
 import USFlag from '@/assets/united-states.png';
+import styles from '@/components/Navbar/index.module.scss';
 import { useTheme } from '@/context/themeContext';
+import i18n from '@/shared/i18n/i18n';
 import { createScript } from '@/utils/createScript';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Popover from '../Popover';
-import i18n from '@/shared/i18n/i18n';
-import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -61,20 +61,11 @@ export default function Navbar() {
           <a href="mailto:demange.aymeric@hotmail.com" className={styles.link}>
             Me contacter
           </a>
-          <button className={styles.link} onClick={toggleTheme}>
-            <Image
-              src={theme === 'dark' ? '/moon.svg' : '/sun.svg'}
-              width={22}
-              height={22}
-              alt="Theme Switcher logo"
-            />
-          </button>
-
           {/* Language Switcher */}
 
           <Popover
             content={
-              <div className={styles.popoverContent}>
+              <>
                 <button className={styles.container} onClick={() => i18n.changeLanguage('en-US')}>
                   <Image src={USFlag} width={20} height={20} alt="royaume uni flag" />
                   English
@@ -83,11 +74,19 @@ export default function Navbar() {
                   <Image src={FRFlag} width={20} height={20} alt="royaume uni flag" />
                   Français
                 </button>
-              </div>
+              </>
             }
           >
             {i18n.language === 'en-US' ? 'English' : 'Français'}
           </Popover>
+          <button className={styles.link} onClick={toggleTheme}>
+            <Image
+              src={theme === 'dark' ? '/moon.svg' : '/sun.svg'}
+              width={22}
+              height={22}
+              alt="Theme Switcher logo"
+            />
+          </button>
         </div>
       </div>
     </header>

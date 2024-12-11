@@ -1,5 +1,6 @@
 .navbar {
   border-bottom: 1px solid var(--foreground);
+  padding: 0 1rem;
 
   .content {
     align-items: center;
@@ -15,7 +16,6 @@
 
     .actions {
       @include flex-center-row;
-      align-items: center;
       gap: 1rem;
 
       .link {
@@ -30,18 +30,18 @@
         color: var(--primary-color-hover);
       }
 
-      .popoverContent {
-        @include flex-center-column;
-        gap: 0.5rem;
 
-        .container {
-          @include flex-center-row;
-          align-items: center;
-          gap: 1rem;
-          cursor: pointer;
-          font-weight: 500;
-          color: var(--foreground);
-        }
+      .container {
+        @include flex-center-row;
+        align-items: center;
+        color: var(--foreground);
+        cursor: pointer;
+        gap: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .container:hover {
+        color: var(--primary-color-hover);
       }
     }
   }

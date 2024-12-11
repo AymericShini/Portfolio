@@ -1,13 +1,14 @@
-import '@/styles/reset.css';
-import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
-import i18n from '@/shared/i18n/i18n';
-import type { AppProps } from 'next/app';
-import { I18nextProvider } from 'react-i18next';
 import { ThemeProvider } from '@/context/themeContext';
+import i18n from '@/shared/i18n/i18n';
+import '@/styles/globals.css';
+import '@/styles/reset.css';
 import { createScript } from '@/utils/createScript';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { I18nextProvider } from 'react-i18next';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -56,12 +57,19 @@ export default function App({ Component, pageProps }: AppProps) {
     document.head.append(dataLayer);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: -100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.25 } },
+  };
+
   return (
-    <I18nextProvider i18n={i18n} defaultNS={'fr-FR'}>
-      <ThemeProvider>
-        <Navbar />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </I18nextProvider>
+    <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+      <I18nextProvider i18n={i18n} defaultNS={'fr-FR'}>
+        <ThemeProvider>
+          <Navbar />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </I18nextProvider>
+    </motion.div>
   );
 }

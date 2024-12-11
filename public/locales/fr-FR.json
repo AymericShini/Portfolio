@@ -19,12 +19,6 @@
       "colorCode": "#017ACD"
     },
     {
-      "title": "SASS",
-      "description": "Un design efficace peut encourager les clients à acheter chez vous plutôt que chez vos concurrents. Je me concentre sur la création de designs attractifs et agréables.",
-      "iconPath": "/logo-scss.png",
-      "colorCode": "#CD669A"
-    },
-    {
       "title": "Figma",
       "description": "Je collabore avec les designers en utilisant Figma pour créer des maquettes UI haute fidélité. Figma me permet d'implémenter les designs avec précision et d'assurer une communication fluide tout au long du processus de développement.",
       "iconPath": "/logo-figma.png",
@@ -41,6 +35,18 @@
       "description": "Le contrôle de version est essentiel dans le développement moderne, et je suis à l'aise avec Git pour gérer les versions de code. J'utilise régulièrement Git pour collaborer avec les équipes et maintenir un historique propre du projet.",
       "iconPath": "/logo-google-tag-manager.svg",
       "colorCode": "#8AB4F8"
+    },
+    {
+      "title": "SASS",
+      "description": "Un design efficace peut encourager les clients à acheter chez vous plutôt que chez vos concurrents. Je me concentre sur la création de designs attractifs et agréables.",
+      "iconPath": "/logo-scss.png",
+      "colorCode": "#CD669A"
+    },
+    {
+      "title": "Et plus encore",
+      "description": "Github, Portainer, Proxmox, AWS S3, Docker, etc... Je suis toujours curieux et j'aime apprendre de nouvelles choses. J'explore constamment de nouvelles technologies et je suis prêt à relever de nouveaux défis.",
+      "iconPath": "/logo-light-dark-bg.png",
+      "colorCode": "black"
     }
   ],
   "description": "Bonjour, je suis Aymeric, un Développeur Frontend curieux (et parfois Designer UI) avec plus de 5 ans d'expérience, basé à Vitry-sur-Seine. Je m'efforce toujours de grandir et d'apprendre quelque chose de nouveau pour créer de meilleures choses et obtenir de meilleurs résultats. Je me spécialise dans le développement Frontend, avec un accent particulier sur la création de code fonctionnel et orienté vers le business. Je me décris comme un développeur qui souhaite avant tout écrire du code propre et de qualité.",

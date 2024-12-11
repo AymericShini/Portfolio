@@ -1,10 +1,13 @@
 .heroContainer {
-  margin-top: 2rem;
   overflow: hidden;
   position: relative;
   justify-items: center;
   width: 100%;
   text-align: -webkit-center;
+  background-image: url('/hero.png');
+  background-size: cover;
+  background-position: center center;
+  height: 40vh;
 
   .heroImage {
     height: 25vh;
@@ -43,7 +46,7 @@
     justify-items: center;
     width: 70%;
 
-    .grid1 {
+    .gridDescription {
       display: grid;
       gap: 1.25rem;
       grid-column: 1;
@@ -57,7 +60,7 @@
       padding: 10px;
     }
 
-    .grid2 {
+    .gridSocial {
       @include flex-center-column;
       background-color: var(--background-box-color);
       border-radius: 3%;
@@ -99,7 +102,7 @@
       }
     }
 
-    .grid3 {
+    .gridSkillset {
       display: grid;
       grid-column: 1;
       grid-gap: 1.25rem;
@@ -112,12 +115,14 @@
   .skills {
     .gridContainer {
       width: 90%;
-      .grid2 {
+
+      .gridSocial {
         display: grid;
         grid-column: 1;
         grid-row: 3;
       }
-      .grid3 {
+
+      .gridSkillset {
         grid-template-columns: repeat(1, 1fr);
       }
     }
@@ -128,7 +133,8 @@
   .skills {
     .gridContainer {
       width: 90%;
-      .grid2 {
+
+      .gridSocial {
         width: 100%;
         display: grid;
         grid-column: 1;
@@ -136,7 +142,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .grid3 {
+      .gridSkillset {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -148,12 +154,12 @@
     .gridContainer {
       width: 90%;
 
-      .grid2 {
+      .gridSocial {
         display: grid;
         width: 100%;
       }
 
-      .grid3 {
+      .gridSkillset {
         grid-template-columns: repeat(2, 1fr);
       }
     }

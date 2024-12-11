@@ -14,19 +14,21 @@
   }
 
   .popoverContent {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10px;
+    @include flex-center-column;
     background-color: var(--background-box-color);
+    border-radius: 4px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    gap: 0.5rem;
+    left: 50%;
+    margin-top: 10px;
     padding: 15px;
-    z-index: 1000;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%);
     white-space: nowrap;
     width: max-content;
+    z-index: 1000;
   }
 
   @media (max-width: 480px) {
