@@ -1,9 +1,8 @@
 services:
   web:
-    build: .
+    image: image: ghcr.io/AymericShini/portfolio:latest # Replace with Docker Hub or GitHub image
     ports:
       - '80:3000'
     environment:
       - NODE_ENV=production
-    volumes:
-      - ./src:/app/src # Sync the entire repo to detect changes
+    restart: always # Ensure the service restarts in case of failures
