@@ -1,6 +1,6 @@
 services:
   web:
-    image: image: ghcr.io/AymericShini/portfolio:latest # Replace with Docker Hub or GitHub image
+    image: ghcr.io/AymericShini/portfolio:latest # Replace with Docker Hub or GitHub image
     ports:
       - '80:3000'
     environment:
