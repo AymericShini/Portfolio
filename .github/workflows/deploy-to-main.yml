@@ -17,7 +17,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io # <--- Add this line to specify GitHub Container Registry
-          username: ${{ github.actor }}} # This uses the current GitHub Actions actor
+          username: AymericShini
           password: ${{ secrets.GHCR_PAT }} # GitHub token to log in to GHCR
 
       - name: Set up Docker Buildx
