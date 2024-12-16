@@ -1,5 +1,4 @@
 import styles from '@/components/ScrollBackToTop/index.module.scss';
-import { t } from 'i18next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -32,7 +31,6 @@ export const ScrollToTop = () => {
     <div className={styles.footer}>
       {isVisible && (
         <div className={styles.scrollToTop} onClick={scrollToTop}>
-          <p>{t('scrollBackToTop')}</p>
           <div className={styles.arrow}>
             <Image src="/arrow-up.png" alt="Arrow up" width={24} height={24} />
           </div>
