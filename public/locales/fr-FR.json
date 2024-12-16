@@ -56,10 +56,12 @@
   },
   "contact": {
     "address": "Adresse",
-    "phone": "Téléphone",
     "diploma": "Diplôme",
-    "skill": "Compétences",
+    "email": "Email",
     "language": "Langue",
+    "phone": "Téléphone",
+    "skill": "Compétences",
     "social": "Sociale"
-  }
+  },
+  "scrollBackToTop": "Retourner en haut"
 }

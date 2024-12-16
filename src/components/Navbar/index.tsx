@@ -44,14 +44,14 @@ export default function Navbar() {
     <header className={styles.navbar}>
       <div className={styles.content}>
         {/* Left Side: Logo */}
-        <div className={styles.logo} onClick={() => (window.location.href = '/')}>
+        <Link href="/" className={styles.logo} passHref>
           <Image
             src={theme === 'dark' ? '/logo-light.svg' : '/logo-dark.svg'}
             alt="Logo"
             width={30}
             height={30}
           />
-        </div>
+        </Link>
 
         {/* Right Side: Links and Theme Switcher */}
         <div className={styles.actions}>

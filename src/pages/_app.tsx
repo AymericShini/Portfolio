@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import { ScrollToTop } from '@/components/ScrollBackToTop';
 import { ThemeProvider } from '@/context/themeContext';
 import i18n from '@/shared/i18n/i18n';
 import '@/styles/globals.css';
@@ -68,6 +69,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ThemeProvider>
           <Navbar />
           <Component {...pageProps} />
+          <ScrollToTop />
         </ThemeProvider>
       </I18nextProvider>
     </motion.div>

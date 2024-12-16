@@ -1,0 +1,16 @@
+.sectionTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.badgeSection {
+    .badge {
+        border-radius: 10px;
+        border-radius: 15px;
+        border: var(--foreground) solid 1px;
+        font-size: 0.9rem;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: 5px 15px;
+    }
+}

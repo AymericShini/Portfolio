@@ -1,10 +1,14 @@
+import { BadgeList } from '@/components/BadgeList';
+import { IconButton } from '@/components/IconButton';
+import { InfoCard } from '@/components/InfoCard';
 import { SkillSet } from '@/components/SkillSet';
 import { useTheme } from '@/context/themeContext';
+import { contactDetails } from '@/data/contactDetails';
+import { socialLinks } from '@/data/socialLinks';
 import styles from '@/pages/index.module.scss';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import Image from 'next/image';
 
 interface Translations {
   [key: string]: string; // This is a dictionary with string keys and string values
@@ -39,7 +43,7 @@ export default function Home() {
   const languages = t('languages', { returnObjects: true }) as Translations;
 
   return (
-    <>
+    <main className={styles.home}>
       <Head>
         <title>Aymeric Demange | Portfolio | Home</title>
         <meta
@@ -66,7 +70,7 @@ export default function Home() {
       {/* Grid Skills */}
       <div className={styles.skills}>
         <div className={styles.gridContainer}>
-          {/* Grid 1 */}
+          {/* Grid 1 Description */}
           <motion.div
             className={styles.gridDescription}
             variants={grid1And2Variants}
@@ -76,80 +80,35 @@ export default function Home() {
             <p>{t('description')}</p>
           </motion.div>
 
-          {/* Grid 2 */}
+          {/* Grid 2 Social and Skills */}
           <motion.div
             className={styles.gridSocial}
             variants={grid1And2Variants}
             initial="hidden"
             animate="visible"
           >
-            <div className={styles.skill}>
-              <p className={styles.sectionTitle}>{t('contact.skill')}</p>
-              <div className={styles.badgeSection}>
-                <span className={styles.badge}>Front-end</span>
-                <span className={styles.badge}>Next</span>
-              </div>
-            </div>
-            <div className={styles.language}>
-              <p className={styles.sectionTitle}>{t('contact.language')}</p>
-              <div className={styles.badgeSection}>
-                {Object.keys(languages).map((language, index) => (
-                  <span key={index} className={styles.badge}>
-                    {languages[language]}
-                  </span>
+            <BadgeList title={t('contact.skill')} items={['Front-end', 'Next']} />
+            <BadgeList title={t('contact.language')} items={Object.values(languages)} />
+            <div className={styles.contact}>
+              <p className={styles.sectionTitle}>{t('contact.social')}</p>
+              <div className={styles.social}>
+                {socialLinks.map((link, index) => (
+                  <IconButton
+                    key={index}
+                    url={link.url}
+                    iconLight={link.iconLight}
+                    iconDark={link.iconDark}
+                    theme={theme}
+                  />
                 ))}
               </div>
             </div>
-            <div className={styles.social}>
-              <p className={styles.sectionTitle}>{t('contact.social')}</p>
-              <div className={styles.contact}>
-                <button
-                  className={styles.gridSection}
-                  onClick={() =>
-                    window.open('https://github.com/AymericShini', '_blank', 'noopener')
-                  }
-                >
-                  <Image
-                    src={theme === 'dark' ? '/logo-github-light.svg' : '/logo-github-dark.svg'}
-                    alt="github logo"
-                    width={30}
-                    height={30}
-                  />
-                </button>
-                <button
-                  className={styles.gridSection}
-                  onClick={() =>
-                    window.open(
-                      'https://www.linkedin.com/in/demange-aymeric/',
-                      '_blank',
-                      'noopener',
-                    )
-                  }
-                >
-                  <Image
-                    src={theme === 'dark' ? '/logo-linkedin-light.svg' : '/logo-linkedin-dark.svg'}
-                    alt="linkedin logo"
-                    width={30}
-                    height={30}
-                  />
-                </button>
-              </div>
-            </div>
-            <div className={styles.address}>
-              <p className={styles.sectionTitle}>{t('contact.address')}</p>
-              <p>Vitry-sur-seine</p>
-            </div>
-            <div className={styles.email}>
-              <p className={styles.sectionTitle}>Email</p>
-              <p>demange.aymeric@hotmail.com</p>
-            </div>
-            <div className={styles.phone}>
-              <p className={styles.sectionTitle}>{t('contact.phone')}</p>
-              <p>+33 6 63 93 53 66</p>
-            </div>
+            {contactDetails.map((detail, index) => (
+              <InfoCard key={index} title={t(`contact.${detail.type}`)} content={detail.value} />
+            ))}
           </motion.div>
 
-          {/* Grid 3 */}
+          {/* Grid 3 Skillset */}
           <motion.div
             className={styles.gridSkillset}
             variants={grid3Variants}
@@ -168,6 +127,32 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-    </>
+
+      {/* Project Done */}
+      <section className={styles.project}>
+        <div>
+          <article className={styles.article}>
+            <div className={styles.title}>
+              <header className={styles.header}>
+                <h2>Cliq analytics</h2>
+                <span>Admin interface</span>
+              </header>
+              <p className={styles.description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae ligula sit amet
+                leo facilisis volutpat et id libero. Suspendisse pretium, purus nec consectetur
+                porta, lacus sem bibendum felis, nec dapibus dolor eros nec velit. Orci varius
+                natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc
+                condimentum nunc ac dictum porttitor. Cras auctor pulvinar rhoncus. Morbi sodales
+                velit sagittis turpis lobortis, vitae facilisis lacus scelerisque. Fusce tincidunt
+                ipsum in massa fermentum congue.
+              </p>
+            </div>
+            <div className={styles.image}>
+              <img src="/test.png" />
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   );
 }

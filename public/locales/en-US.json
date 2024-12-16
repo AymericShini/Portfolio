@@ -56,10 +56,12 @@
   },
   "contact": {
     "address": "Address",
-    "phone": "Phone",
     "diploma": "Diploma",
-    "skill": "Skills",
+    "email": "Email",
     "language": "Language",
+    "phone": "Phone",
+    "skill": "Skills",
     "social": "Social"
-  }
+  },
+  "scrollBackToTop": "Scroll back to top"
 }
