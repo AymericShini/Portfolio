@@ -6,3 +6,5 @@ services:
     environment:
       - NODE_ENV=production
     restart: always # Ensure the service restarts in case of failures
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=false'
