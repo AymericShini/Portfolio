@@ -62,5 +62,28 @@
     "phone": "Phone",
     "skill": "Skills",
     "social": "Social"
-  }
+  },
+  "projects": [
+    {
+      "title": "Cliq Analytics",
+      "subtitle": "Interface administrateur",
+      "description": "Cliq Analytics is a platform built with React, TypeScript, and Material UI. It allows for the monitoring of key business metrics for the company. My role was to design the various interface pages, develop them, and integrate them into the application. I also contributed to setting up the application's architecture. During this project, I had the opportunity to become a lead developer, which involved setting up Jira, organizing sprint reviews, and conducting daily stand-ups related to the project.",
+      "backgroundColorBlur": "blue",
+      "imageSrc": "/test.png"
+    },
+    {
+      "title": "Billing page",
+      "subtitle": "Page de paiement utilisateur",
+      "description": "The Billing Page project includes various payment pages with designs that change according to the needs of the business teams. My role was to manage the application's updates and integrate new pages. The project was developed using Next, React, and TypeScript. It is a central project for the company, enabling end users to access our content website, which includes videos, music, podcasts, concerts, software, and more.",
+      "backgroundColorBlur": "red",
+      "imageSrc": "/test.png"
+    },
+    {
+      "title": "Cuisine",
+      "subtitle": "Projet personnel de recettes",
+      "description": "A personal project built with Next, React, TypeScript, Tailwind, and Shadcn. It allows my wife and me to add ingredients and recipes, and through a third screen, we can select a recipe and view the necessary ingredients. This tool makes it easy for us to know what we need to buy for the week and beyond!",
+      "backgroundColorBlur": "green",
+      "imageSrc": "/test.png"
+    }
+  ]
 }

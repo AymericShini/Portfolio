@@ -1,6 +1,7 @@
 import { BadgeList } from '@/components/BadgeList';
 import { IconButton } from '@/components/IconButton';
 import { InfoCard } from '@/components/InfoCard';
+import { ProjectDisplay } from '@/components/ProjectDisplay';
 import { SkillSet } from '@/components/SkillSet';
 import { useTheme } from '@/context/themeContext';
 import { contactDetails } from '@/data/contactDetails';
@@ -9,6 +10,16 @@ import styles from '@/pages/index.module.scss';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
+
+interface ProjectsTranslations {
+  [key: string]: {
+    title: string;
+    subtitle: string;
+    description: string;
+    imageSrc: string;
+    backgroundColorBlur: string;
+  };
+}
 
 interface Translations {
   [key: string]: string; // This is a dictionary with string keys and string values
@@ -23,7 +34,7 @@ interface Skill {
 
 const heroVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const grid1And2Variants = {
@@ -36,11 +47,17 @@ const grid3Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 1.2 } }, // Starts after Grid 1 and 2
 };
 
+const projectVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 1.8 } }, // Starts after grid3
+};
+
 export default function Home() {
   const { theme } = useTheme();
   const { t } = useTranslation();
   const skills = t('skills', { returnObjects: true }) as Record<string, Skill>;
   const languages = t('languages', { returnObjects: true }) as Translations;
+  const projects = t('projects', { returnObjects: true }) as ProjectsTranslations;
 
   return (
     <main className={styles.home}>
@@ -129,30 +146,23 @@ export default function Home() {
       </div>
 
       {/* Project Done */}
-      <section className={styles.project}>
-        <div>
-          <article className={styles.article}>
-            <div className={styles.title}>
-              <header className={styles.header}>
-                <h2>Cliq analytics</h2>
-                <span>Admin interface</span>
-              </header>
-              <p className={styles.description}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae ligula sit amet
-                leo facilisis volutpat et id libero. Suspendisse pretium, purus nec consectetur
-                porta, lacus sem bibendum felis, nec dapibus dolor eros nec velit. Orci varius
-                natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc
-                condimentum nunc ac dictum porttitor. Cras auctor pulvinar rhoncus. Morbi sodales
-                velit sagittis turpis lobortis, vitae facilisis lacus scelerisque. Fusce tincidunt
-                ipsum in massa fermentum congue.
-              </p>
-            </div>
-            <div className={styles.image}>
-              <img src="/test.png" />
-            </div>
-          </article>
-        </div>
-      </section>
+      <motion.section
+        className={styles.project}
+        variants={projectVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {Object.keys(projects).map((project, index) => (
+          <ProjectDisplay
+            key={index}
+            title={projects[project].title}
+            subtitle={projects[project].subtitle}
+            description={projects[project].description}
+            imageSrc={projects[project].imageSrc}
+            backgroundColorBlur={projects[project].backgroundColorBlur}
+          />
+        ))}
+      </motion.section>
     </main>
   );
 }

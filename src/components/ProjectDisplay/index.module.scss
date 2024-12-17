@@ -1,0 +1,46 @@
+.article {
+  @include flex-center-column;
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 80%;
+  background-color: var(--background-box-color);
+  border-radius: 8px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+  /* Blurred background */
+  .blurBackground {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    // background: #00aaff94;
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .blurBackground.active {
+    opacity: 1;
+  }
+  .title {
+    @include flex-center-row;
+
+    .header {
+      width: 25%;
+      text-align: left;
+    }
+
+    .description {
+      width: 75%;
+      text-align: left;
+    }
+  }
+
+  .image {
+    padding-top: 2rem;
+  }
+}
