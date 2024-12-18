@@ -31,9 +31,7 @@ export const ScrollToTop = () => {
     <div className={styles.footer}>
       {isVisible && (
         <div className={styles.scrollToTop} onClick={scrollToTop}>
-          <div className={styles.arrow}>
-            <Image src="/arrow-up.png" alt="Arrow up" width={24} height={24} />
-          </div>
+          <Image src="/arrow-up.png" alt="Arrow up" width={24} height={24} />
         </div>
       )}
     </div>

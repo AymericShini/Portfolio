@@ -16,7 +16,7 @@ interface ProjectsTranslations {
     title: string;
     subtitle: string;
     description: string;
-    imageSrc: string;
+    imageSrc: { src: string; alt: string }[]; // Array of images
     backgroundColorBlur: string;
   };
 }
@@ -152,16 +152,17 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        {Object.keys(projects).map((project, index) => (
-          <ProjectDisplay
-            key={index}
-            title={projects[project].title}
-            subtitle={projects[project].subtitle}
-            description={projects[project].description}
-            imageSrc={projects[project].imageSrc}
-            backgroundColorBlur={projects[project].backgroundColorBlur}
-          />
-        ))}
+        {projects &&
+          Object.keys(projects).map((project, index) => (
+            <ProjectDisplay
+              key={index}
+              title={projects[project].title}
+              subtitle={projects[project].subtitle}
+              description={projects[project].description}
+              images={projects[project].imageSrc}
+              backgroundColorBlur={projects[project].backgroundColorBlur}
+            />
+          ))}
       </motion.section>
     </main>
   );

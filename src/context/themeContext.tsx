@@ -8,7 +8,7 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light'); // Default is 'light' (SSR-safe)
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark'); // Default is 'dark'
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('portfolio-theme') || 'light';

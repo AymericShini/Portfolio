@@ -73,7 +73,7 @@
         grid-row-end: span 2;
         height: max-content;
         padding: 10px;
-        width: 20rem;
+        width: 100%;
 
         // .contact {
         //   .social:not(:first-child) {
@@ -121,7 +121,6 @@
     border-radius: 20px;
     flex-direction: column;
     gap: 1rem;
-    cursor: none;
   }
 }
 
@@ -129,8 +128,6 @@
   .home {
     .skills {
       .gridContainer {
-        width: 90%;
-
         .gridSocial {
           display: grid;
           grid-column: 1;
@@ -149,8 +146,6 @@
   .home {
     .skills {
       .gridContainer {
-        width: 90%;
-
         .gridSocial {
           width: 100%;
           display: grid;
@@ -171,8 +166,6 @@
   .home {
     .skills {
       .gridContainer {
-        width: 90%;
-
         .gridSocial {
           display: grid;
           width: 100%;
