@@ -68,11 +68,11 @@
       "title": "Cliq Analytics",
       "subtitle": "Interface administrateur",
       "description": "Cliq analytics est une plateforme faites avec Next / React / Typescript / Material UI. Elle permet de controler les différents points clés du business de la société. Mon impact fut de designer les différentes pages de l'interface, de les développer et de les intégrer dans l'application. J'ai également participé à la mise en place de l'architecture de l'application. Durant ce projet j'ai eu la chance de passer lead developper et donc de mettre en place un Jira, des sprints review et des daily concernant le projet",
-      "backgroundColorBlur": "blue",
+      "backgroundColorBlur": "#3e99bcde",
       "imageSrc": [
         {
-        "src": "cliqa/cliqa_1.png",
-        "alt": "cliqA dashboard"
+          "src": "cliqa/cliqa_1.png",
+          "alt": "cliqA dashboard"
         },
         {
           "src": "cliqa/cliqa_2.png",
@@ -92,27 +92,27 @@
       "title": "Billing et Landing page",
       "subtitle": "Page de paiement utilisateur",
       "description": "Le projet billing/landing page, regroupe les différentes pages d'accueil et de paiement possédant des designs changeants selon les besoins des team business. Mon role fut de gérer les évolutions de l'application ainsi que d'intégrer les nouvelles pages. Projet réalisé avec Next / React / Typescript. Projet central pour l'entreprise afin de permettre aux utilisateurs finaux d'accéder à notre website de contenu, vidéos, musiques, podcasts, concerts, software etc...",
-      "backgroundColorBlur": "red",
+      "backgroundColorBlur": "#a927e0de",
       "imageSrc": [
         {
           "src": "bp_lp/bp_2.png",
-          "alt": "test"
+          "alt": "bp 1"
         },
         {
           "src": "bp_lp/bp_3.png",
-          "alt": "test"
+          "alt": "bp 2"
         },
         {
           "src": "bp_lp/bp_4.png",
-          "alt": "test"
+          "alt": "bp 3"
         },
         {
           "src": "bp_lp/lp_1.png",
-          "alt": "test"
+          "alt": "lp 1"
         },
         {
           "src": "bp_lp/lp_2.png",
-          "alt": "test"
+          "alt": "lp 2"
         }
       ]
     },
@@ -120,11 +120,23 @@
       "title": "Cuisine",
       "subtitle": "Projet personnel de recettes",
       "description": "Un projet personnel réalsié avec Next / React / Typescript / Tailwind et Shadcn. Il permet à ma femme et moi de rajouter des ingrédients ainsi que des recettes puis via un troisième écran de sélectionner une recette et de voir les ingrédients nécessaires. Il nous permet facilement de savoir ce que nous devons acheter pour la semaine et plus !",
-      "backgroundColorBlur": "green",
+      "backgroundColorBlur": "#20828ede",
       "imageSrc": [
         {
-          "src": "cooking/cooking_login.png",
-          "alt": "test"
+          "src": "cooking/cooking_1.png",
+          "alt": "cooking ingredient modal"
+        },
+        {
+          "src": "cooking/cooking_2.png",
+          "alt": "cooking recette modal"
+        },
+        {
+          "src": "cooking/cooking_3.png",
+          "alt": "cooking shopping list"
+        },
+        {
+          "src": "cooking/cooking_4.png",
+          "alt": "cooking login"
         }
       ]
     }

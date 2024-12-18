@@ -33,17 +33,16 @@ export const ProjectDisplay = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<Image | null>(null);
 
-  // Function to open the modal
   const openModal = (image: Image) => {
     setCurrentImage(image);
     setIsModalOpen(true);
   };
 
-  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false);
     setCurrentImage(null);
   };
+
   return (
     <article className={styles.article}>
       {/* Blurred background */}
@@ -58,83 +57,47 @@ export const ProjectDisplay = ({
         </header>
         <p className={styles.description}>{description}</p>
       </div>
+
       {/* Swiper Slideshow */}
       <div className={styles.slider}>
         <Swiper
+          key={`swiper-${title}`}
           modules={[Navigation, Pagination]}
-          pagination={{ clickable: true }} // Enable pagination dots
-          loop={true} // Infinite looping
-          centeredSlides={true} // Center current slide
-          slidesPerView={1.5} // Show partial next/prev images
-          spaceBetween={20} // Adjust space between slides
-          onSlideChange={swiper => setActiveIndex(swiper.realIndex)} // Track active slide
+          pagination={{ clickable: true }}
+          loop={true}
+          centeredSlides={true}
+          slidesPerView={1.5}
+          spaceBetween={20}
+          onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
         >
           {images &&
             images.map((image, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className={styles.swiperSlide}>
                 <motion.div
                   initial={{ scale: 1 }}
-                  animate={{ scale: activeIndex === index ? 1 : 0.8 }}
+                  animate={{ scale: activeIndex === index ? 1 : 0.9 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '300px',
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => openModal(image)} // Open modal on click
+                  className={styles.imageWrapper}
+                  onClick={() => openModal(image)}
                 >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    style={{
-                      width: '100%',
-                      borderRadius: '10px',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    }}
-                  />
+                  <img src={image.src} alt={image.alt} className={styles.image} />
                 </motion.div>
               </SwiperSlide>
             ))}
         </Swiper>
       </div>
+
       {/* Modal */}
       <AnimatePresence>
         {isModalOpen && currentImage && (
           <motion.div
-            className="modal"
+            className={styles.modal}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}
-            onClick={closeModal} // Close modal on background click
+            onClick={closeModal}
           >
-            <button
-              onClick={closeModal}
-              style={{
-                position: 'absolute',
-                top: '2%',
-                right: '3%',
-                background: 'none',
-                border: 'none',
-                color: 'white',
-                fontSize: '24px',
-                cursor: 'pointer',
-              }}
-            >
+            <button onClick={closeModal} className={styles.closeButton}>
               ✕
             </button>
             <motion.div
@@ -142,23 +105,9 @@ export const ProjectDisplay = ({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: 'easeInOut' }}
-              style={{
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              className={styles.modalContent}
             >
-              <img
-                src={currentImage.src}
-                alt={currentImage.alt}
-                style={{
-                  maxWidth: '90%',
-                  maxHeight: '90%',
-                  borderRadius: '10px',
-                  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
-                }}
-              />
+              <img src={currentImage.src} alt={currentImage.alt} className={styles.modalImage} />
             </motion.div>
           </motion.div>
         )}

@@ -1,9 +1,9 @@
 :root {
-  --background: #f3d2a6;
-  --foreground: #171717;
-  --button-color: #ffe3bd;
-  --primary-color-hover: rgb(240, 140, 9);
-  --background-box-color: #ffe3bd;
+  --background: #1f1d1d;
+  --foreground: #f3d2a6;
+  --button-color: #f4d2a4;
+  --background-box-color: rgb(48 46 46);
+  --primary-color-hover: rgb(201, 201, 201);
 
   /* Font sizes for responsive design */
   --font-size-default: 16px;
@@ -11,12 +11,12 @@
   --font-size-tablet: 15px;
 }
 
-[data-theme='dark'] {
-  --background: #1f1d1d;
-  --foreground: #f3d2a6;
-  --button-color: #f4d2a4;
-  --background-box-color: rgb(48 46 46);
-  --primary-color-hover: rgb(201, 201, 201);
+[data-theme='light'] {
+  --background: #f3d2a6;
+  --foreground: #171717;
+  --button-color: #ffe3bd;
+  --primary-color-hover: rgb(240, 140, 9);
+  --background-box-color: #ffe3bd;
 }
 
 html,

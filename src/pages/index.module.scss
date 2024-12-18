@@ -132,6 +132,7 @@
           display: grid;
           grid-column: 1;
           grid-row: 3;
+          text-align: center;
         }
 
         .gridSkillset {
@@ -152,6 +153,7 @@
           grid-column: 1;
           grid-row: 3;
           grid-template-columns: repeat(2, 1fr);
+          text-align: center;
         }
 
         .gridSkillset {
