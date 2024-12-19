@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
-
 interface Image {
   src: string;
   alt: string;
@@ -70,20 +69,19 @@ export const ProjectDisplay = ({
           spaceBetween={20}
           onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
         >
-          {images &&
-            images.map((image, index) => (
-              <SwiperSlide key={index} className={styles.swiperSlide}>
-                <motion.div
-                  initial={{ scale: 1 }}
-                  animate={{ scale: activeIndex === index ? 1 : 0.9 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className={styles.imageWrapper}
-                  onClick={() => openModal(image)}
-                >
-                  <img src={image.src} alt={image.alt} className={styles.image} />
-                </motion.div>
-              </SwiperSlide>
-            ))}
+          {images.map((image, index) => (
+            <SwiperSlide key={index} className={styles.swiperSlide}>
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: activeIndex === index ? 1 : 0.9 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className={styles.imageWrapper}
+                onClick={() => openModal(image)}
+              >
+                <img src={image.src} alt={image.alt} className={styles.image} />
+              </motion.div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
 

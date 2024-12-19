@@ -7,6 +7,7 @@ import { useTheme } from '@/context/themeContext';
 import { contactDetails } from '@/data/contactDetails';
 import { socialLinks } from '@/data/socialLinks';
 import styles from '@/pages/index.module.scss';
+import { bpLpImages, cliqaImages, cookingImages } from '@/public/projects';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
@@ -58,6 +59,13 @@ export default function Home() {
   const skills = t('skills', { returnObjects: true }) as Record<string, Skill>;
   const languages = t('languages', { returnObjects: true }) as Translations;
   const projects = t('projects', { returnObjects: true }) as ProjectsTranslations;
+
+  // Manually assign images to projects
+  const projectsWithImages = [
+    { ...projects[0], imageSrc: cliqaImages },
+    { ...projects[1], imageSrc: bpLpImages },
+    { ...projects[2], imageSrc: cookingImages },
+  ];
 
   return (
     <main className={styles.home}>
@@ -152,15 +160,15 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        {projects &&
-          Object.keys(projects).map((project, index) => (
+        {projectsWithImages &&
+          projectsWithImages.map((project, index) => (
             <ProjectDisplay
               key={index}
-              title={projects[project].title}
-              subtitle={projects[project].subtitle}
-              description={projects[project].description}
-              images={projects[project].imageSrc}
-              backgroundColorBlur={projects[project].backgroundColorBlur}
+              title={project.title}
+              subtitle={project.subtitle}
+              description={project.description}
+              images={project.imageSrc}
+              backgroundColorBlur={project.backgroundColorBlur}
             />
           ))}
       </motion.section>
