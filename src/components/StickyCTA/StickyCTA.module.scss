@@ -1,0 +1,38 @@
+.cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.68rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: linear-gradient(100deg, #6d28d9, #2563eb);
+  box-shadow: 0 0 28px rgba(109, 40, 217, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease),
+              box-shadow 0.3s var(--ease),
+              opacity 0.4s var(--ease);
+
+  &:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 40px rgba(109, 40, 217, 0.6), 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
