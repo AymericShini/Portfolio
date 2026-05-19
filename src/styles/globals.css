@@ -1,211 +1,72 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistVF.woff') format('woff');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMonoVF.woff') format('woff');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
-  --background: #1f1d1d;
-  --foreground: #f3d2a6;
-  --button-color: #f4d2a4;
-  --background-box-color: rgb(48 46 46);
-  --primary-color-hover: rgb(201, 201, 201);
+  /* Palette */
+  --bg-base:       #05040d;
+  --bg-section:    #081723;
+  --violet:        #6d28d9;
+  --lavender:      #c4b5fd;
+  --indigo:        #818cf8;
+  --blue:          #2563eb;
+  --sky:           #60a5fa;
+  --accent-grad:   linear-gradient(100deg, #c4b5fd, #818cf8, #60a5fa);
 
-  /* Font sizes for responsive design */
-  --font-size-default: 16px;
-  --font-size-mobile: 14px;
-  --font-size-tablet: 15px;
+  /* Section accents */
+  --color-experience: #f97316;
+  --color-strengths:  #a78bfa;
+  --color-values:     #60a5fa;
+  --color-education:  #34d399;
+  --color-skills:     #fb7185;
+
+  /* Layout */
+  --nav-h:    52px;
+  --max-w:    860px;
+  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Card hover transition */
+  --card-transition: transform 0.35s var(--ease),
+                     border-color 0.35s var(--ease),
+                     box-shadow 0.35s var(--ease);
 }
 
-[data-theme='light'] {
-  --background: #f3d2a6;
-  --foreground: #171717;
-  --button-color: #ffe3bd;
-  --primary-color-hover: rgb(240, 140, 9);
-  --background-box-color: #ffe3bd;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  background: var(--background);
-  color: var(--foreground);
+/* Scroll snap */
+html {
   scroll-behavior: smooth;
-  transition: all 0.3s ease;
-  font-size: var(--font-size-default);
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
 }
 
-* {
-  box-sizing: border-box;
+body {
+  background: var(--bg-base);
+  color: #fff;
+  font-family: 'Geist', system-ui, sans-serif;
+  overflow-x: hidden;
+  height: 100%;
   margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-button {
-  background-color: unset;
-  border: unset;
-}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
 
-/* === Responsive Breakpoints === */
-
-/* Mobile Styles (Up to 480px) */
-@media (max-width: 480px) {
-  :root {
-    --font-size-default: var(--font-size-mobile);
-  }
-
-  body {
-    font-size: var(--font-size-mobile);
-  }
-
-  a {
-    font-size: 0.9rem; /* Slightly smaller links */
-  }
-
-  button {
-    font-size: 0.9rem;
-  }
-
-  /* Customizing layout changes for mobile */
-  .container {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-bar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .header {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  .footer {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  /* Utility classes */
-  .hide-on-mobile {
-    display: none !important;
-  }
-
-  .full-width {
-    width: 100%;
-  }
-}
-
-/* Tablet Styles (Up to 980px) */
-@media (min-width: 481px) and (max-width: 980px) {
-  :root {
-    --font-size-default: var(--font-size-tablet);
-  }
-
-  body {
-    font-size: var(--font-size-tablet);
-  }
-
-  a {
-    font-size: 1rem;
-  }
-
-  button {
-    font-size: 1rem;
-  }
-
-  /* Customizing layout changes for tablets */
-  .container {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-bar {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .header {
-    text-align: center;
-    font-size: 2rem;
-  }
-
-  .footer {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  /* Utility classes */
-  .hide-on-tablet {
-    display: none !important;
-  }
-
-  .center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .responsive-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .full-width {
-    width: 100%;
-  }
-}
-
-/* Desktop (Default) */
-@media (min-width: 981px) {
-  body {
-    font-size: var(--font-size-default);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .nav-bar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .header {
-    text-align: left;
-    font-size: 2.5rem;
-  }
-
-  .footer {
-    font-size: 1rem;
-    text-align: right;
-  }
-
-  /* Utility classes */
-  .responsive-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .hide-on-desktop {
-    display: none !important;
-  }
-
-  .full-width {
-    width: 100%;
-  }
+/* Every section accounts for fixed navbar */
+section {
+  scroll-margin-top: var(--nav-h);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
