@@ -29,9 +29,18 @@
   --color-education:  #34d399;
   --color-skills:     #fb7185;
 
+  /* Typography scale (html base: 20px) */
+  --fs-2xs:  0.6rem;   /* 12px */
+  --fs-xs:   0.75rem;  /* 15px */
+  --fs-sm:   0.85rem;  /* 17px */
+  --fs-base: 1rem;     /* 20px */
+  --fs-md:   1.2rem;   /* 24px */
+  --fs-lg:   1.6rem;   /* 32px */
+  --fs-2xl:  3.8rem;   /* 76px */
+
   /* Layout */
-  --nav-h:    52px;
-  --max-w:    860px;
+  --nav-h:    60px;
+  --max-w:    980px;
   --ease:     cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Card hover transition */
@@ -42,8 +51,8 @@
 
 /* Scroll snap */
 html {
+  font-size: 20px;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
 }
@@ -67,6 +76,4 @@ button { font-family: inherit; cursor: pointer; }
 /* Every section accounts for fixed navbar */
 section {
   scroll-margin-top: var(--nav-h);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }

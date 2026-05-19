@@ -21,7 +21,7 @@
   margin-bottom: 0.5rem;
 }
 
-.degree { font-size: 0.9rem; font-weight: 700; color: var(--color-education); margin-bottom: 0.18rem; }
-.school { font-size: 0.68rem; color: rgba(255, 255, 255, 0.48); }
-.years  { font-size: 0.62rem; color: rgba(255, 255, 255, 0.28); white-space: nowrap; }
-.note   { font-size: 0.65rem; color: rgba(255, 255, 255, 0.28); line-height: 1.65; }
+.degree { font-size: var(--fs-base); font-weight: 700; color: var(--color-education); margin-bottom: 0.18rem; }
+.school { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.48); }
+.years  { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.28); white-space: nowrap; }
+.note   { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.28); line-height: 1.65; }

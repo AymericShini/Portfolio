@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './About.module.scss';
 
 export default function About() {
@@ -7,7 +8,13 @@ export default function About() {
         <div className={styles.grid}>
 
           <div className={styles.photoWrap}>
-            <div className={styles.photoPlaceholder} aria-label="Photo of Aymeric Demange" />
+            <Image
+              src="/profil-photo.png"
+              alt="Aymeric Demange"
+              fill
+              className={styles.photo}
+              priority
+            />
             <div className={styles.photoGlow} aria-hidden="true" />
           </div>
 
@@ -36,7 +43,7 @@ export default function About() {
                 <span className={styles.statLabel}>Projects</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNum}>3</span>
+                <span className={styles.statNum}>4</span>
                 <span className={styles.statLabel}>Companies</span>
               </div>
             </div>

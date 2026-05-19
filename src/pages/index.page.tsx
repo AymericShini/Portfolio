@@ -37,7 +37,7 @@ const Home: NextPage = () => (
       <span className={styles.footerCopy}>© 2026 Aymeric Demange</span>
       <button
         className={styles.footerBack}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
         aria-label="Back to top"
       >
         ↑ Back to top

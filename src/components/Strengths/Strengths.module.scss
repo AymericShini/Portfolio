@@ -1,5 +1,5 @@
 .intro {
-  font-size: 0.7rem;
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.38);
   line-height: 1.75;
   margin-bottom: 1.2rem;
@@ -22,5 +22,5 @@
   }
 }
 
-.title { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
-.desc  { font-size: 0.63rem; color: rgba(255, 255, 255, 0.33); line-height: 1.65; }
+.title { font-size: var(--fs-sm); font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.desc  { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.33); line-height: 1.65; }

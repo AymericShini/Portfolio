@@ -10,16 +10,22 @@ interface EducationEntry {
 
 const ENTRIES: EducationEntry[] = [
   {
-    degree: 'Bachelor — Web Development & UX',
-    school: 'School Name · City',
-    years: '2016 — 2018',
-    note: 'Focused on frontend development, UX design principles and web application architecture.',
+    degree: 'Master — Software Development & IoT',
+    school: 'H3 HITEMA · Issy-les-Moulineaux',
+    years: '2019 — 2021',
+    note: 'Specialised in software architecture, IoT systems and advanced web development.',
   },
   {
-    degree: 'BTS SIO — Computer Science',
-    school: 'School Name · City',
-    years: '2014 — 2016',
-    note: 'Foundation in software development, networking, and systems. First exposure to web technologies.',
+    degree: 'Licence Pro — Back-end Development',
+    school: 'SISW, UVSQ · Vélizy',
+    years: '2017 — 2018',
+    note: 'Focused on server-side development, APIs and database management.',
+  },
+  {
+    degree: 'DUT GEII — Electrical & Industrial Computing',
+    school: 'IUT de Vélizy, UVSQ · Vélizy',
+    years: '2015 — 2017',
+    note: 'Foundation in electronics, industrial computing and programming fundamentals.',
   },
 ];
 

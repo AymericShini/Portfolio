@@ -20,7 +20,7 @@
 }
 
 .link {
-  font-size: 0.62rem;
+  font-size: var(--fs-2xs);
   color: rgba(255, 255, 255, 0.32);
   letter-spacing: 0.06em;
   padding: 0.35rem 0.75rem;
@@ -34,7 +34,7 @@
 }
 
 .soon {
-  font-size: 0.62rem;
+  font-size: var(--fs-2xs);
   color: rgba(255, 255, 255, 0.16);
   letter-spacing: 0.06em;
   padding: 0.35rem 0.75rem;

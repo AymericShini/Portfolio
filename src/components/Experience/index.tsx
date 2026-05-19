@@ -17,15 +17,15 @@ interface ExperienceEntry {
 
 const ENTRIES: ExperienceEntry[] = [
   {
-    role: 'Senior Frontend Engineer',
-    company: 'Cliq Analytics',
-    dates: 'Jan 2022 – Present · 3 yrs',
-    location: 'Bordeaux, France',
-    summary: 'Led frontend architecture for an analytics dashboard serving 10k+ users. Owned the full component library, built campaign management and billing UIs end-to-end.',
+    role: 'Senior Frontend Developer',
+    company: 'Cliq Digital',
+    dates: 'Sep 2021 – Jan 2026 · 4 yrs 4 mos',
+    location: 'Paris, France',
+    summary: 'Led frontend development for a performance marketing platform serving 10k+ users. Owned the component library and led a team of 5 engineers.',
     bullets: [
       {
         title: 'Product & Engineering',
-        items: ['Built analytics dashboard in Next.js', 'Maintained shared component library', 'Shipped billing flow (Stripe)'],
+        items: ['Built analytics dashboard in Next.js', 'Maintained shared component library', 'Led team of 5 engineers in agile scrum'],
       },
       {
         title: 'Process & Collaboration',
@@ -35,18 +35,64 @@ const ENTRIES: ExperienceEntry[] = [
   },
   {
     role: 'Frontend Developer',
-    company: 'Previous Company',
-    dates: 'Mar 2019 – Dec 2021 · 2 yrs 9 mos',
-    location: 'Paris, France',
-    summary: 'Delivered landing pages, onboarding flows and billing interfaces for a SaaS product. Iterated fast with product and design.',
+    company: 'Ubisoft',
+    dates: 'Sep 2019 – Sep 2021 · 2 yrs',
+    location: 'Montreuil, France',
+    summary: 'Maintained and developed Ubisoft\'s marketing websites in production across high-profile game titles, in close collaboration with the US team.',
     bullets: [
       {
-        title: 'Delivery',
-        items: ['Responsive pages + A/B variants', 'GTM tracking across all key flows'],
+        title: 'Product',
+        items: [
+          'High-visibility sites: Rainbow Six Siege, Assassin\'s Creed Valhalla',
+          'New pages and marketing features built with the US team',
+          'Dynamic content via Contentful headless CMS and GraphQL',
+        ],
+      },
+      {
+        title: 'Engineering',
+        items: [
+          'React, Node.js, Lerna stack',
+          'Code reviews and deployments via GitLab',
+          'Performance and stability in production',
+        ],
+      },
+    ],
+  },
+  {
+    role: 'Freelance Full-stack Developer',
+    company: 'LGM',
+    dates: 'Sep 2018 – Jan 2019 · 5 mos',
+    location: 'Vélizy, France',
+    summary: 'Built an internal CRM within the IT department to centralise and manage business data for operational teams.',
+    bullets: [
+      {
+        title: 'Engineering',
+        items: [
+          'CRM features for internal operations teams',
+          'Management interfaces to centralise and administer business data',
+          'REST API integration connecting frontend to internal services',
+        ],
       },
       {
         title: 'Stack',
-        items: ['React, TypeScript, SCSS', 'Figma handoffs daily'],
+        items: ['Angular 5, REST API, C', 'Maintenance and continuous improvements'],
+      },
+    ],
+  },
+  {
+    role: 'Full-stack Developer',
+    company: 'CPI Software',
+    dates: 'Sep 2017 – Sep 2018 · 1 yr',
+    location: 'Croissy, France',
+    summary: 'Work-study focused on full-stack web development and customer-facing technical support.',
+    bullets: [
+      {
+        title: 'Development',
+        items: ['Built company website in JS / CSS / HTML / PHP', 'Maintained and extended existing features'],
+      },
+      {
+        title: 'Support',
+        items: ['Level 1 support on company software', 'Direct contact with clients'],
       },
     ],
   },
@@ -63,7 +109,7 @@ export default function Experience() {
     >
       <div className={styles.cards}>
         {ENTRIES.map((entry) => (
-          <div key={entry.role} className={styles.card}>
+          <div key={entry.company} className={styles.card}>
             <div className={styles.top}>
               <div>
                 <div className={styles.role}>{entry.role}</div>

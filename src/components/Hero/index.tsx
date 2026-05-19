@@ -50,7 +50,7 @@ export default function Hero() {
         <div className={styles.actions}>
           <a href="#contact" className={styles.btnPrimary}>Get in touch</a>
           <a
-            href="https://www.linkedin.com/in/aymeric-demange"
+            href="https://www.linkedin.com/in/demange-aymeric/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.btnLinkedin}

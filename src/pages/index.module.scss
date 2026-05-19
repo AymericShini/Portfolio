@@ -11,7 +11,7 @@
 
 .footerCopy {
   grid-column: 2;
-  font-size: 0.6rem;
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.18);
   letter-spacing: 0.08em;
   text-align: center;
@@ -22,7 +22,7 @@
   justify-self: end;
   background: none;
   border: none;
-  font-size: 0.6rem;
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.16);
   letter-spacing: 0.08em;
   cursor: pointer;

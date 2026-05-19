@@ -21,15 +21,15 @@
   margin-bottom: 0.8rem;
 }
 
-.role    { font-size: 0.95rem; font-weight: 700; color: var(--color-experience); margin-bottom: 0.18rem; }
-.company { font-size: 0.72rem; font-weight: 600; color: rgba(255, 255, 255, 0.7); }
+.role    { font-size: var(--fs-base); font-weight: 700; color: var(--color-experience); margin-bottom: 0.18rem; }
+.company { font-size: var(--fs-sm); font-weight: 600; color: rgba(255, 255, 255, 0.7); }
 
 .meta    { text-align: right; }
-.dates   { font-size: 0.63rem; color: rgba(255, 255, 255, 0.36); margin-bottom: 0.1rem; }
-.location { font-size: 0.59rem; color: rgba(255, 255, 255, 0.22); }
+.dates   { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.36); margin-bottom: 0.1rem; }
+.location { font-size: var(--fs-xs); color: rgba(255, 255, 255, 0.22); }
 
 .summary {
-  font-size: 0.69rem;
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.46);
   line-height: 1.78;
   margin-bottom: 0.9rem;
@@ -40,7 +40,7 @@
 .bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .bulletTitle {
-  font-size: 0.6rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--color-experience);
   margin-bottom: 0.38rem;
@@ -51,7 +51,7 @@
   padding: 0;
 
   li {
-    font-size: 0.6rem;
+    font-size: var(--fs-xs);
     color: rgba(255, 255, 255, 0.33);
     line-height: 1.65;
     padding-left: 0.75rem;
