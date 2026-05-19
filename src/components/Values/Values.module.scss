@@ -1,0 +1,41 @@
+.intro {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+
+.swiper { overflow: visible; }
+
+.card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  border-radius: 14px;
+  padding: 1.3rem;
+  transition: var(--card-transition);
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96, 165, 250, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.title { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.45rem; }
+.desc  { font-size: 0.63rem; color: rgba(255, 255, 255, 0.33); line-height: 1.65; }
+
+.dots { display: flex; gap: 0.38rem; margin-top: 0.85rem; }
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  transition: width 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.dotActive {
+  background: rgba(96, 165, 250, 0.6);
+  width: 16px;
+  border-radius: 3px;
+}

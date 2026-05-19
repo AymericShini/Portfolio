@@ -1,0 +1,26 @@
+.intro {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+  max-width: 480px;
+}
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+
+.card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(167, 139, 250, 0.09);
+  border-radius: 14px;
+  padding: 1.2rem;
+  transition: var(--card-transition);
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(167, 139, 250, 0.28);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.title { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.desc  { font-size: 0.63rem; color: rgba(255, 255, 255, 0.33); line-height: 1.65; }
