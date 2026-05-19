@@ -1,48 +1,52 @@
 .navbar {
-  border-bottom: 1px solid var(--foreground);
-  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  background: rgba(5, 4, 13, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .content {
-    align-items: center;
-    @include flex-center-row;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 80rem;
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
 
-    .logo img {
-      height: 40px;
-      cursor: pointer;
-    }
+.link {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.32);
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
 
-    .actions {
-      @include flex-center-row;
-      gap: 1rem;
-
-      .link {
-        color: var(--foreground);
-        cursor: pointer;
-        font-weight: 500;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .link:hover {
-        color: var(--primary-color-hover);
-      }
-
-
-      .container {
-        @include flex-center-row;
-        align-items: center;
-        color: var(--foreground);
-        cursor: pointer;
-        gap: 1rem;
-        transition: color 0.3s ease;
-      }
-
-      .container:hover {
-        color: var(--primary-color-hover);
-      }
-    }
+  &:hover {
+    color: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.05);
   }
+}
+
+.soon {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.16);
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.sep {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.09);
+  margin: 0 0.5rem;
 }
