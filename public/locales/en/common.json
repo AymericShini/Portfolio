@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "title": "Aymeric Demange — Frontend Engineer",
+    "description": "Frontend engineer specialising in React, Next.js and TypeScript. Open to new opportunities."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "strengths": "Strengths",
+    "values": "Values",
+    "education": "Education",
+    "skills": "Skills",
+    "contact": "Contact",
+    "projects": "My Projects ✦"
+  },
+  "hero": {
+    "role": "Frontend Engineer",
+    "openTo": "Open to new opportunities",
+    "cta": "Get in touch",
+    "linkedin": "LinkedIn",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "eyebrow": "About",
+    "subtitle": "Frontend Engineer · Bordeaux, France",
+    "bio": [
+      "I'm a frontend engineer with 6 years of experience building web products that people actually enjoy using. I care about the details — the transitions, the micro-interactions, the moment a user smiles because something just works.",
+      "I've worked across analytics dashboards, SaaS billing flows, marketing landing pages and everything in between. I thrive in cross-functional teams where design and engineering speak the same language."
+    ],
+    "stats": {
+      "experience": "Years exp.",
+      "projects": "Projects",
+      "companies": "Companies"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "subtitle": "Where I've worked",
+    "jobs": [
+      {
+        "role": "Senior Frontend Developer",
+        "company": "Cliq Digital",
+        "dates": "Sep 2021 – Jan 2026 · 4 yrs 4 mos",
+        "location": "Paris, France",
+        "summary": "Led frontend development for a performance marketing platform serving 10k+ users. Owned the component library and led a team of 5 engineers.",
+        "bullets": [
+          {
+            "title": "Product & Engineering",
+            "items": ["Built analytics dashboard in Next.js", "Maintained shared component library", "Led team of 5 engineers in agile scrum"]
+          },
+          {
+            "title": "Process & Collaboration",
+            "items": ["Worked with product and design daily", "Introduced Storybook for documentation", "Mentored junior developers"]
+          }
+        ]
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "Ubisoft",
+        "dates": "Sep 2019 – Sep 2021 · 2 yrs",
+        "location": "Montreuil, France",
+        "summary": "Maintained and developed Ubisoft's marketing websites in production across high-profile game titles, in close collaboration with the US team.",
+        "bullets": [
+          {
+            "title": "Product",
+            "items": [
+              "High-visibility sites: Rainbow Six Siege, Assassin's Creed Valhalla",
+              "New pages and marketing features built with the US team",
+              "Dynamic content via Contentful headless CMS and GraphQL"
+            ]
+          },
+          {
+            "title": "Engineering",
+            "items": [
+              "React, Node.js, Lerna stack",
+              "Code reviews and deployments via GitLab",
+              "Performance and stability in production"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "Freelance Full-stack Developer",
+        "company": "LGM",
+        "dates": "Sep 2018 – Jan 2019 · 5 mos",
+        "location": "Vélizy, France",
+        "summary": "Built an internal CRM within the IT department to centralise and manage business data for operational teams.",
+        "bullets": [
+          {
+            "title": "Engineering",
+            "items": [
+              "CRM features for internal operations teams",
+              "Management interfaces to centralise and administer business data",
+              "REST API integration connecting frontend to internal services"
+            ]
+          },
+          {
+            "title": "Stack",
+            "items": ["Angular 5, REST API, C", "Maintenance and continuous improvements"]
+          }
+        ]
+      },
+      {
+        "role": "Full-stack Developer",
+        "company": "CPI Software",
+        "dates": "Sep 2017 – Sep 2018 · 1 yr",
+        "location": "Croissy, France",
+        "summary": "Work-study focused on full-stack web development and customer-facing technical support.",
+        "bullets": [
+          {
+            "title": "Development",
+            "items": ["Built company website in JS / CSS / HTML / PHP", "Maintained and extended existing features"]
+          },
+          {
+            "title": "Support",
+            "items": ["Level 1 support on company software", "Direct contact with clients"]
+          }
+        ]
+      }
+    ]
+  },
+  "strengths": {
+    "eyebrow": "Strengths",
+    "subtitle": "What I bring",
+    "intro": "I don't just write code — I bring craft, speed, and a product mindset to everything I build.",
+    "items": [
+      { "title": "Execution speed", "desc": "I ship fast without cutting corners. Rapid iteration is a habit, not a shortcut." },
+      { "title": "Design sensibility", "desc": "Comfortable in Figma and equally comfortable pushing back when something's off." },
+      { "title": "Cross-functional bridge", "desc": "I translate between design, product and engineering without losing anything." },
+      { "title": "Systems thinking", "desc": "I build components that scale. Patterns, not one-offs. Libraries, not repetition." }
+    ]
+  },
+  "values": {
+    "eyebrow": "Values",
+    "subtitle": "What I believe in",
+    "intro": "These aren't buzzwords. They're what actually shapes how I work and what I'm proud to ship.",
+    "items": [
+      { "title": "Craft matters", "desc": "Good enough isn't. The last 10% of polish is what separates memorable from forgettable." },
+      { "title": "Ownership", "desc": "I treat what I build as mine to care for — not just a ticket to close." },
+      { "title": "Clarity first", "desc": "Simple beats clever. I write code and interfaces that are easy to understand." },
+      { "title": "Keep learning", "desc": "The stack changes. Curiosity doesn't. I stay close to what's coming next." }
+    ]
+  },
+  "education": {
+    "eyebrow": "Education",
+    "subtitle": "Background",
+    "entries": [
+      {
+        "degree": "Master — Software Development & IoT",
+        "school": "H3 HITEMA · Issy-les-Moulineaux",
+        "years": "2019 — 2021",
+        "note": "Specialised in software architecture, IoT systems and advanced web development."
+      },
+      {
+        "degree": "Licence Pro — Back-end Development",
+        "school": "SISW, UVSQ · Vélizy",
+        "years": "2017 — 2018",
+        "note": "Focused on server-side development, APIs and database management."
+      },
+      {
+        "degree": "DUT GEII — Electrical & Industrial Computing",
+        "school": "IUT de Vélizy, UVSQ · Vélizy",
+        "years": "2015 — 2017",
+        "note": "Foundation in electronics, industrial computing and programming fundamentals."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "subtitle": "Tech stack",
+    "intro": "A focused stack built over 6 years. Every tool here has been used in production.",
+    "groups": [
+      { "label": "Frontend",        "variant": "fe",      "items": ["React", "Next.js", "TypeScript", "JavaScript", "VueJS", "Node.js", "SCSS"] },
+      { "label": "Styling",         "variant": "fe",      "items": ["TailwindCSS", "MUI", "Ant Design", "Radix UI", "Styled-components"] },
+      { "label": "Testing",         "variant": "dev",     "items": ["Jest", "Cypress", "Playwright", "React Testing Library", "Vitest"] },
+      { "label": "Tooling & CI/CD", "variant": "dev",     "items": ["Git", "Vite", "Webpack", "GitHub Actions", "Vercel", "Netlify", "ESLint / Prettier"] },
+      { "label": "Data & Viz",      "variant": "dev",     "items": ["REST API", "React Query", "WebSocket", "Recharts", "D3.js", "Chart.js"] },
+      { "label": "Design",          "variant": "default", "items": ["Figma", "Photoshop", "Adobe XD", "Illustrator", "i18next"] },
+      { "label": "Languages",       "variant": "default", "items": ["French — native", "English — professional"] }
+    ]
+  },
+  "contact": {
+    "headingPart1": "Got a project",
+    "headingPart2": "in mind?",
+    "headingAccent": "Let's talk.",
+    "subtitle": "Available for freelance projects, full-time roles, and anything interesting in between. Drop me a line and I'll get back to you quickly.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "send": "Send message →",
+      "sending": "Sending…",
+      "sent": "Message sent — I'll be in touch soon!",
+      "error": "Something went wrong. Please try again or reach me on LinkedIn."
+    },
+    "cta": {
+      "label": "Looking for a frontend engineer?",
+      "linkedin": "Connect on LinkedIn"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Aymeric Demange",
+    "back": "↑ Back to top"
+  },
+  "stickyCta": {
+    "label": "Get in touch"
+  }
+}

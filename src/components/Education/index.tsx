@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import TimelineSection from '@/components/TimelineSection';
 import styles from './Education.module.scss';
 
@@ -8,38 +9,20 @@ interface EducationEntry {
   note: string;
 }
 
-const ENTRIES: EducationEntry[] = [
-  {
-    degree: 'Master — Software Development & IoT',
-    school: 'H3 HITEMA · Issy-les-Moulineaux',
-    years: '2019 — 2021',
-    note: 'Specialised in software architecture, IoT systems and advanced web development.',
-  },
-  {
-    degree: 'Licence Pro — Back-end Development',
-    school: 'SISW, UVSQ · Vélizy',
-    years: '2017 — 2018',
-    note: 'Focused on server-side development, APIs and database management.',
-  },
-  {
-    degree: 'DUT GEII — Electrical & Industrial Computing',
-    school: 'IUT de Vélizy, UVSQ · Vélizy',
-    years: '2015 — 2017',
-    note: 'Foundation in electronics, industrial computing and programming fundamentals.',
-  },
-];
-
 export default function Education() {
+  const { t } = useTranslation('common');
+  const entries = t('education.entries', { returnObjects: true }) as EducationEntry[];
+
   return (
     <TimelineSection
       id="education"
-      eyebrow="Education"
-      subtitle="Background"
+      eyebrow={t('education.eyebrow')}
+      subtitle={t('education.subtitle')}
       accentColor="var(--color-education)"
       pulseColor="#34d399"
     >
       <div className={styles.cards}>
-        {ENTRIES.map((entry) => (
+        {entries.map((entry) => (
           <div key={entry.degree} className={styles.card}>
             <div className={styles.top}>
               <div>

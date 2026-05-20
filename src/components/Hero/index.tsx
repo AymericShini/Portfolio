@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { motion, useMotionValue, useTransform, useScroll, useSpring } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 import styles from './Hero.module.scss';
 
 export default function Hero() {
+  const { t } = useTranslation('common');
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -40,15 +42,15 @@ export default function Hero() {
         style={{ opacity: contentOpacity, y: contentY }}
       >
         <h1 className={styles.name}>Aymeric Demange</h1>
-        <p className={styles.role}>Frontend Engineer</p>
+        <p className={styles.role}>{t('hero.role')}</p>
 
         <div className={styles.status} aria-label="Availability status">
           <span className={styles.pulse} aria-hidden="true" />
-          Open to new opportunities
+          {t('hero.openTo')}
         </div>
 
         <div className={styles.actions}>
-          <a href="#contact" className={styles.btnPrimary}>Get in touch</a>
+          <a href="#contact" className={styles.btnPrimary}>{t('hero.cta')}</a>
           <a
             href="https://www.linkedin.com/in/demange-aymeric/"
             target="_blank"
@@ -56,12 +58,12 @@ export default function Hero() {
             className={styles.btnLinkedin}
           >
             <LinkedInIcon />
-            LinkedIn
+            {t('hero.linkedin')}
           </a>
         </div>
 
         <div className={styles.scrollHint} aria-hidden="true">
-          <span>Scroll</span>
+          <span>{t('hero.scroll')}</span>
           <div className={styles.scrollLine} />
         </div>
       </motion.div>

@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import styles from './Contact.module.scss';
 
 function LinkedInIcon() {
@@ -10,6 +11,7 @@ function LinkedInIcon() {
 }
 
 export default function Contact() {
+  const { t } = useTranslation('common');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +39,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('server error');
       setSent(true);
     } catch {
-      setError('Something went wrong. Please try again or reach me on LinkedIn.');
+      setError(t('contact.form.error'));
     } finally {
       setLoading(false);
     }
@@ -49,44 +51,42 @@ export default function Contact() {
         <div className={styles.card}>
           <div className={styles.glow} aria-hidden="true" />
           <h2 className={styles.heading}>
-            Got a project<br />in mind?{' '}
-            <span className={styles.headingGrad}>Let&apos;s talk.</span>
+            {t('contact.headingPart1')}<br />
+            {t('contact.headingPart2')}{t('contact.headingPart2') ? ' ' : ''}
+            <span className={styles.headingGrad}>{t('contact.headingAccent')}</span>
           </h2>
-          <p className={styles.sub}>
-            Available for freelance projects, full-time roles, and anything interesting in
-            between. Drop me a line and I&apos;ll get back to you quickly.
-          </p>
+          <p className={styles.sub}>{t('contact.subtitle')}</p>
 
           {sent ? (
-            <p className={styles.thanks}>Message sent — I&apos;ll be in touch soon!</p>
+            <p className={styles.thanks}>{t('contact.form.sent')}</p>
           ) : (
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
               <div className={styles.field}>
-                <label htmlFor="ct-name">Name</label>
-                <input id="ct-name" name="name" type="text" placeholder="Your name" required />
+                <label htmlFor="ct-name">{t('contact.form.name')}</label>
+                <input id="ct-name" name="name" type="text" placeholder={t('contact.form.namePlaceholder')} required />
               </div>
               <div className={styles.field}>
-                <label htmlFor="ct-email">Email</label>
-                <input id="ct-email" name="email" type="email" placeholder="your@email.com" required />
+                <label htmlFor="ct-email">{t('contact.form.email')}</label>
+                <input id="ct-email" name="email" type="email" placeholder={t('contact.form.emailPlaceholder')} required />
               </div>
               <div className={styles.field}>
-                <label htmlFor="ct-subject">Subject</label>
-                <input id="ct-subject" name="subject" type="text" placeholder="What's this about?" />
+                <label htmlFor="ct-subject">{t('contact.form.subject')}</label>
+                <input id="ct-subject" name="subject" type="text" placeholder={t('contact.form.subjectPlaceholder')} />
               </div>
               <div className={styles.field}>
-                <label htmlFor="ct-message">Message</label>
-                <textarea id="ct-message" name="message" placeholder="Tell me about your project..." required />
+                <label htmlFor="ct-message">{t('contact.form.message')}</label>
+                <textarea id="ct-message" name="message" placeholder={t('contact.form.messagePlaceholder')} required />
               </div>
               {error && <p className={styles.error}>{error}</p>}
               <button type="submit" className={styles.btn} disabled={loading}>
-                {loading ? 'Sending…' : 'Send message →'}
+                {loading ? t('contact.form.sending') : t('contact.form.send')}
               </button>
             </form>
           )}
         </div>
 
         <div className={styles.linkedin}>
-          <span className={styles.linkedinCatch}>Looking for a frontend engineer?</span>
+          <span className={styles.linkedinCatch}>{t('contact.cta.label')}</span>
           <a
             href="https://www.linkedin.com/in/demange-aymeric/"
             target="_blank"
@@ -94,7 +94,7 @@ export default function Contact() {
             className={styles.linkedinBtn}
           >
             <LinkedInIcon />
-            Connect on LinkedIn
+            {t('contact.cta.linkedin')}
           </a>
         </div>
       </div>

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import styles from './StickyCTA.module.scss';
 
 export default function StickyCTA() {
+  const { t } = useTranslation('common');
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function StickyCTA() {
       aria-hidden={!visible}
     >
       <span className={styles.dot} aria-hidden="true" />
-      Get in touch
+      {t('stickyCta.label')}
     </a>
   );
 }

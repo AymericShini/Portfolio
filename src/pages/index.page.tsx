@@ -1,5 +1,7 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import BackgroundOrbs from '@/components/BackgroundOrbs';
 import FloatingDots from '@/components/FloatingDots';
 import StickyCTA from '@/components/StickyCTA';
@@ -13,39 +15,52 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import styles from './index.module.scss';
 
-const Home: NextPage = () => (
-  <>
-    <Head>
-      <title>Aymeric Demange — Frontend Engineer</title>
-      <meta name="description" content="Frontend engineer specialising in React, Next.js and TypeScript. Open to new opportunities." />
-    </Head>
+const Home: NextPage = () => {
+  const { t } = useTranslation('common');
 
-    <BackgroundOrbs />
-    <FloatingDots />
-    <StickyCTA />
+  return (
+    <>
+      <Head>
+        <title>{t('meta.title')}</title>
+        <meta name="description" content={t('meta.description')} />
+      </Head>
 
-    <main>
-      <Hero />
-      <About />
-      <Experience />
-      <Strengths />
-      <Values />
-      <Education />
-      <Skills />
-      <Contact />
-    </main>
+      <BackgroundOrbs />
+      <FloatingDots />
+      <StickyCTA />
 
-    <footer className={styles.footer}>
-      <span className={styles.footerCopy}>© 2026 Aymeric Demange</span>
-      <button
-        className={styles.footerBack}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-        aria-label="Back to top"
-      >
-        ↑ Back to top
-      </button>
-    </footer>
-  </>
-);
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Strengths />
+        <Values />
+        <Education />
+        <Skills />
+        <Contact />
+      </main>
+
+      <footer className={styles.footer}>
+        <span className={styles.footerCopy}>{t('footer.copy')}</span>
+        <button
+          className={styles.footerBack}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+          aria-label="Back to top"
+        >
+          {t('footer.back')}
+        </button>
+      </footer>
+    </>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(
+      locale === 'default' ? 'fr' : (locale ?? 'fr'),
+      ['common']
+    )),
+  },
+});
 
 export default Home;

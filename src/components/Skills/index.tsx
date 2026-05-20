@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import TimelineSection from '@/components/TimelineSection';
 import styles from './Skills.module.scss';
 
@@ -7,30 +8,21 @@ interface SkillGroup {
   items: string[];
 }
 
-const GROUPS: SkillGroup[] = [
-  { label: 'Frontend',        variant: 'fe',      items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'VueJS', 'Node.js', 'SCSS'] },
-  { label: 'Styling',         variant: 'fe',      items: ['TailwindCSS', 'MUI', 'Ant Design', 'Radix UI', 'Styled-components'] },
-  { label: 'Testing',         variant: 'dev',     items: ['Jest', 'Cypress', 'Playwright', 'React Testing Library', 'Vitest'] },
-  { label: 'Tooling & CI/CD', variant: 'dev',     items: ['Git', 'Vite', 'Webpack', 'GitHub Actions', 'Vercel', 'Netlify', 'ESLint / Prettier'] },
-  { label: 'Data & Viz',      variant: 'dev',     items: ['REST API', 'React Query', 'WebSocket', 'Recharts', 'D3.js', 'Chart.js'] },
-  { label: 'Design',          variant: 'default', items: ['Figma', 'Photoshop', 'Adobe XD', 'Illustrator', 'i18next'] },
-  { label: 'Languages',       variant: 'default', items: ['French — native', 'English — professional'] },
-];
-
 export default function Skills() {
+  const { t } = useTranslation('common');
+  const groups = t('skills.groups', { returnObjects: true }) as SkillGroup[];
+
   return (
     <TimelineSection
       id="skills"
-      eyebrow="Skills"
-      subtitle="Tech stack"
+      eyebrow={t('skills.eyebrow')}
+      subtitle={t('skills.subtitle')}
       accentColor="var(--color-skills)"
       pulseColor="#fb7185"
     >
-      <p className={styles.intro}>
-        A focused stack built over 6 years. Every tool here has been used in production.
-      </p>
+      <p className={styles.intro}>{t('skills.intro')}</p>
       <div className={styles.wrapper}>
-        {GROUPS.map(({ label, variant, items }) => (
+        {groups.map(({ label, variant, items }) => (
           <div key={label} className={styles.group}>
             <div className={styles.groupLabel}>{label}</div>
             <div className={styles.tagRow}>
