@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Aymeric Demange — Frontend Engineer",
-    "description": "Frontend engineer specialising in React, Next.js and TypeScript. Open to new opportunities."
+    "title": "Aymeric Demange | Frontend Developer",
+    "description": "Frontend Developer specialising in React, Next.js and TypeScript. Open to new opportunities."
   },
   "nav": {
     "home": "Home",
@@ -15,7 +15,7 @@
     "projects": "My Projects ✦"
   },
   "hero": {
-    "role": "Frontend Engineer",
+    "role": "Frontend Developer",
     "openTo": "Open to new opportunities",
     "cta": "Get in touch",
     "linkedin": "LinkedIn",
@@ -23,10 +23,10 @@
   },
   "about": {
     "eyebrow": "About",
-    "subtitle": "Frontend Engineer · Bordeaux, France",
+    "subtitle": "Frontend Developer · Bordeaux, France",
     "bio": [
-      "I'm a frontend engineer with 6 years of experience building web products that people actually enjoy using. I care about the details — the transitions, the micro-interactions, the moment a user smiles because something just works.",
-      "I've worked across analytics dashboards, SaaS billing flows, marketing landing pages and everything in between. I thrive in cross-functional teams where design and engineering speak the same language."
+      "I'm a frontend developer with 6 years of experience building web products that people actually enjoy using. I care about the details — the transitions, the micro-interactions, the moment a user smiles because something just works.",
+      "I've worked across analytics dashboards, SaaS billing flows, marketing landing pages and everything in between. I thrive in cross-functional teams where design and developering speak the same language."
     ],
     "stats": {
       "experience": "Years exp.",
@@ -43,15 +43,23 @@
         "company": "Cliq Digital",
         "dates": "Sep 2021 – Jan 2026 · 4 yrs 4 mos",
         "location": "Paris, France",
-        "summary": "Led frontend development for a performance marketing platform serving 10k+ users. Owned the component library and led a team of 5 engineers.",
+        "summary": "Led frontend development for a performance marketing platform serving 10k+ users. Owned the component library and led a team of 5 developers.",
         "bullets": [
           {
-            "title": "Product & Engineering",
-            "items": ["Built analytics dashboard in Next.js", "Maintained shared component library", "Led team of 5 engineers in agile scrum"]
+            "title": "Product & Developering",
+            "items": [
+              "Built analytics dashboard in Next.js",
+              "Maintained shared component library",
+              "Led team of 5 developers in agile scrum"
+            ]
           },
           {
             "title": "Process & Collaboration",
-            "items": ["Worked with product and design daily", "Introduced Storybook for documentation", "Mentored junior developers"]
+            "items": [
+              "Worked with product and design daily",
+              "Introduced Storybook for documentation",
+              "Mentored junior developers"
+            ]
           }
         ]
       },
@@ -71,7 +79,7 @@
             ]
           },
           {
-            "title": "Engineering",
+            "title": "Developering",
             "items": [
               "React, Node.js, Lerna stack",
               "Code reviews and deployments via GitLab",
@@ -88,7 +96,7 @@
         "summary": "Built an internal CRM within the IT department to centralise and manage business data for operational teams.",
         "bullets": [
           {
-            "title": "Engineering",
+            "title": "Developering",
             "items": [
               "CRM features for internal operations teams",
               "Management interfaces to centralise and administer business data",
@@ -110,7 +118,10 @@
         "bullets": [
           {
             "title": "Development",
-            "items": ["Built company website in JS / CSS / HTML / PHP", "Maintained and extended existing features"]
+            "items": [
+              "Built company website in JS / CSS / HTML / PHP",
+              "Maintained and extended existing features"
+            ]
           },
           {
             "title": "Support",
@@ -125,10 +136,22 @@
     "subtitle": "What I bring",
     "intro": "I don't just write code — I bring craft, speed, and a product mindset to everything I build.",
     "items": [
-      { "title": "Execution speed", "desc": "I ship fast without cutting corners. Rapid iteration is a habit, not a shortcut." },
-      { "title": "Design sensibility", "desc": "Comfortable in Figma and equally comfortable pushing back when something's off." },
-      { "title": "Cross-functional bridge", "desc": "I translate between design, product and engineering without losing anything." },
-      { "title": "Systems thinking", "desc": "I build components that scale. Patterns, not one-offs. Libraries, not repetition." }
+      {
+        "title": "Execution speed",
+        "desc": "I ship fast without cutting corners. Rapid iteration is a habit, not a shortcut."
+      },
+      {
+        "title": "Design sensibility",
+        "desc": "Comfortable in Figma and equally comfortable pushing back when something's off."
+      },
+      {
+        "title": "Cross-functional bridge",
+        "desc": "I translate between design, product and developering without losing anything."
+      },
+      {
+        "title": "Systems thinking",
+        "desc": "I build components that scale. Patterns, not one-offs. Libraries, not repetition."
+      }
     ]
   },
   "values": {
@@ -136,10 +159,22 @@
     "subtitle": "What I believe in",
     "intro": "These aren't buzzwords. They're what actually shapes how I work and what I'm proud to ship.",
     "items": [
-      { "title": "Craft matters", "desc": "Good enough isn't. The last 10% of polish is what separates memorable from forgettable." },
-      { "title": "Ownership", "desc": "I treat what I build as mine to care for — not just a ticket to close." },
-      { "title": "Clarity first", "desc": "Simple beats clever. I write code and interfaces that are easy to understand." },
-      { "title": "Keep learning", "desc": "The stack changes. Curiosity doesn't. I stay close to what's coming next." }
+      {
+        "title": "Craft matters",
+        "desc": "Good enough isn't. The last 10% of polish is what separates memorable from forgettable."
+      },
+      {
+        "title": "Ownership",
+        "desc": "I treat what I build as mine to care for — not just a ticket to close."
+      },
+      {
+        "title": "Clarity first",
+        "desc": "Simple beats clever. I write code and interfaces that are easy to understand."
+      },
+      {
+        "title": "Keep learning",
+        "desc": "The stack changes. Curiosity doesn't. I stay close to what's coming next."
+      }
     ]
   },
   "education": {
@@ -171,13 +206,49 @@
     "subtitle": "Tech stack",
     "intro": "A focused stack built over 6 years. Every tool here has been used in production.",
     "groups": [
-      { "label": "Frontend",        "variant": "fe",      "items": ["React", "Next.js", "TypeScript", "JavaScript", "VueJS", "Node.js", "SCSS"] },
-      { "label": "Styling",         "variant": "fe",      "items": ["TailwindCSS", "MUI", "Ant Design", "Radix UI", "Styled-components"] },
-      { "label": "Testing",         "variant": "dev",     "items": ["Jest", "Cypress", "Playwright", "React Testing Library", "Vitest"] },
-      { "label": "Tooling & CI/CD", "variant": "dev",     "items": ["Git", "Vite", "Webpack", "GitHub Actions", "Vercel", "Netlify", "ESLint / Prettier"] },
-      { "label": "Data & Viz",      "variant": "dev",     "items": ["REST API", "React Query", "WebSocket", "Recharts", "D3.js", "Chart.js"] },
-      { "label": "Design",          "variant": "default", "items": ["Figma", "Photoshop", "Adobe XD", "Illustrator", "i18next"] },
-      { "label": "Languages",       "variant": "default", "items": ["French — native", "English — professional"] }
+      {
+        "label": "Frontend",
+        "variant": "fe",
+        "items": ["React", "Next.js", "TypeScript", "JavaScript", "VueJS", "Node.js", "SCSS"]
+      },
+      {
+        "label": "Styling",
+        "variant": "fe",
+        "items": ["TailwindCSS", "MUI", "Ant Design", "Radix UI", "Styled-components"]
+      },
+      {
+        "label": "Testing",
+        "variant": "dev",
+        "items": ["Jest", "Cypress", "Playwright", "React Testing Library", "Vitest"]
+      },
+      {
+        "label": "Tooling & CI/CD",
+        "variant": "dev",
+        "items": [
+          "Git",
+          "Vite",
+          "Webpack",
+          "GitHub Actions",
+          "Vercel",
+          "Netlify",
+          "ESLint / Prettier"
+        ]
+      },
+      {
+        "label": "Data & Viz",
+        "variant": "dev",
+        "items": ["REST API", "React Query", "WebSocket", "Recharts", "D3.js", "Chart.js"]
+      },
+      {
+        "label": "Design",
+        "variant": "default",
+        "items": ["Figma", "Photoshop", "Adobe XD", "Illustrator", "i18next"]
+      },
+      {
+        "label": "Languages",
+        "variant": "default",
+        "items": ["French — native", "English — professional"]
+      }
     ]
   },
   "contact": {
@@ -200,7 +271,7 @@
       "error": "Something went wrong. Please try again or reach me on LinkedIn."
     },
     "cta": {
-      "label": "Looking for a frontend engineer?",
+      "label": "Looking for a frontend developer?",
       "linkedin": "Connect on LinkedIn"
     }
   },
