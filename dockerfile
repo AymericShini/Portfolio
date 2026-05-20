@@ -1,23 +1,26 @@
-# Step 1: Use the official Node.js image
-FROM node:18-alpine
+# ── Build stage ────────────────────────────────────────────────────────────────
+FROM node:20-alpine AS builder
 
-# Step 2: Set the working directory in the container
 WORKDIR /app
 
-# Step 3: Install dependencies
-COPY ./package.json ./
-COPY ./package-lock.json ./
+COPY package*.json ./
 RUN npm ci
 
-# Step 4: Copy the rest of the application
-ARG CACHEBUST=1
 COPY . .
-
-# Step 5: Build the Next.js app
 RUN npm run build
 
-# Step 6: Expose the Next.js app's port
+# ── Runtime stage ─────────────────────────────────────────────────────────────
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static     ./.next/static
+COPY --from=builder /app/public           ./public
+
 EXPOSE 3000
 
-# Step 7: Start the Next.js app
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
