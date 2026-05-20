@@ -51,3 +51,7 @@ yarn-error.log*
 .vscode
 
 /backend/node_modules
+
+# Claude Code / Superpowers
+.claude/
+.superpowers/
