@@ -11,10 +11,36 @@ function LinkedInIcon() {
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const body = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      subject: (form.elements.namedItem('subject') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) throw new Error('server error');
+      setSent(true);
+    } catch {
+      setError('Something went wrong. Please try again or reach me on LinkedIn.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -51,7 +77,10 @@ export default function Contact() {
                 <label htmlFor="ct-message">Message</label>
                 <textarea id="ct-message" name="message" placeholder="Tell me about your project..." required />
               </div>
-              <button type="submit" className={styles.btn}>Send message →</button>
+              {error && <p className={styles.error}>{error}</p>}
+              <button type="submit" className={styles.btn} disabled={loading}>
+                {loading ? 'Sending…' : 'Send message →'}
+              </button>
             </form>
           )}
         </div>
