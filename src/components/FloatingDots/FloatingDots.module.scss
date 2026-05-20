@@ -1,0 +1,29 @@
+.container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  will-change: transform, opacity;
+  animation: riseUp linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}
+
+@keyframes riseUp {
+  0%   { transform: translateY(0);      opacity: 0;    box-shadow: none; }
+  12%  { opacity: 0.75;                 box-shadow: 0 0 6px 2px rgba(180, 180, 255, 0.45); }
+  60%  { opacity: 0.45;                 box-shadow: 0 0 4px 1px rgba(180, 180, 255, 0.25); }
+  88%  { opacity: 0.15; }
+  100% { transform: translateY(-105vh); opacity: 0;    box-shadow: none; }
+}
