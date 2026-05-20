@@ -32,15 +32,15 @@ export default function FloatingDots() {
 
   return (
     <div className={styles.container} aria-hidden="true">
-      {dots.map((dot) => (
+      {dots.map(dot => (
         <span
           key={dot.id}
           className={styles.dot}
           style={{
             left: dot.left,
             bottom: dot.bottom,
-            width: dot.size,
-            height: dot.size,
+            width: `${dot.size}px`,
+            height: `${dot.size}px`,
             animationDuration: `${dot.duration}s`,
             animationDelay: `${dot.delay}s`,
           }}
