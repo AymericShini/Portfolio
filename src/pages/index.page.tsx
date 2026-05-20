@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import BackgroundOrbs from '@/components/BackgroundOrbs';
+import FloatingDots from '@/components/FloatingDots';
 import StickyCTA from '@/components/StickyCTA';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -20,6 +21,7 @@ const Home: NextPage = () => (
     </Head>
 
     <BackgroundOrbs />
+    <FloatingDots />
     <StickyCTA />
 
     <main>
