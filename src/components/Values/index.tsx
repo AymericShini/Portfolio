@@ -1,37 +1,36 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useTranslation } from 'next-i18next';
 import TimelineSection from '@/components/TimelineSection';
 import styles from './Values.module.scss';
 import 'swiper/css';
 
-const VALUES = [
-  { title: 'Craft matters', desc: "Good enough isn't. The last 10% of polish is what separates memorable from forgettable." },
-  { title: 'Ownership', desc: 'I treat what I build as mine to care for — not just a ticket to close.' },
-  { title: 'Clarity first', desc: 'Simple beats clever. I write code and interfaces that are easy to understand.' },
-  { title: 'Keep learning', desc: "The stack changes. Curiosity doesn't. I stay close to what's coming next." },
-];
+interface ValueItem {
+  title: string;
+  desc: string;
+}
 
 export default function Values() {
+  const { t } = useTranslation('common');
+  const items = t('values.items', { returnObjects: true }) as ValueItem[];
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <TimelineSection
       id="values"
-      eyebrow="Values"
-      subtitle="What I believe in"
+      eyebrow={t('values.eyebrow')}
+      subtitle={t('values.subtitle')}
       accentColor="var(--color-values)"
       pulseColor="#60a5fa"
     >
-      <p className={styles.intro}>
-        These aren&apos;t buzzwords. They&apos;re what actually shapes how I work and what I&apos;m proud to ship.
-      </p>
+      <p className={styles.intro}>{t('values.intro')}</p>
       <Swiper
         slidesPerView={1.6}
         spaceBetween={14}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className={styles.swiper}
       >
-        {VALUES.map(({ title, desc }) => (
+        {items.map(({ title, desc }) => (
           <SwiperSlide key={title}>
             <div className={styles.card}>
               <div className={styles.title}>{title}</div>
@@ -41,7 +40,7 @@ export default function Values() {
         ))}
       </Swiper>
       <div className={styles.dots}>
-        {VALUES.map((_, i) => (
+        {items.map((_, i) => (
           <div key={i} className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`} />
         ))}
       </div>

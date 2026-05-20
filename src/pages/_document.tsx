@@ -3,7 +3,7 @@ import Script from 'next/script';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html>
       <Head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`

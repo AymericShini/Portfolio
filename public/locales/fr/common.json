@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "title": "Aymeric Demange | Développeur Frontend",
+    "description": "Développeur frontend spécialisé en React, Next.js et TypeScript. Ouvert aux nouvelles opportunités."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "experience": "Expérience",
+    "strengths": "Atouts",
+    "values": "Valeurs",
+    "education": "Formation",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "projects": "Mes projets ✦"
+  },
+  "hero": {
+    "role": "Développeur Frontend",
+    "openTo": "Ouvert aux nouvelles opportunités",
+    "cta": "Me contacter",
+    "linkedin": "LinkedIn",
+    "scroll": "Défiler"
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "subtitle": "Développeur Frontend · Bordeaux, France",
+    "bio": [
+      "Développeur frontend avec 6 ans d'expérience dans la conception de produits web que les utilisateurs apprécient vraiment. J'aime les détails — les transitions, les micro-interactions, ce moment où l'utilisateur sourit parce que ça marche.",
+      "J'ai travaillé sur des tableaux de bord analytiques, des flux de facturation SaaS, des landing pages marketing et bien plus encore. J'aime les équipes transverses où design et développement parlent le même langage."
+    ],
+    "stats": {
+      "experience": "Ans d'exp.",
+      "projects": "Projets",
+      "companies": "Entreprises"
+    }
+  },
+  "experience": {
+    "eyebrow": "Expérience",
+    "subtitle": "Où j'ai travaillé",
+    "jobs": [
+      {
+        "role": "Développeur Frontend Senior",
+        "company": "Cliq Digital",
+        "dates": "Sep 2021 – Jan 2026 · 4 ans 4 mois",
+        "location": "Paris, France",
+        "summary": "Direction du développement frontend d'une plateforme de marketing à la performance avec plus de 10k utilisateurs. Responsable de la librairie de composants et d'une équipe de 5 développeurs.",
+        "bullets": [
+          {
+            "title": "Produit & Ingénierie",
+            "items": [
+              "Développement du tableau de bord analytics en Next.js",
+              "Maintenance de la librairie de composants partagée",
+              "Animation de l'équipe de 5 développeurs en agile scrum"
+            ]
+          },
+          {
+            "title": "Process & Collaboration",
+            "items": [
+              "Travail quotidien avec les équipes produit et design",
+              "Mise en place de Storybook pour la documentation",
+              "Accompagnement des développeurs juniors"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "Développeur Frontend",
+        "company": "Ubisoft",
+        "dates": "Sep 2019 – Sep 2021 · 2 ans",
+        "location": "Montreuil, France",
+        "summary": "Maintenance et développement des sites marketing d'Ubisoft en production sur des titres phares, en étroite collaboration avec l'équipe américaine.",
+        "bullets": [
+          {
+            "title": "Produit",
+            "items": [
+              "Sites à forte visibilité : Rainbow Six Siege, Assassin's Creed Valhalla",
+              "Nouvelles pages et fonctionnalités marketing avec l'équipe US",
+              "Contenus dynamiques via Contentful headless CMS et GraphQL"
+            ]
+          },
+          {
+            "title": "Ingénierie",
+            "items": [
+              "Stack React, Node.js, Lerna",
+              "Revues de code et déploiements via GitLab",
+              "Performance et stabilité en production"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "Développeur Full-stack Freelance",
+        "company": "LGM",
+        "dates": "Sep 2018 – Jan 2019 · 5 mois",
+        "location": "Vélizy, France",
+        "summary": "Développement d'un CRM interne au sein du département IT pour centraliser et gérer les données métier des équipes opérationnelles.",
+        "bullets": [
+          {
+            "title": "Ingénierie",
+            "items": [
+              "Fonctionnalités CRM pour les équipes opérationnelles internes",
+              "Interfaces de gestion pour centraliser et administrer les données métier",
+              "Intégration REST API reliant le frontend aux services internes"
+            ]
+          },
+          {
+            "title": "Stack",
+            "items": ["Angular 5, REST API, C", "Maintenance et améliorations continues"]
+          }
+        ]
+      },
+      {
+        "role": "Développeur Full-stack",
+        "company": "CPI Software",
+        "dates": "Sep 2017 – Sep 2018 · 1 an",
+        "location": "Croissy, France",
+        "summary": "Alternance axée sur le développement web full-stack et le support technique client.",
+        "bullets": [
+          {
+            "title": "Développement",
+            "items": [
+              "Développement du site de l'entreprise en JS / CSS / HTML / PHP",
+              "Maintenance et extension des fonctionnalités existantes"
+            ]
+          },
+          {
+            "title": "Support",
+            "items": [
+              "Support de niveau 1 sur les logiciels de l'entreprise",
+              "Contact direct avec les clients"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "strengths": {
+    "eyebrow": "Atouts",
+    "subtitle": "Ce que j'apporte",
+    "intro": "Je ne me contente pas d'écrire du code — j'apporte du soin, de la vitesse et un regard produit à tout ce que je construis.",
+    "items": [
+      {
+        "title": "Rapidité d'exécution",
+        "desc": "Je livre vite sans sacrifier la qualité. L'itération rapide est une habitude, pas un raccourci."
+      },
+      {
+        "title": "Sensibilité design",
+        "desc": "À l'aise sous Figma, et tout aussi à l'aise pour signaler ce qui ne va pas."
+      },
+      {
+        "title": "Interface transversale",
+        "desc": "Je fais le lien entre design, produit et ingénierie sans rien perdre en route."
+      },
+      {
+        "title": "Pensée systémique",
+        "desc": "Je construis des composants qui passent à l'échelle. Des patterns, pas des cas isolés."
+      }
+    ]
+  },
+  "values": {
+    "eyebrow": "Valeurs",
+    "subtitle": "Ce en quoi je crois",
+    "intro": "Ce ne sont pas des buzzwords. C'est ce qui guide vraiment ma façon de travailler et ce dont je suis fier de livrer.",
+    "items": [
+      {
+        "title": "Le soin compte",
+        "desc": "\"Assez bien\" ne suffit pas. Les derniers 10% de finition séparent le mémorable de l'oubliable."
+      },
+      {
+        "title": "Ownership",
+        "desc": "Je traite ce que je construis comme quelque chose qui m'appartient à soigner — pas juste un ticket à fermer."
+      },
+      {
+        "title": "La clarté d'abord",
+        "desc": "Le simple bat l'intelligent. J'écris du code et des interfaces faciles à comprendre."
+      },
+      {
+        "title": "Apprendre en continu",
+        "desc": "Le stack évolue. La curiosité, non. Je reste proche de ce qui arrive."
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "Formation",
+    "subtitle": "Parcours",
+    "entries": [
+      {
+        "degree": "Master — Software Development & IoT",
+        "school": "H3 HITEMA · Issy-les-Moulineaux",
+        "years": "2019 — 2021",
+        "note": "Spécialisation en architecture logicielle, systèmes IoT et développement web avancé."
+      },
+      {
+        "degree": "Licence Pro — Développement Back-end",
+        "school": "SISW, UVSQ · Vélizy",
+        "years": "2017 — 2018",
+        "note": "Axée sur le développement côté serveur, les APIs et la gestion de bases de données."
+      },
+      {
+        "degree": "DUT GEII — Génie Électrique & Informatique Industrielle",
+        "school": "IUT de Vélizy, UVSQ · Vélizy",
+        "years": "2015 — 2017",
+        "note": "Bases en électronique, informatique industrielle et fondamentaux de la programmation."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Compétences",
+    "subtitle": "Stack technique",
+    "intro": "Un stack ciblé construit sur 6 ans. Chaque outil ici a été utilisé en production.",
+    "groups": [
+      {
+        "label": "Frontend",
+        "variant": "fe",
+        "items": ["React", "Next.js", "TypeScript", "JavaScript", "VueJS", "Node.js", "SCSS"]
+      },
+      {
+        "label": "Styling",
+        "variant": "fe",
+        "items": ["TailwindCSS", "MUI", "Ant Design", "Radix UI", "Styled-components"]
+      },
+      {
+        "label": "Tests",
+        "variant": "dev",
+        "items": ["Jest", "Cypress", "Playwright", "React Testing Library", "Vitest"]
+      },
+      {
+        "label": "Outils & CI/CD",
+        "variant": "dev",
+        "items": [
+          "Git",
+          "Vite",
+          "Webpack",
+          "GitHub Actions",
+          "Vercel",
+          "Netlify",
+          "ESLint / Prettier"
+        ]
+      },
+      {
+        "label": "Data & Viz",
+        "variant": "dev",
+        "items": ["REST API", "React Query", "WebSocket", "Recharts", "D3.js", "Chart.js"]
+      },
+      {
+        "label": "Design",
+        "variant": "default",
+        "items": ["Figma", "Photoshop", "Adobe XD", "Illustrator", "i18next"]
+      },
+      {
+        "label": "Langues",
+        "variant": "default",
+        "items": ["Français — natif", "Anglais — professionnel"]
+      }
+    ]
+  },
+  "contact": {
+    "headingPart1": "Un projet en tête ?",
+    "headingPart2": "",
+    "headingAccent": "Parlons-en.",
+    "subtitle": "Disponible pour des projets freelance, des postes à temps plein, et tout ce qui est intéressant entre les deux. Écrivez-moi, je réponds rapidement.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "De quoi s'agit-il ?",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-moi de votre projet...",
+      "send": "Envoyer →",
+      "sending": "Envoi en cours…",
+      "sent": "Message envoyé — je vous recontacte bientôt !",
+      "error": "Une erreur s'est produite. Réessayez ou contactez-moi sur LinkedIn."
+    },
+    "cta": {
+      "label": "Vous cherchez un développeur frontend ?",
+      "linkedin": "Me rejoindre sur LinkedIn"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Aymeric Demange",
+    "back": "↑ Haut de page"
+  },
+  "stickyCta": {
+    "label": "Me contacter"
+  }
+}

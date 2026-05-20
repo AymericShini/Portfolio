@@ -1,7 +1,11 @@
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import styles from './About.module.scss';
 
 export default function About() {
+  const { t } = useTranslation('common');
+  const bio = t('about.bio', { returnObjects: true }) as string[];
+
   return (
     <section id="about" className={styles.section}>
       <div className={styles.container}>
@@ -19,32 +23,25 @@ export default function About() {
           </div>
 
           <div className={styles.content}>
-            <h2 className={styles.title}>About</h2>
-            <p className={styles.subtitle}>Frontend Engineer · Bordeaux, France</p>
+            <h2 className={styles.title}>{t('about.eyebrow')}</h2>
+            <p className={styles.subtitle}>{t('about.subtitle')}</p>
 
-            <p className={styles.desc}>
-              I&apos;m a frontend engineer with 6 years of experience building web products that
-              people actually enjoy using. I care about the details — the transitions, the
-              micro-interactions, the moment a user smiles because something just works.
-            </p>
-            <p className={styles.desc}>
-              I&apos;ve worked across analytics dashboards, SaaS billing flows, marketing landing
-              pages and everything in between. I thrive in cross-functional teams where design
-              and engineering speak the same language.
-            </p>
+            {bio.map((paragraph, i) => (
+              <p key={i} className={styles.desc}>{paragraph}</p>
+            ))}
 
             <div className={styles.stats}>
               <div className={styles.stat}>
                 <span className={styles.statNum}>6+</span>
-                <span className={styles.statLabel}>Years exp.</span>
+                <span className={styles.statLabel}>{t('about.stats.experience')}</span>
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNum}>20+</span>
-                <span className={styles.statLabel}>Projects</span>
+                <span className={styles.statLabel}>{t('about.stats.projects')}</span>
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNum}>4</span>
-                <span className={styles.statLabel}>Companies</span>
+                <span className={styles.statLabel}>{t('about.stats.companies')}</span>
               </div>
             </div>
 
