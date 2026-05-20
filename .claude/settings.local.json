@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"D:\\\\Dev\\\\Portfolio\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(git *)",
+      "Bash(findstr /E \"\\(^d.* backend|^d.* nginx|^-.*\\\\.env\\\\.example|^-.*package-lock\\\\.json\\)\")",
+      "Bash(npm run *)",
+      "Bash(npm test *)"
+    ]
+  }
+}

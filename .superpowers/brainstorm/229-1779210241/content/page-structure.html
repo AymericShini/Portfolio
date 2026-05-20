@@ -1,0 +1,113 @@
+<h2>Full page structure — scroll flow</h2>
+<p class="subtitle">Each section as a block. Pick the order and sections that feel right, we'll cut what doesn't belong.</p>
+
+<div style="display:flex;gap:1.5rem;margin-top:1rem;font-family:system-ui,sans-serif;">
+
+  <!-- COLUMN A: Proposed structure -->
+  <div style="flex:1;">
+    <div class="label" style="margin-bottom:0.8rem;">Proposed flow</div>
+
+    <!-- 1. Hero -->
+    <div style="background:linear-gradient(135deg,#05040d,#0c0920);border:1px solid rgba(124,58,237,0.25);border-radius:8px;padding:1rem 1.2rem;margin-bottom:0.6rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;right:-20px;top:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(109,40,217,0.2),transparent 70%);"></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div style="color:rgba(196,181,253,0.8);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;">01 — Hero</div>
+          <div style="color:#fff;font-size:0.85rem;font-weight:700;">Split screen · Statement + Photo</div>
+          <div style="color:rgba(255,255,255,0.35);font-size:0.65rem;margin-top:0.3rem;">Full viewport · Parallax orbs · CTA → scroll</div>
+        </div>
+        <div style="color:rgba(196,181,253,0.4);font-size:0.7rem;">100vh</div>
+      </div>
+    </div>
+
+    <!-- 2. Projects -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1rem 1.2rem;margin-bottom:0.6rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div style="color:rgba(147,197,253,0.7);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;">02 — Work</div>
+          <div style="color:#fff;font-size:0.85rem;font-weight:700;">Featured projects</div>
+          <div style="color:rgba(255,255,255,0.35);font-size:0.65rem;margin-top:0.3rem;">3–4 cards · hover reveals stack + role · click → case study or modal</div>
+        </div>
+        <div style="color:rgba(255,255,255,0.2);font-size:0.7rem;">auto</div>
+      </div>
+    </div>
+
+    <!-- 3. About -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1rem 1.2rem;margin-bottom:0.6rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div style="color:rgba(196,181,253,0.5);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;">03 — About</div>
+          <div style="color:#fff;font-size:0.85rem;font-weight:700;">Who I am · short & punchy</div>
+          <div style="color:rgba(255,255,255,0.35);font-size:0.65rem;margin-top:0.3rem;">2–3 sentences + skills list + years exp · no walls of text</div>
+        </div>
+        <div style="color:rgba(255,255,255,0.2);font-size:0.7rem;">auto</div>
+      </div>
+    </div>
+
+    <!-- 4. Contact -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1rem 1.2rem;margin-bottom:0.6rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div style="color:rgba(196,181,253,0.5);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;">04 — Contact</div>
+          <div style="color:#fff;font-size:0.85rem;font-weight:700;">Let's talk · closing CTA</div>
+          <div style="color:rgba(255,255,255,0.35);font-size:0.65rem;margin-top:0.3rem;">Email link · LinkedIn · short availability note</div>
+        </div>
+        <div style="color:rgba(255,255,255,0.2);font-size:0.7rem;">auto</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:0.7rem 1.2rem;margin-bottom:0.6rem;">
+      <div style="color:rgba(255,255,255,0.2);font-size:0.65rem;">Footer — copyright · back to top</div>
+    </div>
+  </div>
+
+  <!-- COLUMN B: Optional sections -->
+  <div style="flex:1;">
+    <div class="label" style="margin-bottom:0.8rem;">Optional — add or skip?</div>
+
+    <div class="option" data-choice="resume" onclick="toggleSelect(this)" style="margin-bottom:0.6rem;">
+      <div class="letter" style="font-size:0.75rem;">?</div>
+      <div class="content">
+        <h3>Resume / CV section</h3>
+        <p>Timeline of past roles inline on the page. Saves the PDF click — recruiters stay on site longer.</p>
+      </div>
+    </div>
+
+    <div class="option" data-choice="testimonials" onclick="toggleSelect(this)" style="margin-bottom:0.6rem;">
+      <div class="letter" style="font-size:0.75rem;">?</div>
+      <div class="content">
+        <h3>Social proof</h3>
+        <p>1–2 short quotes from colleagues or clients. Adds credibility fast, especially for freelance.</p>
+      </div>
+    </div>
+
+    <div class="option" data-choice="blog" onclick="toggleSelect(this)" style="margin-bottom:0.6rem;">
+      <div class="letter" style="font-size:0.75rem;">?</div>
+      <div class="content">
+        <h3>Writing / Blog</h3>
+        <p>Link to articles or posts. Good for SEO and shows depth — only worth it if you write.</p>
+      </div>
+    </div>
+
+    <div class="option" data-choice="konami" onclick="toggleSelect(this)" style="margin-bottom:0.6rem;">
+      <div class="letter" style="font-size:0.75rem;">?</div>
+      <div class="content">
+        <h3>Easter egg (Konami code)</h3>
+        <p>You already have the hook in the codebase. Keep it — great conversation starter in interviews.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(109,40,217,0.07);border:1px solid rgba(124,58,237,0.15);border-radius:8px;">
+      <div class="label" style="margin-bottom:0.4rem;">Projects section — layout choice</div>
+      <p style="color:rgba(255,255,255,0.4);font-size:0.68rem;line-height:1.7;margin:0;">How should projects be shown?<br/>
+        <strong style="color:rgba(196,181,253,0.6);">A — Large cards</strong> stacked vertically, one per row, image left + description right<br/>
+        <strong style="color:rgba(147,197,253,0.6);">B — Grid</strong> 2-col cards, hover reveals detail<br/>
+        <strong style="color:rgba(255,255,255,0.4);">C — Keep carousel</strong> from current site (Swiper)
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem;font-size:0.8rem;">Click optional sections you want to keep, then tell me your project layout preference (A/B/C) in the terminal.</p>
