@@ -18,8 +18,8 @@ function generateDots(): DotConfig[] {
     left: `${Math.random() * 100}%`,
     bottom: `${Math.random() * 15}%`,
     size: 3 + Math.random() * 3,
-    duration: 8 + Math.random() * 5,
-    delay: -(Math.random() * 13),
+    duration: 20 + Math.random() * 15,
+    delay: -(Math.random() * 35),
   }));
 }
 
