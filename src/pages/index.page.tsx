@@ -42,13 +42,7 @@ const Home: NextPage = () => {
 
       <footer className={styles.footer}>
         <span className={styles.footerCopy}>{t('footer.copy')}</span>
-        <button
-          className={styles.footerBack}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-          aria-label="Back to top"
-        >
-          {t('footer.back')}
-        </button>
+        <a href="#__next" className={styles.footerBack}>{t('footer.back')}</a>
       </footer>
     </>
   );
@@ -56,10 +50,7 @@ const Home: NextPage = () => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(
-      locale === 'default' ? 'fr' : (locale ?? 'fr'),
-      ['common']
-    )),
+    ...(await serverSideTranslations(locale === 'default' ? 'fr' : (locale ?? 'fr'), ['common'])),
   },
 });
 
